@@ -1,0 +1,26 @@
+.navBar {
+    border: 4px solid red;
+}
+
+.sideBar {
+    border: 4px solid green;
+}
+
+.status {
+    background-color: green;
+}
+
+.ticket {
+    border: 4px solid purple;
+    margin: 1%;
+    padding: 0px;
+}
+
+.box {
+    border: 4px solid hotpink;
+}
+
+.catContainer {
+    padding-bottom: 10%;
+    border: 4px solid teal;
+}
