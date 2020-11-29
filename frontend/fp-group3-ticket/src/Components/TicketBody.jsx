@@ -1,16 +1,17 @@
 import React from 'react';
 import { Col, Row, Form, Button, Container } from "react-bootstrap";
 import * as Icon from 'react-bootstrap-icons';
-const TicketBody = () => {
+
+const TicketBody = ({title, topic, desc, time, status, trainee, trainer, priority}) => {
 return( 
     <Container fluid>
         <Row fluid >
             <Col xs={6} className="box">
-                <h2>Title</h2>
+                <h2>{title}</h2>
             </Col>
             <Col xs={4} className="box">
-                <Button variant="outline-primary">Topic1</Button>
-                <Button variant="outline-primary">Topic2</Button>
+                <Button variant="outline-primary">{topic}</Button>
+                <Button variant="outline-primary">{topic}</Button>
             </Col>
             <Col xs={2} className="box">
                 <Icon.PencilFill/>
@@ -19,21 +20,21 @@ return(
         </Row>
         <Row>
             <Col xs={8} className="box">
-                <p>Description</p>
+                <p>{desc}</p>
             </Col>
             <Col xs={4} className="box">
-                <p>When?</p>
+                <p>{time}</p>
             </Col>
         </Row>
         <Row>
             <Col xs={4} className="box">
-                <p>Who</p>
+                <p>{trainee}</p>
             </Col>
             <Col xs={4} className="box">
-                <p>Whose</p>
+                <p>{trainer}</p>
             </Col>
             <Col xs={4} className="box">
-                <p>Priority</p>
+                <p>{priority}</p>
             </Col>
         </Row>
     </Container>

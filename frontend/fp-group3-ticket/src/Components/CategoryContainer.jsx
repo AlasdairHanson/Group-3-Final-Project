@@ -5,8 +5,9 @@ import CategoryHead from './CategoryHead';
 const CategoryContainer = () => {
 return(  
     <Col className="catContainer">
-        <CategoryHead/>
-        <CategoryBody/>
+        <CategoryHead body="Title1"/>
+        <CategoryBody body="Body Text1"/>
+        <CategoryBody body="Body Text1"/>
     </Col>
 );
 }

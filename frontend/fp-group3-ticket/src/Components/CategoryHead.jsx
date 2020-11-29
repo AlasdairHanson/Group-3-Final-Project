@@ -1,7 +1,7 @@
 import React from 'react';
-const CategoryHead = () => {
+const CategoryHead = ({body}) => {
 return(  
-    <h2>Category Head</h2>
+    <h2>{body}</h2>
 );
 }
 export default CategoryHead;

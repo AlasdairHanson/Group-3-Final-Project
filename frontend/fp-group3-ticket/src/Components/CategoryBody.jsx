@@ -1,7 +1,7 @@
 import React from 'react';
-const CategoryBody = () => {
+const CategoryBody = ({body}) => {
 return(  
-    <h3>Catgeory Body</h3>
+    <h3>{body}</h3>
 );
 }
 export default CategoryBody;

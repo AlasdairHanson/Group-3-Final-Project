@@ -8,7 +8,16 @@ return(
             <Row>
                 <Col xs={1} className='status'> </Col>
                 <Col className='ticketBody'>
-                    <TicketBody/>
+                    <TicketBody 
+                    title="title1"
+                    topic="topic1"
+                    desc="description1"
+                    time="time1"
+                    status="resolved"
+                    trainee="trainee"
+                    trainer="trainer"
+                    priority="priority"
+                    />
                 </Col>
             </Row>
         </Container>
