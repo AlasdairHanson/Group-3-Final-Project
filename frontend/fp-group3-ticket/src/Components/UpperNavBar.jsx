@@ -1,31 +1,27 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import SearchBar from './SearchBar';
-import UpperNavButtons from './UpperNavButtons';
-import { Form } from 'react-bootstrap';
+import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 const UpperNavBar = () => {
-return(  
-    <Container fluid>
-        <Row>
-            <Col xs={3}>
-                <h2>QA LOGO HERE</h2>
-            </Col>
-            <Col xs={4}>
-                <Form>
-                    <Form.Row>
-                        <Col>
-                            <Form.Control placeholder="First name" />
-                        </Col>
-                    </Form.Row>
-                </Form>
-            </Col>
-            <Col>
-                <UpperNavButtons/>
-            </Col>
-        </Row>
-    </Container>  
+return(
+    <Navbar bg="light" expand="lg" sticky="top" className="navBar">
+        <Navbar.Brand>
+            <img 
+            src="https://i.imgur.com/Wa6jdim.png"
+            alt="QA Logo"
+            height="32px"/>
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="mr-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">Link</Nav.Link>
+            </Nav>
+            <Form inline>
+            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+            <Button variant="outline-success">Search</Button>
+            </Form>
+        </Navbar.Collapse>
+    </Navbar>  
+
 );
 }
 export default UpperNavBar;

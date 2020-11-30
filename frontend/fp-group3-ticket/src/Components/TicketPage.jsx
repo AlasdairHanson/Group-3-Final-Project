@@ -1,17 +1,17 @@
 import React from 'react';
-import { Grid, Row, Col, Container } from "react-bootstrap";
+import { Grid, Row, Col, Container, Nav, Navbar, Form, FormControl, Button } from "react-bootstrap";
 import UpperNavBar from './UpperNavBar';
 import Ticket from './Ticket';
 import CategoryContainer from './CategoryContainer';
 
 const TicketPage = () => {
 return(
+    <>
+    <UpperNavBar/>
     <Container fluid="true">
-        <Row className="noMargin">
-            <Col className="navBar">
-                <UpperNavBar/>
-            </Col>
-        </Row>
+    <Container fluid className="header">
+        <h1>Tickets</h1>
+    </Container>
         <Row className="noMargin">
             <Col xs={3} className="sideBar">
                 <CategoryContainer/>
@@ -21,9 +21,17 @@ return(
                 <Ticket title="title1" topic="topic1" desc="description1" time="time1" status="resolved" trainee="trainee" trainer="trainer" priority="priority"/>
                 <Ticket title="title1" topic="topic1" desc="description1" time="time1" status="resolved" trainee="trainee" trainer="trainer" priority="priority"/>
                 <Ticket title="title1" topic="topic1" desc="description1" time="time1" status="resolved" trainee="trainee" trainer="trainer" priority="priority"/>
+                <Ticket title="title1" topic="topic1" desc="description1" time="time1" status="resolved" trainee="trainee" trainer="trainer" priority="priority"/>
+                <Ticket title="title1" topic="topic1" desc="description1" time="time1" status="resolved" trainee="trainee" trainer="trainer" priority="priority"/>
+                <Ticket title="title1" topic="topic1" desc="description1" time="time1" status="resolved" trainee="trainee" trainer="trainer" priority="priority"/>
+                <Ticket title="title1" topic="topic1" desc="description1" time="time1" status="resolved" trainee="trainee" trainer="trainer" priority="priority"/>
+                <Ticket title="title1" topic="topic1" desc="description1" time="time1" status="resolved" trainee="trainee" trainer="trainer" priority="priority"/>
             </Col>
         </Row>
-    </Container>  
+    </Container>
+    <div class="page-bg"></div>
+    </>
+  
 
 );
 }
