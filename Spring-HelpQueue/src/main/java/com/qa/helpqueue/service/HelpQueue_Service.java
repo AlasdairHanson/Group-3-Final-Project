@@ -3,11 +3,16 @@ package com.qa.helpqueue.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import com.qa.helpqueue.repo.HelpQueue_Repo;
 import com.qa.helpqueue.ticket.Ticket;
 
+@Service
 public class HelpQueue_Service {
 	
+	@Autowired
 	private HelpQueue_Repo repo;
 	
 	public HelpQueue_Service(HelpQueue_Repo repo) {

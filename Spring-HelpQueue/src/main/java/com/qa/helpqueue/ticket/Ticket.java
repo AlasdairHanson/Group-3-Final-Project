@@ -1,9 +1,14 @@
 package com.qa.helpqueue.ticket;
 
-public class Ticket {
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+@Entity
+public class Ticket {
+		
 	//attributes
-		int ID;
+		@Id
+		Long ID;
 		String TicketTitle;
 		String TicketAuthor;
 		int TicketTime;
@@ -14,11 +19,14 @@ public class Ticket {
 		String TicketTrainer;
 		String TicketCohort;
 		
+		public Ticket () {
+			super();
+		}
+		
 	// Constructor
-		public Ticket(int id, String ticketTitle, String ticketAuthor, int ticketTime, String ticketDesc,
+		public Ticket(String ticketTitle, String ticketAuthor, int ticketTime, String ticketDesc,
 				String ticketUrgency, String ticketTopic, String ticketStatus, String ticketTrainer, String ticketCohort) {
 			super();
-			ID = id;
 			TicketTitle = ticketTitle;
 			TicketAuthor = ticketAuthor;
 			TicketTime = ticketTime;
@@ -30,10 +38,10 @@ public class Ticket {
 			TicketCohort = ticketCohort;
 		}
 	// Getters and Setters
-		public int getID() {
+		public Long getID() {
 			return ID;
 		}
-		public void setID(int id) {
+		public void setID(Long id) {
 			ID = id;
 		}
 		public String getTicketTitle() {
