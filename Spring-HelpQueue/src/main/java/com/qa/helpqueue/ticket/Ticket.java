@@ -1,15 +1,23 @@
 package com.qa.helpqueue.ticket;
 
 import javax.persistence.Entity;
+<<<<<<< HEAD
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Ticket {
+=======
+import javax.persistence.Id;
+>>>>>>> 16ce9c496b6262d2fd4d1826f736a5def9a64ea4
 
+@Entity
+public class Ticket {
+		
 	//attributes
 		@Id
+<<<<<<< HEAD
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		private Long ID;
 		private String TicketTitle;
@@ -25,11 +33,28 @@ public class Ticket {
 		public Ticket() {
 			super();
 		}
+=======
+		Long ID;
+		String TicketTitle;
+		String TicketAuthor;
+		int TicketTime;
+		String TicketDesc;
+		String TicketUrgency;
+		String TicketTopic;
+		String TicketStatus;
+		String TicketTrainer;
+		String TicketCohort;
+>>>>>>> 16ce9c496b6262d2fd4d1826f736a5def9a64ea4
+		
+		public Ticket () {
+			super();
+		}
 		
 	// Constructor
 		public Ticket(String ticketTitle, String ticketAuthor, int ticketTime, String ticketDesc,
 				String ticketUrgency, String ticketTopic, String ticketStatus, String ticketTrainer, String ticketCohort) {
 			super();
+<<<<<<< HEAD
 			this.TicketTitle = ticketTitle;
 			this.TicketAuthor = ticketAuthor;
 			this.TicketTime = ticketTime;
@@ -48,6 +73,24 @@ public class Ticket {
 
 		public void setID(Long iD) {
 			ID = iD;
+=======
+			TicketTitle = ticketTitle;
+			TicketAuthor = ticketAuthor;
+			TicketTime = ticketTime;
+			TicketDesc = ticketDesc;
+			TicketUrgency = ticketUrgency;
+			TicketTopic = ticketTopic;
+			TicketStatus = ticketStatus;
+			TicketTrainer = ticketTrainer;
+			TicketCohort = ticketCohort;
+		}
+	// Getters and Setters
+		public Long getID() {
+			return ID;
+		}
+		public void setID(Long id) {
+			ID = id;
+>>>>>>> 16ce9c496b6262d2fd4d1826f736a5def9a64ea4
 		}
 
 		public String getTicketTitle() {
