@@ -1,4 +1,11 @@
 ---
+- hosts: testvm
+  become: true
+  roles:
+  - utilities
+  - sudo-doers
+  - jenkinsvm_pub-key_to_testvm
+
 - hosts: jenkins
   become: true
   vars:
@@ -10,18 +17,20 @@
       - curl
       - gnupg-agent
       - software-properties-common
+    USER: "ubuntu"
   roles:
   - utilities
   - jenkins
   - kubernetes
   - sudo-doers
   - testvm_pub-key_to_jenkinsvm
-    # - docker
+  - docker
+  - docker-compose
 
-- hosts: testvm
-  become: true
-  roles: 
-  - utilities
-  - sudo-doers
-  - jenkinsvm_pub-key_to_testvm
+  handlers:
+  - name: Restart docker
+    service:
+      name: docker
+      state: restarted
+
 
