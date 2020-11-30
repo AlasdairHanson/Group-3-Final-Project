@@ -6,21 +6,21 @@ import CategoryContainer from './CategoryContainer';
 
 const TicketPage = () => {
 return(
-    <Container fluid="true" className="noPadding">
-        <Row>
+    <Container fluid="true">
+        <Row className="noMargin">
             <Col className="navBar">
                 <UpperNavBar/>
             </Col>
         </Row>
-        <Row>
+        <Row className="noMargin">
             <Col xs={3} className="sideBar">
                 <CategoryContainer/>
                 <CategoryContainer/>
             </Col>
             <Col xs={9} className="ticketList">
-                <Ticket/>
-                <Ticket/>
-                <Ticket/>
+                <Ticket title="title1" topic="topic1" desc="description1" time="time1" status="resolved" trainee="trainee" trainer="trainer" priority="priority"/>
+                <Ticket title="title1" topic="topic1" desc="description1" time="time1" status="resolved" trainee="trainee" trainer="trainer" priority="priority"/>
+                <Ticket title="title1" topic="topic1" desc="description1" time="time1" status="resolved" trainee="trainee" trainer="trainer" priority="priority"/>
             </Col>
         </Row>
     </Container>  
