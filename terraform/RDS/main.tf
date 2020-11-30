@@ -1,5 +1,5 @@
 resource "aws_db_subnet_group" "default" {
-  name       = "main"
+  name       = "var.dbsubnet_gpname"
   subnet_ids = [var.subnet_a_id, var.subnet_b_id]
 
   tags = {
@@ -19,7 +19,7 @@ resource "aws_db_instance" "testdb" {
   password               = "var.pass"
   parameter_group_name   = "default.mysql5.7"
   skip_final_snapshot    = "true"
-  db_subnet_group_name   = aws_db_subnet_group.default.name
+  db_subnet_group_name   =var.dbsubnet_gpname
   vpc_security_group_ids = var.vpc_security_group_ids
 }
 
