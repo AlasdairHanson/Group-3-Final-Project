@@ -1,4 +1,5 @@
-resource "aws_instance" "ec2" {
+variable "ec2" {
+  description = "EC2 image"
   default     = "t2.micro"
 }
 

@@ -7,14 +7,12 @@ resource "aws_instance" "ec2"{
   tags = {
     name = var.name
   }
-  associate_public_ip_address =var.enable_public_ip
+  associate_public_ip_address = var.enable_public_ip
 }
 
 resource "aws_key_pair" "key" {
   key_name = "key"
-  public_key = "" //pass in a variable for security reasons, yet to determine
-
-
+  public_key = "pass in a variable for security reasons, yet to determine"
 }
 
 

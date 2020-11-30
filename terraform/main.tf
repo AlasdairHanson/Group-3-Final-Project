@@ -17,7 +17,6 @@ module "sg_node" {
 
 module "Jenkinsvm" {
   source                 = "./EC2"
-  name                   = "ec2"
   subnet_id              = module.vpc.subnet_a_id
   vpc_security_group_ids = [module.sg_node.sg_id]
   associate_public_ip_address = true
@@ -28,7 +27,6 @@ module "Jenkinsvm" {
 
 module "Testvm" {
   source                 = "./EC2"
-  name                   = "ec2"
   subnet_id              = module.vpc.subnet_a_id
   vpc_security_group_ids = [module.sg_node.sg_id]
   associate_public_ip_address = true
