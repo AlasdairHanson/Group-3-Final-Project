@@ -18,3 +18,9 @@ variable "egress_ports" {
 variable "vpc_id" {
   description = "vpc id for sg"
 }
+
+variable "ingress_ports" {
+  type        = list(number)
+  description = "ingress ports"
+  default     = [22, 80, 3306, 8080]
+}

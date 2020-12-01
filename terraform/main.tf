@@ -38,7 +38,7 @@ module "test_rds"{
 }
 
 module "eks" {
-  source = ".EKS"
+  source = "./EKS"
   sub1 = module.vpc.subnet_a_id
   sub2 = module.vpc.subnet_c_id
   security_id = module.sg_node.sg_id
