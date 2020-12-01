@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,12 +16,13 @@ import org.springframework.web.bind.annotation.RestController;
 import com.qa.helpqueue.service.HelpQueue_Service;
 import com.qa.helpqueue.ticket.Ticket;
 
+@CrossOrigin
 @RestController
 public class HelpQueue_Controller {
 	
 	private HelpQueue_Service service;
 	
-	public HelpQueue_Controller() {
+	public HelpQueue_Controller(HelpQueue_Service service) {
 		super();
 		this.service = service;
 	}
