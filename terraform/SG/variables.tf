@@ -11,8 +11,8 @@ variable "open_internet" {
 }
 
 variable "egress_ports" {
-  type = list
-  default = ["0.0.0.0/0"]
+  description = "allow all egress connections"
+  default = 0
 }
 
 variable "vpc_id" {

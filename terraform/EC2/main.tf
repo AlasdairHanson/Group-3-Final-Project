@@ -1,9 +1,9 @@
 resource "aws_instance" "ec2"{
   ami = var.ami_id
   instance_type = var.instance
-  key_name = aws_key_pair.key.key_name
+  key_name = aws_key_pair.key_pub.id
   subnet_id = var.subnet_id
-  vpc_security_group_ids = var.vpc_security_groups_ids
+  vpc_security_group_ids = aws_security_group.web_sg.id
   tags = {
     name = var.name
   }

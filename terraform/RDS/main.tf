@@ -19,7 +19,7 @@ resource "aws_db_instance" "testdb" {
   password               = file(var.rds_passwd)
   parameter_group_name   = "default.mysql5.7"
   skip_final_snapshot    = "true"
-  db_subnet_group_name   =var.dbsubnet_gpname
+  db_subnet_group_name   = var.dbsubnet_gpname
   vpc_security_group_ids = var.vpc_security_group_ids
 }
 

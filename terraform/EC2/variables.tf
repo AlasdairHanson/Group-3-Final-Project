@@ -20,10 +20,6 @@ variable "enable_public_ip" {
   default     = true
 }
 
-variable "vpc_security_group_ids" {
-  description = "vpc security group ids"
-}
-
 variable "key_pub"{
 default = "~/.ssh/id_rsa.pub"
 }

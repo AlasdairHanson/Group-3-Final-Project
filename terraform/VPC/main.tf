@@ -13,14 +13,14 @@ resource "aws_subnet" "subnet_a" {
 resource "aws_subnet" "subnet_b" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = var.sg_cidr_block_b
-  availability_zone = "eu-west-1a"
+  availability_zone = "eu-west-1b"
   map_public_ip_on_launch = true
 }
 
 resource "aws_subnet" "subnet_c" {
   vpc_id = aws_vpc.vpc.id
   cidr_block = var.sg_cidr_block_c
-  availability_zone = "eu-west-1b"
+  availability_zone = "eu-west-1c"
   map_public_ip_on_launch = true
 }
 
