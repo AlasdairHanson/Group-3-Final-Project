@@ -17,7 +17,12 @@ resource "aws_subnet" "subnet_b" {
   map_public_ip_on_launch = true
 }
 
-
+resource "aws_subnet" "subnet_c" {
+  vpc_id = aws_vpc.vpc.id
+  cidr_block = var.sg_cidr_block_c
+  availability_zone = "eu-west-1b"
+  map_public_ip_on_launch = true
+}
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.vpc.id
@@ -42,3 +47,7 @@ resource "aws_route_table_association" "rt_association_b" {
   route_table_id = aws_route_table.rt.id
 }
 
+resource "aws_route_table_association" "rt_association_c" {
+  subnet_id = aws_subnet.subnet_c.id
+  route_table_id = aws_route_table.rt.id
+}
