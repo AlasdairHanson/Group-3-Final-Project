@@ -10,14 +10,6 @@ resource "aws_instance" "ec2"{
   associate_public_ip_address = var.enable_public_ip
 }
 
-resource "aws_key_pair" "key" {
-  key_name = "key"
-  public_key = "pass in a variable for security reasons, yet to determine"
-}
-
-
-
-
-
-
-
+resource "aws_key_pair" "key_pub" {
+  key_name = "key_pub"
+  public_key = file(var.key_pub)
