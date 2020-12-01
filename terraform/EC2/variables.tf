@@ -24,6 +24,6 @@ variable "vpc_security_group_ids" {
   description = "vpc security group ids"
 }
 
-varible "key_pub"{
+variable "key_pub"{
 default = "~/.ssh/id_rsa.pub"
 }

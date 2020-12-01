@@ -13,3 +13,4 @@ resource "aws_instance" "ec2"{
 resource "aws_key_pair" "key_pub" {
   key_name = "key_pub"
   public_key = file(var.key_pub)
+}

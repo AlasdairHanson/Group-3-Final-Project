@@ -18,3 +18,11 @@ variable "dbsubnet_gpname"{
   description = "database subnet group name"
   default = "default"
 }
+
+variable "subnet_ids" {
+  description = "list of subnet ids"
+}
+
+variable "vpc_security_group_ids" {
+  description = "list of sg ids"
+}
