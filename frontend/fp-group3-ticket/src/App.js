@@ -3,6 +3,7 @@ import TicketPage from './Components/TicketPage';
 import {BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
 import Solutions from './Components/Solutions';
 import UpperNavBar from './Components/UpperNavBar';
+import PageBG from './Components/PageBG';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <Switch>
           <Route path="/" exact>
             <UpperNavBar/>
+            <PageBG/>
             <TicketPage/>
           </Route>
           <Route path="/solutions" exact>
