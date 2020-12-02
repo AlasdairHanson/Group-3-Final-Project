@@ -29,6 +29,15 @@ module "Testvm" {
   vpc_security_group_ids = [module.sg_node.sg_id]
 }
 
+resource "aws_db_subnet_group" "default" {
+  name       = "var.dbsubnet_gpname"
+  subnet_ids = [module.vpc.subnet_a_id, module.vpc.subnet_b_id]
+
+  tags = {
+    Name = "Proj database"
+  }
+}
+
 module "test_rds" {
   source                 = "./RDS"
   dbname                 = "testdb"

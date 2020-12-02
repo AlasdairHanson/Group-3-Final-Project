@@ -1,13 +1,3 @@
-resource "aws_db_subnet_group" "default" {
-  name       = "var.dbsubnet_gpname"
-  subnet_ids = [var.subnet_a_id, var.subnet_b_id]
-
-  tags = {
-    Name = "Proj database"
-  }
-}
-
-
 resource "aws_db_instance" "testdb" {
   allocated_storage      = 20
   storage_type           = "gp2"
@@ -16,7 +6,7 @@ resource "aws_db_instance" "testdb" {
   instance_class         = "db.t2.micro"
   name                   = "var.db_name"
   username               = file(var.rds_username)
-  password               = file(var.rds_passwd)
+  password               = file(var.rds_password)
   parameter_group_name   = "default.mysql5.7"
   skip_final_snapshot    = "true"
   db_subnet_group_name   = var.dbsubnet_gpname
