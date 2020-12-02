@@ -16,17 +16,18 @@ module "sg_node" {
 }
 
 module "Jenkinsvm" {
+  source    = "./EC2"
+  name      = "ec2"
+  subnet_id = module.vpc.subnet_a_id
+  vpc_security_group_ids = [module.sg_node.sg_id]
+}
+
+module "Testvm" {
   source                 = "./EC2"
   name                   = "ec2"
   subnet_id              = module.vpc.subnet_a_id
+  vpc_security_group_ids = [module.sg_node.sg_id]
 }
-
-#module "Testvm" {
-#  source                 = "./EC2"
-#  name                   = "ec2"
-#  subnet_id              = module.vpc.subnet_a_id
-#  vpc_security_group_ids = [module.sg_node.sg_id]
-#}
 
 module "test_rds" {
   source                 = "./RDS"
@@ -42,8 +43,3 @@ module "eks" {
   sub2        = module.vpc.subnet_c_id
   security_id = module.sg_node.sg_id
 }
-
-
-
-
-

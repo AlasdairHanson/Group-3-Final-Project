@@ -3,7 +3,7 @@ resource "aws_instance" "ec2"{
   instance_type = var.instance
   key_name = aws_key_pair.key_pub.id
   subnet_id = var.subnet_id
-  vpc_security_group_ids = aws_security_group.web_sg.id
+  vpc_security_group_ids = var.vpc_security_group_ids
   tags = {
     name = var.name
   }

@@ -23,3 +23,12 @@ variable "enable_public_ip" {
 variable "key_pub"{
 default = "~/.ssh/id_rsa.pub"
 }
+
+variable "vpc_security_group_ids" {
+  description = "vpc security group ids"
+}
+
+variable "instance" {
+  description = "ec2 instance"
+  default = "t2.micro"
+}
