@@ -111,5 +111,10 @@
     border-bottom: 2px solid grey;
 }
 
+.modal-90w {
+    width: 80%;
+    max-width: none !important;
+}
+
 
 

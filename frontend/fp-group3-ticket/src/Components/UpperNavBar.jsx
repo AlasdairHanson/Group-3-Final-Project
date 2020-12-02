@@ -2,6 +2,7 @@ import React from 'react';
 import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
 import { PersonFill, PlusCircleFill } from 'react-bootstrap-icons';
 import {Link} from 'react-router-dom';
+import AddTicketButton from './AddTicketButton';
 const UpperNavBar = () => {
 return(
     <Navbar bg="light" expand="lg" sticky="top" className="navBar">
@@ -23,7 +24,7 @@ return(
             <Link to="/">
                 <Button variant="primary"className="ml-3 qaColButton"><PersonFill/> Log Out </Button>
             </Link>
-            <Button variant="success"className="ml-3"><PlusCircleFill/>    New Ticket</Button>
+            <AddTicketButton/>
             </Nav>
             <Form inline>
             <FormControl type="text" placeholder="Search" className="mr-sm-2" />
