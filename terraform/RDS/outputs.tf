@@ -1,5 +1,5 @@
 output "rds_endpoint_test" {
-  value = aws_db_instance.test.endpoint
+  value = aws_db_instance.testdb.endpoint
 }
 
 #output "rds_endpoint_prod" {
