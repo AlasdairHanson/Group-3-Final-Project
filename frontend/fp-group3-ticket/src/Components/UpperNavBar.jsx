@@ -14,13 +14,13 @@ return(
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-            <Link to="/">
+            <Link to="/tickets">
                 <Button className="ml-3 qaColButton"> Ticket Hub </Button>
             </Link>
             <Link to="/solutions">
                 <Button variant="primary"className="ml-3 qaColButton"> Solutions </Button>
             </Link>
-            <Link to="/sign-in">
+            <Link to="/">
                 <Button variant="primary"className="ml-3 qaColButton"><PersonFill/> Log Out </Button>
             </Link>
             <Button variant="success"className="ml-3"><PlusCircleFill/>    New Ticket</Button>

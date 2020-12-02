@@ -37,4 +37,8 @@ code {
   box-shadow: 0 0 0 .2rem rgba(1, 105, 131, 0.5)!important;
 }
 
-
+.App {
+  min-height: 100vh;
+  background: rgb(36,198,220);
+  background: linear-gradient(45deg, rgba(36,198,220,1) 0%, rgba(81,74,157,1) 100%); 
+}

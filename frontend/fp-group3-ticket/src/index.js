@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import './css/SignIn.css';
-import './css/TicketPage.css';
+import './css/ticketPage.css';
 import './css/index.css';
+import './css/login.css';
 
 ReactDOM.render(
   <React.StrictMode>

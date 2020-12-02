@@ -38,7 +38,8 @@ const TicketList = () => {
                         status={ticket.employee_name}
                         trainee={ticket.employee_name} 
                         trainer={ticket.employee_name} 
-                        priority={ticket.employee_name}/>
+                        priority={ticket.employee_name}
+                        cohort={ticket.employee_name}/>
                     ))}
                 </Accordion>
             </>

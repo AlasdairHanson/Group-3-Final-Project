@@ -74,14 +74,6 @@
     padding-top: 30px;
     padding-bottom: 30px;
 }
-.page-bg {
-    width: 100%;
-    height: 500%;
-    position: absolute;
-    top: 0;
-    z-index: -1;
-    background-image: linear-gradient(to right top, #004050, #00a0ff, #00c4e0, #00df86, #a8eb12);
-}
 
     .grey-1-bg {
     background-color: #dfe6e9;
