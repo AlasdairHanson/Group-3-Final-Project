@@ -1,15 +1,16 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
-import CategoryBody from './CategoryBody';
-import CategoryHead from './CategoryHead';
+import { Card } from 'react-bootstrap';
 const CategoryContainer = () => {
-return(  
-    <Container className="catContainer mt-2">
-        <CategoryHead body="Title1"/>
-        <CategoryBody body="Body Text1"/>
-        <CategoryBody body="Body Text1"/>
-    </Container>
-    
+return(
+    <Card>
+        <Card.header>Filters</Card.header>
+            <Card.Body>
+                <Card.Title>Special title treatment</Card.Title>
+                <Card.Text>
+                With supporting text below as a natural lead-in to additional content.
+                </Card.Text>
+            </Card.Body>
+    </Card>  
 );
 }
 export default CategoryContainer;

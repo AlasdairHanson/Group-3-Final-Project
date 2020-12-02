@@ -1,6 +1,6 @@
 import SignIn from './Components/SignIn';
 import TicketPage from './Components/TicketPage';
-import {BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Solutions from './Components/Solutions';
 import UpperNavBar from './Components/UpperNavBar';
 import PageBG from './Components/PageBG';

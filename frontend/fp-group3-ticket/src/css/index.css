@@ -15,3 +15,26 @@ code {
 .noMargin {
   margin: 0px;
 }
+
+.qaColButton {
+  background-color: #004050;
+  border: #004050;
+}
+
+.qaColButton:hover {
+  background-color: #016983;
+  border: #016983;
+}
+
+.qaColButton:active {
+  background-color: #016983 !important; 
+  border: #016983 !important;
+}
+
+.qaColButton:focus {
+  background-color: #016983;
+  border: #016983;
+  box-shadow: 0 0 0 .2rem rgba(1, 105, 131, 0.5)!important;
+}
+
+

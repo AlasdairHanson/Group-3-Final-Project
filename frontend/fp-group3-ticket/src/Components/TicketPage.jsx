@@ -1,10 +1,7 @@
-import React, { useState } from 'react';
-import { Grid, Row, Col, Container, Nav, Navbar, Form, FormControl, Button, Accordion } from "react-bootstrap";
-import UpperNavBar from './UpperNavBar';
-import Ticket from './Ticket';
-import CategoryContainer from './CategoryContainer';
-import PageBG from './PageBG';
+import React from 'react';
+import { Row, Col, Container} from "react-bootstrap";
 import TicketList from './TicketList';
+import Sidebar from './Sidebar';
 
 const TicketPage = () => {
 
@@ -12,11 +9,12 @@ return(
 
     <Container fluid="true">
         <Row className="noMargin">
-            <Col xs={2} className="sideBar">
-                <CategoryContainer/>
-                <CategoryContainer/>
+            <Col xs={2} className="ticketList mt-3">
+                <Sidebar/>
             </Col>
-            <TicketList/>
+            <Col xs={10} className="ticketList mt-3">
+                <TicketList/>
+            </Col>
         </Row>
     </Container>
   

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Form, Button, Container, Card, Nav, ListGroupItem, ListGroup, Accordion } from "react-bootstrap";
+import { Col, Row, Button, Card, Accordion } from "react-bootstrap";
 import * as Icon from 'react-bootstrap-icons';
 const Ticket = ({acc_id, title, topic, desc, time, status, trainee, trainer, priority}) => {
 return(

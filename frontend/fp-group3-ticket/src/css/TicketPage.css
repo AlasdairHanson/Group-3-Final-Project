@@ -1,12 +1,11 @@
 .navBar {
-    background-color: #dfe6e9;
+    background-color: #f3f3f3;
     box-shadow: 0 4px 2px -2px #2d3436;
 }
 
 .sideBar {
     padding-top: 15px;
-    background-color: rgba(255,255,255,0.4);
-    box-shadow: 0 4px 2px 0px #2d3436;
+    height: 700%;
 }
 
 .status {
@@ -24,7 +23,7 @@
 .catContainer {
     padding: 4%;
     margin-bottom: 5px;
-    color: #dfe6e9;
+
 }
 
 .ticketList {
@@ -104,6 +103,20 @@
     background-color: rgba(0, 0, 0, 0);
     border: 0;
     text-align: left;
+    color: #2a2a2a;
+}
+
+.sideBarCard {
+    height: 100%;
+}
+
+.catSidebar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+    margin-right: 5px;
+    border-bottom: 2px solid grey;
 }
 
 

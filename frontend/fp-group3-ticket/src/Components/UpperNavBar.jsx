@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
-import { Person, PersonFill, PlusCircleFill } from 'react-bootstrap-icons';
+import { PersonFill, PlusCircleFill } from 'react-bootstrap-icons';
 import {Link} from 'react-router-dom';
 const UpperNavBar = () => {
 return(
@@ -15,13 +15,13 @@ return(
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
             <Link to="/">
-                <Button variant="primary"className="ml-3"><PersonFill/>    Home</Button>
-            </Link>
-            <Link to="/sign-in">
-                <Button variant="primary"className="ml-3"><PersonFill/>    Logout</Button>
+                <Button className="ml-3 qaColButton"> Ticket Hub </Button>
             </Link>
             <Link to="/solutions">
-                <Button variant="primary"className="ml-3"><PersonFill/>    Solutions</Button>
+                <Button variant="primary"className="ml-3 qaColButton"> Solutions </Button>
+            </Link>
+            <Link to="/sign-in">
+                <Button variant="primary"className="ml-3 qaColButton"><PersonFill/> Log Out </Button>
             </Link>
             <Button variant="success"className="ml-3"><PlusCircleFill/>    New Ticket</Button>
             </Nav>
