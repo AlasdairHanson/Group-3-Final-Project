@@ -29,7 +29,7 @@ public class HelpQueue_Service {
 	}
 	
 	public Ticket updateTicket(Ticket ticket, Long id) {
-		Optional<Ticket> optTicket = this.repo.findById(id);
+		//Optional<Ticket> optTicket = this.repo.findById(id);
 		Ticket oldTicket = this.repo.findById(id).orElseThrow();
 		
 		oldTicket.setTicketTitle(ticket.getTicketTitle());
