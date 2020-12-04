@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { Button, Card, Nav } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 const LoginCard = () => {
 return (
   <Card className="loginCard">

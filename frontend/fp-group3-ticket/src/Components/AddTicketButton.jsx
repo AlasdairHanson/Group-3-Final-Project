@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import { Button, Form, FormControl, Modal, Nav, Navbar } from "react-bootstrap";
-import { PersonFill, PlusCircleFill } from "react-bootstrap-icons";
-import { Link } from "react-router-dom";
+import { Button, Modal} from "react-bootstrap";
+import { PlusCircleFill } from "react-bootstrap-icons";
 import TicketForm from "./TicketForm";
 const AddTicketButton = () => {
 
@@ -16,7 +15,12 @@ const AddTicketButton = () => {
         <PlusCircleFill /> New Ticket
       </Button>
 
-      <Modal show={show} onHide={handleClose} dialogClassName="modal-90w">
+      <Modal
+        show={show}
+        onHide={handleClose}
+        dialogClassName="ticketModal"
+        scrollable={true}
+      >
         <Modal.Header closeButton>
           <Modal.Title>Add Ticket Modal</Modal.Title>
         </Modal.Header>

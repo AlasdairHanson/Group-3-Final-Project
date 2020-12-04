@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Accordion } from "react-bootstrap";
+import { Accordion } from "react-bootstrap";
 import Ticket from './Ticket';
 import axios from 'axios';
 const TicketList = () => {

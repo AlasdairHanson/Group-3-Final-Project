@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Form, FormControl, Nav, Navbar } from 'react-bootstrap';
-import { PersonFill, PlusCircleFill } from 'react-bootstrap-icons';
+import { PersonFill } from 'react-bootstrap-icons';
 import {Link} from 'react-router-dom';
 import AddTicketButton from './AddTicketButton';
 const UpperNavBar = () => {

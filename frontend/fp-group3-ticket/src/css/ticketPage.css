@@ -111,8 +111,10 @@
     border-bottom: 2px solid grey;
 }
 
-.modal-90w {
-    width: 80%;
+.ticketModal{
+    width: 810px;
+    height: 70%;
+    overflow-y: auto;
     max-width: none !important;
 }
 

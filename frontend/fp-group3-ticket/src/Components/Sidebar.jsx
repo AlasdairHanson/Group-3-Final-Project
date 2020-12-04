@@ -1,6 +1,5 @@
 import React from 'react';
 import { Accordion, Card } from 'react-bootstrap';
-import SidebarCard from './SidebarCard';
 const Sidebar = () => {
 return(
         <Accordion defaultActiveKey="0">
