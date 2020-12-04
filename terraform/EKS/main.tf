@@ -27,11 +27,12 @@ resource "aws_iam_role_policy_attachment" "AmazonEKSServicePolicy" {
 
 resource "aws_eks_cluster" "eks" {
   name     = "cne_cluster"
-  role_arn = var.arnrole
+  role_arn = aws_iam_role.eks_cluster.arn
 
   vpc_config {
     subnet_ids         = [var.sub1, var.sub2]
-    security_group_ids = [var.security_id]
+    security_group_ids = [var.security_id] #possibility to remove live
+    endpoint_public_access = true
   }
 }
 
@@ -75,7 +76,7 @@ resource "aws_iam_role_policy_attachment" "AmazonEKS_CNI_Policy" {
 resource "aws_eks_node_group" "node" {
   cluster_name    = aws_eks_cluster.eks.name
   node_group_name = "node"
-  node_role_arn   = var.arnnode
+  node_role_arn   = aws_iam_role.eks_nodes.arn
   subnet_ids      = [var.sub1, var.sub2]
   instance_types  = var.instance_type
   ami_type        = var.ami_type
