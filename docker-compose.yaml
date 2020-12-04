@@ -19,8 +19,8 @@ services:
     image: frontend:latest
     container_name: frontend
     ports:
-    - target: 5000
-      published: 5000
+    - target: 3000
+      published: 3000
       protocol: tcp
     depends_on:
       - backend
@@ -30,8 +30,8 @@ services:
     image: backend:latest
     container_name: backend
     ports:
-    - target: 5001
-      published: 5001
+    - target: 8081
+      published: 8081
       protocol: tcp
     environment:
       TEST_DATABASE_URI: ${TEST_DATABASE_URI}
