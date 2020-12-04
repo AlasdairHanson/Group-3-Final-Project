@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 const Solutions = () => {
-return(  
+  return (
     <>
-        <h3>Solutions</h3>
+      <h3>Solutions</h3>https://mherman.org/blog/dockerizing-a-react-app/
     </>
-);
-}
+  );
+};
 export default Solutions;

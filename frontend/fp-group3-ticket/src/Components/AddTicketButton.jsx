@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { Button, Modal} from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import { PlusCircleFill } from "react-bootstrap-icons";
 import TicketForm from "./TicketForm";
 const AddTicketButton = () => {
-
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
