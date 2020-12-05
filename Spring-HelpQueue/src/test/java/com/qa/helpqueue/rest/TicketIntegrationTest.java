@@ -1,4 +1,4 @@
-package com.qa.wishlist.rest;
+package com.qa.helpqueue.rest;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
@@ -17,6 +17,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.RequestBuilder;
 import org.springframework.test.web.servlet.ResultMatcher;
@@ -27,6 +29,8 @@ import com.qa.helpqueue.ticket.Ticket;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
 @AutoConfigureMockMvc
 @ActiveProfiles(profiles = "test")
+@Sql(scripts = { "classpath:ticket-schema.sql",
+		"classpath:ticket-data.sql" }, executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 
 public class TicketIntegrationTest {
 
@@ -56,9 +60,9 @@ public class TicketIntegrationTest {
 	}
 
 	@Test
-	void testRemoveTicket() throws Exception {
+	void testDeleteTicket() throws Exception {
 
-		RequestBuilder request1 = delete("/removeTicket/1");
+		RequestBuilder request1 = delete("/deleteTicket/1");
 		ResultMatcher checkStatus1 = status().isOk();
 
 		this.mockMVC.perform(request1).andExpect(checkStatus1);

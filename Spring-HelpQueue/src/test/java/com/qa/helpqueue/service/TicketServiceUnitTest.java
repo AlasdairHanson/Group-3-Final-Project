@@ -1,4 +1,4 @@
-package com.qa.wishlist.service;
+package com.qa.helpqueue.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,7 +15,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 
 import com.qa.helpqueue.repo.HelpQueue_Repo;
-import com.qa.helpqueue.service.HelpQueue_Service;
 import com.qa.helpqueue.ticket.Ticket;
 
 @SpringBootTest
@@ -37,6 +36,11 @@ public class TicketServiceUnitTest {
 		savedTicket.setID(id);
 
 		Mockito.when(this.repo.save(newTicket)).thenReturn(savedTicket);
+	}
+
+	@Test
+	void testCallRepo() {
+		assertEquals(false, repo.existsById(1L));
 	}
 
 	@Test

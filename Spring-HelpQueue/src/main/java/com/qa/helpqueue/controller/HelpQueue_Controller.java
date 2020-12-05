@@ -19,29 +19,29 @@ import com.qa.helpqueue.ticket.Ticket;
 @CrossOrigin
 @RestController
 public class HelpQueue_Controller {
-	
+
 	private HelpQueue_Service service;
-	
+
 	public HelpQueue_Controller(HelpQueue_Service service) {
 		super();
 		this.service = service;
 	}
-	
+
 	@PostMapping("/createTicket")
-	public ResponseEntity<Ticket> createTicket(@RequestBody Ticket ticket){
+	public ResponseEntity<Ticket> createTicket(@RequestBody Ticket ticket) {
 		return new ResponseEntity<Ticket>(this.service.createTicket(ticket), HttpStatus.CREATED);
 	}
-	
+
 	@GetMapping("/getTicket")
-	public ResponseEntity<List<Ticket>> getTicket(){
+	public ResponseEntity<List<Ticket>> getTicket() {
 		return ResponseEntity.ok(this.service.getTicket());
 	}
-	
+
 	@PutMapping("/updateTicket/{id}")
-	public ResponseEntity<Ticket> updateTicket(@RequestBody Ticket ticket, @PathVariable Long id){
+	public ResponseEntity<Ticket> updateTicket(@RequestBody Ticket ticket, @PathVariable Long id) {
 		return new ResponseEntity<Ticket>(this.service.updateTicket(ticket, id), HttpStatus.ACCEPTED);
 	}
-	
+
 	@DeleteMapping("/deleteTicket/{id}")
 	public ResponseEntity<Object> deleteTicket(@PathVariable Long id) {
 		if (this.service.deleteTicket(id)) {
@@ -50,5 +50,5 @@ public class HelpQueue_Controller {
 			return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-	
+
 }
