@@ -5,8 +5,10 @@ resource "aws_db_instance" "testdb" {
   engine_version         = "5.7"
   instance_class         = "db.t2.micro"
   name                   = var.db_name
-  username               = file(var.rds_username)
-  password               = file(var.rds_password)
+#  username               = file(var.rds_username)
+#  password               = file(var.rds_password)
+  username = var.rds_username
+  password = var.rds_password
   parameter_group_name   = "default.mysql5.7"
   skip_final_snapshot    = "true"
   db_subnet_group_name   = var.dbsubnet_gpname
