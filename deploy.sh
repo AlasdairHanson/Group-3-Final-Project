@@ -55,7 +55,7 @@ fi
  
 #Generate testvm ssh public keys if it does not already exist.
 
-ssh meallydavis@${testvm_ip} <<EOF
+ssh ubuntu@${testvm_ip} <<EOF
 
 if [ ! -f ~/.ssh/id_rsa.pub ]; then
   ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N ""
