@@ -11,13 +11,6 @@ const TicketForm = () => {
   const [urgency, seturgency] = useState(``);
   const [timestamp, settimestamp] = useState(``);
 
-  const dummyData = { name: "test", salary: "123", age: "23" };
-
-  const postDummyData = (e) => {
-    console.log("post data")
-    axios.post("http://dummy.restapiexample.com/api/v1/create", dummyData);
-  }
-
   const ticketData = {ticketTitle: title, 
                       ticketTopic: topic,
                       ticketDesc: issue,
@@ -31,8 +24,15 @@ const TicketForm = () => {
   const postData = (e) => {
     settimestamp(new Date());
     console.log(ticketData);
+    axios
+      .post("http://localhost:8081/createTicket", ticketData)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
-
 
   return (
     <>

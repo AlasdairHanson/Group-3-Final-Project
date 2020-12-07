@@ -1,7 +1,9 @@
+import axios from "axios";
 import React from "react";
 import { Col, Row, Button, Card, Accordion } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 const Ticket = ({
+  id,
   acc_id,
   title,
   topic,
@@ -14,15 +16,17 @@ const Ticket = ({
   cohort,
 }) => {
 
-  const deleteTicket = (e) => {}
+  const deleteTicket = (e) => {
+    console.log("delete data");
+    axios.delete("http://localhost:8081/deleteTicket/" + id);
+  };
 
   return (
     <Card className="ticket">
       <Accordion.Toggle as={Card.Header} variant="link" eventKey={acc_id}>
         <Row>
           <Col xs={4}>
-            {" "}
-            <Card.Title>{title}</Card.Title>{" "}
+            <Card.Title>{title}</Card.Title>
           </Col>
           <Col xs={3}>
             <div className="topic blue">{topic}</div>
@@ -32,7 +36,7 @@ const Ticket = ({
             <Button variant="link">
               <Icon.PencilFill />
             </Button>
-            <Button variant="link">
+            <Button variant="link" onClick={(e) => deleteTicket(e)}>
               <Icon.TrashFill />
             </Button>
           </Col>
