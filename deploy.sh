@@ -29,6 +29,9 @@ terraform apply -auto-approve
 
 export jenkinsvm_ip="$(terraform output pulic_ip)"
 export testvm_ip="$(terraform output testvm)"
+
+#Export output endpoints addresses into variables to help mask secrets and prevent them from being pushed to git hub
+
 export testdb_endpoint="$(terraform output rds_endpoint_test)"
 export db_endpoint="$(terraform output rds_endpoint_crud)"
 
