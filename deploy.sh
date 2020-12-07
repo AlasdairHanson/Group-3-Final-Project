@@ -1,8 +1,10 @@
 #!/bin/bash
 
 #Creating secret credentials file for both rds's users
-#Ensure to run command export username="yourusername"
+#Ensure to run command export db_username="your db username"
+#Ensure to run command export testdb_endpoint="your testdb username"
 #Ensure to run command export passwd="yourpasswd"
+
 
 cd ~
 rm -rf credentials
@@ -27,6 +29,12 @@ terraform apply -auto-approve
 
 export jenkinsvm_ip="$(terraform output jenkinsvm)"
 export testvm_ip="$(terraform output testvm)"
+export testdb_endpoint="$(  )"
+export db_endpoint="$(nfnfcfn)"
+
+cd ~/database
+mysql -h ${db_endpoint}.coaea37d1emt.eu-west-1.rds.amazonaws.com -P 3306 -u ${db_username} -p${passwd} < Create.sql
+mysql -h ${testdb_endpoint}.coaea37d1emt.eu-west-1.rds.amazonaws.com -P 3306 -u ${testdb_username} -p${passwd} < Create_test.sql
 
 
 #Sleep 10 seconds to ensure these vm are fully up
