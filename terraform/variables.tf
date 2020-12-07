@@ -1,7 +1,7 @@
-variable username1 {
+variable "username1" {
   description = "username for db"
 }
 
-variable password1 {
+variable "password1" {
   description = "password for db"
 }

@@ -18,16 +18,16 @@ variable "vpc_security_group_ids" {
 
 variable "rds_password" {
   description = "password for db master user"
-#  default     = "~/credentials/rds_passwd"
-  type        = string
-  sensitive   = true
+  #  default     = "~/credentials/rds_passwd"
+  type      = string
+  sensitive = true
 }
 
 variable "rds_username" {
   description = "username for db master user"
-#  default     = "~/credentials/rds_username"
-  type        = string
-  sensitive   = true
+  #  default     = "~/credentials/rds_username"
+  type      = string
+  sensitive = true
 }
 
 variable "db_name" {

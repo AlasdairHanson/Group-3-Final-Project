@@ -14,6 +14,6 @@ variable "sg_cidr_block_c" {
   default = "10.0.3.0/24"
 }
 
-variable "open_internet"{
+variable "open_internet" {
   default = "0.0.0.0/0"
 }

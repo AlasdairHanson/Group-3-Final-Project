@@ -12,7 +12,7 @@ variable "open_internet" {
 
 variable "egress_ports" {
   description = "allow all egress connections"
-  default = 0
+  default     = 0
 }
 
 variable "vpc_id" {
