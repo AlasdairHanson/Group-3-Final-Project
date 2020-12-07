@@ -5,7 +5,3 @@ output "rds_endpoint_test" {
 #output "rds_endpoint_prod" {
 #  value = aws_db_instance.production.endpoint
 #}
-
-#output "mastername" {
-#  value = aws_db_instance.testdb.username
-#}

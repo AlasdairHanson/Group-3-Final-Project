@@ -15,20 +15,26 @@ module "sg_node" {
   ingress_ports = [22, 80, 3306, 8080]
 }
 
+resource "aws_key_pair" "key_pub" {
+  key_name   = "key_pub"
+  public_key = file(var.key_pub)
+}
+
 module "Jenkinsvm" {
   source                 = "./EC2"
   name                   = "ec2"
   subnet_id              = module.vpc.subnet_a_id
   vpc_security_group_ids = [module.sg_node.sg_id]
+  keyy = aws_key_pair.key_pub.id
 }
 
-#module "Testvm" {
-#  source                 = "./EC2"
-#  name                   = "ec2"
-#  subnet_id              = module.vpc.subnet_a_id
-#  vpc_security_group_ids = [module.sg_node.sg_id]
-#  key_name = aws_key_pair.key_pub
-#}
+module "Testvm" {
+  source                 = "./EC2"
+  name                   = "ec2"
+  subnet_id              = module.vpc.subnet_a_id
+  vpc_security_group_ids = [module.sg_node.sg_id]
+  keyy = aws_key_pair.key_pub.id
+}
 
 resource "aws_db_subnet_group" "default" {
   name       = "var.dbsubnet_gpname"

@@ -20,8 +20,8 @@ variable "enable_public_ip" {
   default     = true
 }
 
-variable "key_pub" {
-  default = "~/.ssh/id_rsa.pub"
+variable "keyy" {
+  description = "key variable for dupe key prevention when using multiple ec2"
 }
 
 variable "vpc_security_group_ids" {
