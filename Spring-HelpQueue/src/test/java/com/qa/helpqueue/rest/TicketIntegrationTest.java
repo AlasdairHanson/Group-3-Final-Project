@@ -69,6 +69,21 @@ public class TicketIntegrationTest {
 
 	}
 
+	// @Test
+	// void testDeleteTicket2() throws NestedServletException {
+
+	// RequestBuilder request = delete("/deleteTicket/2");
+	// ResultMatcher checkStatus = status().isInternalServerError();
+
+	// try {
+	// this.mockMVC.perform(request).andExpect(checkStatus);
+	// } catch (Exception e) {
+	// TODO Auto-generated catch block
+	// e.printStackTrace();
+	// }
+
+	// }
+
 	@Test
 	void testReadTicket() throws Exception {
 		// MUST match the test database record
