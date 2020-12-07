@@ -27,10 +27,10 @@ terraform apply -auto-approve
 
 #Export output ip addresses into variables to help mask secrets and prevent them from being pushed to git hub
 
-export jenkinsvm_ip="$(terraform output jenkinsvm)"
+export jenkinsvm_ip="$(terraform output pulic_ip)"
 export testvm_ip="$(terraform output testvm)"
-export testdb_endpoint="$(  )"
-export db_endpoint="$(nfnfcfn)"
+export testdb_endpoint="$(terraform output rds_endpoint_test)"
+export db_endpoint="$(terraform output rds_endpoint_crud)"
 
 cd ~/database
 mysql -h ${db_endpoint}.coaea37d1emt.eu-west-1.rds.amazonaws.com -P 3306 -u ${db_username} -p${passwd} < Create.sql
