@@ -1,22 +1,22 @@
-DROP DATABASE IF EXISTS ticketdb;
+DROP DATABASE IF EXISTS project;
 
-CREATE DATABASE ticketdb;
-USE ticketdb;
+CREATE DATABASE project;
+USE project;
 
 
 DROP TABLE IF EXISTS `ticket`;
 
 CREATE TABLE `ticket` (
     `id` BIGINT PRIMARY KEY AUTO_INCREMENT,
-    `ticketTitle` VARCHAR(255) NOT NULL,
-    `ticketAuthor` VARCHAR(255) NOT NULL,
-    `ticketTime` BIGINT NOT NULL,
-    `ticketDesc` VARCHAR(255),
-    `ticketUrgency` VARCHAR(255) NOT NULL,
-    `ticketTopic` VARCHAR(255),
-    `ticketStatus` VARCHAR(255),
-    `ticketTrainer` VARCHAR(255) NOT NULL,
-    `ticketCohort` VARCHAR(255) NOT NULL,
+    `ticket_title` VARCHAR(255) NOT NULL,
+    `ticket_author` VARCHAR(255) NOT NULL,
+    `ticket_time` BIGINT NOT NULL,
+    `ticket_desc` VARCHAR(255),
+    `ticket_urgency` VARCHAR(255) NOT NULL,
+    `ticket_topic` VARCHAR(255),
+    `ticket_status` VARCHAR(255),
+    `ticket_trainer` VARCHAR(255) NOT NULL,
+    `ticket_cohort` VARCHAR(255) NOT NULL,
 
 );
 

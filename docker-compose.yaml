@@ -11,8 +11,6 @@ services:
       protocol: tcp
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      #MYSQL_DATABASE: ${DB}
-     
 
   frontend:
     build: ./frontend
