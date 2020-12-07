@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 const TicketForm = () => {
@@ -10,19 +11,28 @@ const TicketForm = () => {
   const [urgency, seturgency] = useState(``);
   const [timestamp, settimestamp] = useState(``);
 
+  const dummyData = { name: "test", salary: "123", age: "23" };
+
+  const postDummyData = (e) => {
+    console.log("post data")
+    axios.post("http://dummy.restapiexample.com/api/v1/create", dummyData);
+  }
+
+  const ticketData = {ticketTitle: title, 
+                      ticketTopic: topic,
+                      ticketDesc: issue,
+                      ticketTime: timestamp,
+                      ticketStatus: "unresolved",
+                      ticketAuthor: firstName + " " + secondName,
+                      ticketTrainer: "none",
+                      ticketPriority: urgency,
+                      ticketCohort: cohort};
+
   const postData = (e) => {
     settimestamp(new Date());
-    console.log(
-      firstName,
-      secondName,
-      cohort,
-      title,
-      issue,
-      topic,
-      urgency,
-      timestamp
-    );
+    console.log(ticketData);
   };
+
 
   return (
     <>

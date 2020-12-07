@@ -13,6 +13,9 @@ const Ticket = ({
   priority,
   cohort,
 }) => {
+
+  const deleteTicket = (e) => {}
+
   return (
     <Card className="ticket">
       <Accordion.Toggle as={Card.Header} variant="link" eventKey={acc_id}>
@@ -23,7 +26,6 @@ const Ticket = ({
           </Col>
           <Col xs={3}>
             <div className="topic blue">{topic}</div>
-            <div className="topic green">{topic}</div>
           </Col>
           <Col xs={3}>{cohort}</Col>
           <Col xs={2} className="icons">
