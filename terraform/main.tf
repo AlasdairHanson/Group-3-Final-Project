@@ -22,12 +22,13 @@ module "Jenkinsvm" {
   vpc_security_group_ids = [module.sg_node.sg_id]
 }
 
-module "Testvm" {
-  source                 = "./EC2"
-  name                   = "ec2"
-  subnet_id              = module.vpc.subnet_a_id
-  vpc_security_group_ids = [module.sg_node.sg_id]
-}
+#module "Testvm" {
+#  source                 = "./EC2"
+#  name                   = "ec2"
+#  subnet_id              = module.vpc.subnet_a_id
+#  vpc_security_group_ids = [module.sg_node.sg_id]
+#  key_name = aws_key_pair.key_pub
+#}
 
 resource "aws_db_subnet_group" "default" {
   name       = "var.dbsubnet_gpname"
@@ -46,9 +47,9 @@ module "test_rds" {
   vpc_security_group_ids = [module.sg_node.sg_id]
 }
 
-module "eks" {
-  source      = "./EKS"
-  sub1        = module.vpc.subnet_a_id
-  sub2        = module.vpc.subnet_c_id
-  security_id = module.sg_node.sg_id
-}
+#module "eks" {
+#  source      = "./EKS"
+#  sub1        = module.vpc.subnet_a_id
+#  sub2        = module.vpc.subnet_c_id
+#  security_id = module.sg_node.sg_id
+#}

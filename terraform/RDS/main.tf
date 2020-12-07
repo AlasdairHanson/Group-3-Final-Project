@@ -4,7 +4,7 @@ resource "aws_db_instance" "testdb" {
   engine                 = "mysql"
   engine_version         = "5.7"
   instance_class         = "db.t2.micro"
-  name                   = "var.db_name"
+  name                   = var.db_name
   username               = file(var.rds_username)
   password               = file(var.rds_password)
   parameter_group_name   = "default.mysql5.7"
