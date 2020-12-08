@@ -1,5 +1,10 @@
 pipeline {
   agent any
+  environment{
+    USERNAME=credentials('USERNAME')
+    PASSWD=credentials('PASSWD')
+    DATABASE_URI=credentials('DATABASE_URI')
+  }
   stages {
       stage('get repo') {
         steps {
