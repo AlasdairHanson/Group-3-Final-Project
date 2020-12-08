@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { PencilFill, PlusCircleFill } from "react-bootstrap-icons";
 import EditTicketForm from "./EditTicketForm";
-const EditTicketButton = () => {
+const EditTicketButton = ({id}) => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -24,7 +24,7 @@ const EditTicketButton = () => {
           <Modal.Title>Edit Ticket Modal</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <EditTicketForm />
+          <EditTicketForm id={id}/>
         </Modal.Body>
 
         <Modal.Footer>

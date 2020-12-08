@@ -9,23 +9,20 @@ const EditTicketForm = ({id}) => {
   const [issue, setissue] = useState(``);
   const [topic, settopic] = useState(``);
   const [urgency, seturgency] = useState(``);
-  const [timestamp, settimestamp] = useState(``);
 
   const ticketData = {ticketTitle: title, 
                       ticketTopic: topic,
                       ticketDesc: issue,
-                      ticketTime: timestamp,
                       ticketStatus: "unresolved",
                       ticketAuthor: firstName + " " + secondName,
                       ticketTrainer: "none",
-                      ticketPriority: urgency,
+                      ticketUrgency: urgency,
                       ticketCohort: cohort};
 
   const updateData = (e) => {
-    settimestamp(new Date.toLocaleString("en-GB"));
-    console.log(ticketData);
+    console.log(id);
     axios
-      .put("http://localhost:8081/updateTicket" + id, ticketData)
+      .put("http://localhost:8081/updateTicket/" + id, ticketData)
       .then(function (response) {
         console.log(response);
       })
