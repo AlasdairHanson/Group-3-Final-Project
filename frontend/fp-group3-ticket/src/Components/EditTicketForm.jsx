@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-const TicketForm = () => {
+const EditTicketForm = ({id}) => {
   const [firstName, setfirstName] = useState(``);
   const [secondName, setsecondName] = useState(``);
   const [cohort, setcohort] = useState(``);
@@ -21,11 +21,11 @@ const TicketForm = () => {
                       ticketPriority: urgency,
                       ticketCohort: cohort};
 
-  const postData = (e) => {
+  const updateData = (e) => {
     settimestamp(new Date());
     console.log(ticketData);
     axios
-      .post("http://localhost:8081/createTicket", ticketData)
+      .put("http://localhost:8081/updateTicket" + id, ticketData)
       .then(function (response) {
         console.log(response);
       })
@@ -131,7 +131,7 @@ const TicketForm = () => {
       </Form>
 
       <Button
-        onClick={(e) => postData(e)}
+        onClick={(e) => updateData(e)}
         variant="primary"
         size="lg"
         block
@@ -142,4 +142,4 @@ const TicketForm = () => {
     </>
   );
 };
-export default TicketForm;
+export default EditTicketForm;

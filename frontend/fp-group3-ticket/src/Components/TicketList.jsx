@@ -63,7 +63,7 @@ const TicketList = () => {
         setError(error);
       }
     );
-  }, []);
+  }, );
 
   if (error) {
     return (

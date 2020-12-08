@@ -1,7 +1,8 @@
 import axios from "axios";
 import React from "react";
-import { Col, Row, Button, Card, Accordion } from "react-bootstrap";
+import { Col, Row, Button, Card, Accordion, Container } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
+import EditTicketButton from "./EditTicketButton";
 const Ticket = ({
   id,
   acc_id,
@@ -16,32 +17,38 @@ const Ticket = ({
   cohort,
 }) => {
 
+
   const deleteTicket = (e) => {
     console.log("delete data");
-    axios.delete("http://localhost:8081/deleteTicket/" + id);
+    axios.delete("http://localhost:8081/deleteTicket/" + id).then(
+      (response) => {
+        console.log(response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   };
 
   return (
     <Card className="ticket">
-      <Accordion.Toggle as={Card.Header} variant="link" eventKey={acc_id}>
+      <Card.Header>
         <Row>
-          <Col xs={4}>
+          <Accordion.Toggle as={Col} eventKey={acc_id}>
             <Card.Title>{title}</Card.Title>
-          </Col>
+          </Accordion.Toggle>
           <Col xs={3}>
             <div className="topic blue">{topic}</div>
           </Col>
           <Col xs={3}>{cohort}</Col>
           <Col xs={2} className="icons">
-            <Button variant="link">
-              <Icon.PencilFill />
-            </Button>
+            <EditTicketButton id={id}/>
             <Button variant="link" onClick={(e) => deleteTicket(e)}>
               <Icon.TrashFill />
             </Button>
           </Col>
         </Row>
-      </Accordion.Toggle>
+      </Card.Header>
       <Accordion.Collapse eventKey={acc_id}>
         <Card.Body>
           <Row>

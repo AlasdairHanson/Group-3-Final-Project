@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
-import { PlusCircleFill } from "react-bootstrap-icons";
-import AddTicketForm from "./AddTicketForm";
-const AddTicketButton = () => {
+import { PencilFill, PlusCircleFill } from "react-bootstrap-icons";
+import EditTicketForm from "./EditTicketForm";
+const EditTicketButton = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -10,8 +10,8 @@ const AddTicketButton = () => {
 
   return (
     <>
-      <Button variant="success" className="ml-3" onClick={handleShow}>
-        <PlusCircleFill /> New Ticket
+      <Button variant="link" onClick={handleShow}>
+        <PencilFill />
       </Button>
 
       <Modal
@@ -21,10 +21,10 @@ const AddTicketButton = () => {
         scrollable={true}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Add Ticket Modal</Modal.Title>
+          <Modal.Title>Edit Ticket Modal</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <AddTicketForm />
+          <EditTicketForm />
         </Modal.Body>
 
         <Modal.Footer>
@@ -39,4 +39,4 @@ const AddTicketButton = () => {
     </>
   );
 };
-export default AddTicketButton;
+export default EditTicketButton;
