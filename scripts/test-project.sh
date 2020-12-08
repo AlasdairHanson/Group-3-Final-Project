@@ -11,3 +11,5 @@ echo ${PASSWD}
 pwd
 
 which mvn
+
+mvn test
