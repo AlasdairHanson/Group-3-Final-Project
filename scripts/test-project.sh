@@ -14,7 +14,7 @@ pwd
 
 which mvn
 
-mvn clean package | grep BUILD
+mvn clean package
 
 cd /home/jenkins/.jenkins/workspace/testing/Spring-HelpQueue/target
 
