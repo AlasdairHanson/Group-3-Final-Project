@@ -12,4 +12,4 @@ pwd
 
 which mvn
 
-mvn test
+mvn clean package
