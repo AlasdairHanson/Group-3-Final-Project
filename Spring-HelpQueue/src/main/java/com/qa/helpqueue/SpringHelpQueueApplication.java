@@ -14,6 +14,4 @@ public class SpringHelpQueueApplication {
 		SpringApplication.run(SpringHelpQueueApplication.class, args);
 	}
 	
-	
-
 }

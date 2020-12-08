@@ -17,7 +17,7 @@ public class Ticket {
         private Long ID;
         private String TicketTitle;
         private String TicketAuthor;
-        private int TicketTime;
+        private String TicketTime;
         private String TicketDesc;
         private String TicketUrgency;
         private String TicketTopic;
@@ -30,7 +30,7 @@ public class Ticket {
         }
         
     // Constructor
-        public Ticket(String ticketTitle, String ticketAuthor, int ticketTime, String ticketDesc,
+        public Ticket(String ticketTitle, String ticketAuthor, String ticketTime, String ticketDesc,
                 String ticketUrgency, String ticketTopic, String ticketStatus, String ticketTrainer, String ticketCohort) {
             super();
             this.TicketTitle = ticketTitle;
@@ -83,13 +83,13 @@ public class Ticket {
 
  
 
-        public int getTicketTime() {
+        public String getTicketTime() {
             return TicketTime;
         }
 
  
 
-        public void setTicketTime(int ticketTime) {
+        public void setTicketTime(String ticketTime) {
             TicketTime = ticketTime;
         }
 
@@ -175,78 +175,82 @@ public class Ticket {
                     + TicketTrainer + ", TicketCohort=" + TicketCohort + "]";
         }
 
+		@Override
+		public int hashCode() {
+			final int prime = 31;
+			int result = 1;
+			result = prime * result + ((TicketAuthor == null) ? 0 : TicketAuthor.hashCode());
+			result = prime * result + ((TicketCohort == null) ? 0 : TicketCohort.hashCode());
+			result = prime * result + ((TicketDesc == null) ? 0 : TicketDesc.hashCode());
+			result = prime * result + ((TicketStatus == null) ? 0 : TicketStatus.hashCode());
+			result = prime * result + ((TicketTime == null) ? 0 : TicketTime.hashCode());
+			result = prime * result + ((TicketTitle == null) ? 0 : TicketTitle.hashCode());
+			result = prime * result + ((TicketTopic == null) ? 0 : TicketTopic.hashCode());
+			result = prime * result + ((TicketTrainer == null) ? 0 : TicketTrainer.hashCode());
+			result = prime * result + ((TicketUrgency == null) ? 0 : TicketUrgency.hashCode());
+			return result;
+		}
+
+		@Override
+		public boolean equals(Object obj) {
+			if (this == obj)
+				return true;
+			if (obj == null)
+				return false;
+			if (getClass() != obj.getClass())
+				return false;
+			Ticket other = (Ticket) obj;
+			if (TicketAuthor == null) {
+				if (other.TicketAuthor != null)
+					return false;
+			} else if (!TicketAuthor.equals(other.TicketAuthor))
+				return false;
+			if (TicketCohort == null) {
+				if (other.TicketCohort != null)
+					return false;
+			} else if (!TicketCohort.equals(other.TicketCohort))
+				return false;
+			if (TicketDesc == null) {
+				if (other.TicketDesc != null)
+					return false;
+			} else if (!TicketDesc.equals(other.TicketDesc))
+				return false;
+			if (TicketStatus == null) {
+				if (other.TicketStatus != null)
+					return false;
+			} else if (!TicketStatus.equals(other.TicketStatus))
+				return false;
+			if (TicketTime == null) {
+				if (other.TicketTime != null)
+					return false;
+			} else if (!TicketTime.equals(other.TicketTime))
+				return false;
+			if (TicketTitle == null) {
+				if (other.TicketTitle != null)
+					return false;
+			} else if (!TicketTitle.equals(other.TicketTitle))
+				return false;
+			if (TicketTopic == null) {
+				if (other.TicketTopic != null)
+					return false;
+			} else if (!TicketTopic.equals(other.TicketTopic))
+				return false;
+			if (TicketTrainer == null) {
+				if (other.TicketTrainer != null)
+					return false;
+			} else if (!TicketTrainer.equals(other.TicketTrainer))
+				return false;
+			if (TicketUrgency == null) {
+				if (other.TicketUrgency != null)
+					return false;
+			} else if (!TicketUrgency.equals(other.TicketUrgency))
+				return false;
+			return true;
+		}
+
+
  
 
-        @Override
-        public int hashCode() {
-            final int prime = 31;
-            int result = 1;
-            result = prime * result + ((TicketAuthor == null) ? 0 : TicketAuthor.hashCode());
-            result = prime * result + ((TicketCohort == null) ? 0 : TicketCohort.hashCode());
-            result = prime * result + ((TicketDesc == null) ? 0 : TicketDesc.hashCode());
-            result = prime * result + ((TicketStatus == null) ? 0 : TicketStatus.hashCode());
-            result = prime * result + TicketTime;
-            result = prime * result + ((TicketTitle == null) ? 0 : TicketTitle.hashCode());
-            result = prime * result + ((TicketTopic == null) ? 0 : TicketTopic.hashCode());
-            result = prime * result + ((TicketTrainer == null) ? 0 : TicketTrainer.hashCode());
-            result = prime * result + ((TicketUrgency == null) ? 0 : TicketUrgency.hashCode());
-            return result;
-        }
-
- 
-
-        @Override
-        public boolean equals(Object obj) {
-            if (this == obj)
-                return true;
-            if (obj == null)
-                return false;
-            if (getClass() != obj.getClass())
-                return false;
-            Ticket other = (Ticket) obj;
-            if (TicketAuthor == null) {
-                if (other.TicketAuthor != null)
-                    return false;
-            } else if (!TicketAuthor.equals(other.TicketAuthor))
-                return false;
-            if (TicketCohort == null) {
-                if (other.TicketCohort != null)
-                    return false;
-            } else if (!TicketCohort.equals(other.TicketCohort))
-                return false;
-            if (TicketDesc == null) {
-                if (other.TicketDesc != null)
-                    return false;
-            } else if (!TicketDesc.equals(other.TicketDesc))
-                return false;
-            if (TicketStatus == null) {
-                if (other.TicketStatus != null)
-                    return false;
-            } else if (!TicketStatus.equals(other.TicketStatus))
-                return false;
-            if (TicketTime != other.TicketTime)
-                return false;
-            if (TicketTitle == null) {
-                if (other.TicketTitle != null)
-                    return false;
-            } else if (!TicketTitle.equals(other.TicketTitle))
-                return false;
-            if (TicketTopic == null) {
-                if (other.TicketTopic != null)
-                    return false;
-            } else if (!TicketTopic.equals(other.TicketTopic))
-                return false;
-            if (TicketTrainer == null) {
-                if (other.TicketTrainer != null)
-                    return false;
-            } else if (!TicketTrainer.equals(other.TicketTrainer))
-                return false;
-            if (TicketUrgency == null) {
-                if (other.TicketUrgency != null)
-                    return false;
-            } else if (!TicketUrgency.equals(other.TicketUrgency))
-                return false;
-            return true;
-        }
+        
         
 }
