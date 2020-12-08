@@ -3,7 +3,6 @@ DROP DATABASE IF EXISTS project;
 CREATE DATABASE project;
 USE project;
 
-
 DROP TABLE IF EXISTS `ticket`;
 
 CREATE TABLE `ticket` (
