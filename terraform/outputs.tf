@@ -9,3 +9,11 @@ output "jenkinsvm_ip" {
 output "testvm_ip" {
   value = module.Testvm.public_ip
 }
+
+#output "BastionHost_ip" {
+#  value = module.BastionHost.public_ip
+#}
+
+output "Jenkinsvm_private_ip" {
+  value = module.Jenkinsvm.private_ip
+}

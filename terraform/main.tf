@@ -15,10 +15,31 @@ module "sg_node" {
   ingress_ports = [22, 80, 3306, 8080]
 }
 
+#module "bastion_sg"{
+#  web_sg_name = "sg for bastion host"
+#  source = "./SG"
+#  vpc_id = module.vpc.vpc.id
+#  ingress_ports = [22]
+#  tags = {
+#    Name = "allows ssh"
+#  }
+#}
+
+
 resource "aws_key_pair" "key_pub" {
   key_name   = "key_pub"
   public_key = file(var.key_pub)
 }
+
+# will have to take ssh key from config vm then implement it to testvm and jenkinsvm
+#module "BastionHost" {
+#  source = "./EC2"
+#  name = "ec2"
+#  subnet_id = module.vpc.subnet_a_id
+#  vpc_security_gorups_ids = [module.bastion_sg.sg_id]
+#  keyy = aws_key_pair.key_pub.id
+#}
+
 
 module "Jenkinsvm" {
   source                 = "./EC2"

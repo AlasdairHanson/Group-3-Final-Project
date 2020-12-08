@@ -3,18 +3,25 @@ resource "aws_vpc" "vpc" {
   enable_dns_hostnames = true
 }
 
+
+
 resource "aws_subnet" "subnet_a" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = var.sg_cidr_block
   availability_zone       = "eu-west-1a"
   map_public_ip_on_launch = true
+  tags = {
+    Name: "public_subnet"
+  }
 }
 
 resource "aws_subnet" "subnet_b" {
   vpc_id                  = aws_vpc.vpc.id
   cidr_block              = var.sg_cidr_block_b
   availability_zone       = "eu-west-1b"
-  map_public_ip_on_launch = true
+  tags = {
+    Name: "private_rds_sub"
+  }
 }
 
 resource "aws_subnet" "subnet_c" {
@@ -22,6 +29,9 @@ resource "aws_subnet" "subnet_c" {
   cidr_block              = var.sg_cidr_block_c
   availability_zone       = "eu-west-1c"
   map_public_ip_on_launch = true
+  tags = {
+    Name = "public_eks_sub"
+  }
 }
 
 resource "aws_internet_gateway" "igw" {
