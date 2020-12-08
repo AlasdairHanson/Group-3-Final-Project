@@ -5,6 +5,7 @@ pipeline{
 		TEST_DATABASE_URI=credentials('TEST_DATABASE_URI')
                 DOCKER_USERNAME=credentials('DOCKER_USERNAME')
 		DOCKER_PASSWORD=credentials('DOCKER_PASSWORD')
+		testvm_ip=credentials('testvm_ip')
 		
         }
         stages{
