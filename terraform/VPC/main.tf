@@ -42,11 +42,13 @@ resource "aws_route_table_association" "rt_association" {
   route_table_id = aws_route_table.rt.id
 }
 
-resource "aws_route_table_association" "rt_association_b" {
-  subnet_id      = aws_subnet.subnet_b.id
-  route_table_id = aws_route_table.rt.id
-}
+#RDS should not be attatched to igw, private subnet 
+#resource "aws_route_table_association" "rt_association_b" {
+#  subnet_id      = aws_subnet.subnet_b.id
+#  route_table_id = aws_route_table.rt.id
+#}
 
+#EKS subnet should be public
 resource "aws_route_table_association" "rt_association_c" {
   subnet_id      = aws_subnet.subnet_c.id
   route_table_id = aws_route_table.rt.id

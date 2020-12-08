@@ -25,7 +25,7 @@ module "Jenkinsvm" {
   name                   = "ec2"
   subnet_id              = module.vpc.subnet_a_id
   vpc_security_group_ids = [module.sg_node.sg_id]
-  keyy = aws_key_pair.key_pub.id
+  keyy                   = aws_key_pair.key_pub.id
 }
 
 module "Testvm" {
@@ -33,7 +33,7 @@ module "Testvm" {
   name                   = "ec2"
   subnet_id              = module.vpc.subnet_a_id
   vpc_security_group_ids = [module.sg_node.sg_id]
-  keyy = aws_key_pair.key_pub.id
+  keyy                   = aws_key_pair.key_pub.id
 }
 
 resource "aws_db_subnet_group" "default" {
@@ -55,9 +55,9 @@ module "test_rds" {
   rds_password           = var.password1
 }
 
-#module "eks" {
-#  source      = "./EKS"
-#  sub1        = module.vpc.subnet_a_id
-#  sub2        = module.vpc.subnet_c_id
-#  security_id = module.sg_node.sg_id
-#}
+module "eks" {
+  source      = "./EKS"
+  sub1        = module.vpc.subnet_a_id
+  sub2        = module.vpc.subnet_c_id
+  security_id = module.sg_node.sg_id
+}
