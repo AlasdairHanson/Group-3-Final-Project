@@ -2,7 +2,7 @@
 
 pwd
 
-cd /home/jenkins/.jenkins/workspace/mvnTesting/Spring-HelpQueue
+cd /home/jenkins/.jenkins/workspace/testing/Spring-HelpQueue
 
 pwd
 
