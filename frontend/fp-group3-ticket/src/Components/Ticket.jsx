@@ -37,15 +37,26 @@ const Ticket = ({
           <Accordion.Toggle as={Col} eventKey={acc_id}>
             <Card.Title>{title}</Card.Title>
           </Accordion.Toggle>
-          <Col xs={3}>
+          <Col xs={2}>
             <div className="topic blue">{topic}</div>
           </Col>
-          <Col xs={3}>{cohort}</Col>
-          <Col xs={2} className="icons">
-            <EditTicketButton id={id}/>
+          <Col xs={3}>
+            <Card.Text>{cohort}</Card.Text>
+          </Col>
+          <Col xs={3} className="icons">
+            <EditTicketButton
+              id={id}
+              oldTitle={title}
+              oldAuthor={trainee}
+              oldUrgency={priority}
+              oldCohort={cohort}
+              oldDesc={desc}
+              oldTopic={topic}
+            />
             <Button variant="link" onClick={(e) => deleteTicket(e)}>
               <Icon.TrashFill />
             </Button>
+            <div className={"topic " + status}>{status}</div>
           </Col>
         </Row>
       </Card.Header>

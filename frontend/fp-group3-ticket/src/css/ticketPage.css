@@ -118,5 +118,18 @@
     max-width: none !important;
 }
 
+.Unresolved {
+    background-color: #e74c3c;
+}
+
+.Pending {
+    background-color: #e67e22;
+}
+
+.Resolved {
+    background-color: #2ecc71;
+}
+
+
 
 

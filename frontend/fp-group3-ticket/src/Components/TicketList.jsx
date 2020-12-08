@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Col, Accordion } from "react-bootstrap";
+import { Col, Accordion, Container, Row, Card } from "react-bootstrap";
 import Ticket from "./Ticket";
 import axios from "axios";
 const TicketList = () => {
@@ -61,7 +61,7 @@ const TicketList = () => {
         setError(error);
       }
     );
-  }, );
+  });
 
   if (error) {
     return (

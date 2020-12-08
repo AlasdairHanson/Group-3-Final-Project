@@ -10,7 +10,11 @@ const AddTicketButton = () => {
 
   return (
     <>
-      <Button variant="success" className="ml-3" onClick={handleShow}>
+      <Button
+        variant="primary"
+        className="ml-3 qaColButton"
+        onClick={handleShow}
+      >
         <PlusCircleFill /> New Ticket
       </Button>
 
