@@ -13,3 +13,9 @@ pwd
 which mvn
 
 mvn clean package
+
+cd /home/jenkins/.jenkins/workspace/testing/Spring-HelpQueue/target
+
+export jarName=$(ls | grep .jar$)
+
+java -jar jarName
