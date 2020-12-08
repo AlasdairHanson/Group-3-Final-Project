@@ -33,7 +33,7 @@ public class TicketServiceUnitTest {
 		Ticket newTicket = new Ticket("Title", "Author", 3, "Desc", "Urgency", "Topic", "Status", "Trainer", "Cohort");
 		Ticket savedTicket = new Ticket("Title", "Author", 3, "Desc", "Urgency", "Topic", "Status", "Trainer",
 				"Cohort");
-		savedTicket.setID(id);
+		// savedTicket.setID(id);
 
 		Mockito.when(this.repo.save(newTicket)).thenReturn(savedTicket);
 	}
