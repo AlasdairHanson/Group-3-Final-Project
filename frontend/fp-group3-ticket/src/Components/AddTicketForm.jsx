@@ -9,7 +9,9 @@ const AddTicketForm = () => {
   const [issue, setissue] = useState(``);
   const [topic, settopic] = useState(``);
   const [urgency, seturgency] = useState(``);
-  const [timestamp, settimestamp] = useState(``);
+  const [timestamp, settimestamp] = useState(
+    new Date().toLocaleString("en-GB")
+  );
 
   const ticketData = {
     ticketTitle: title,
@@ -19,12 +21,15 @@ const AddTicketForm = () => {
     ticketStatus: "unresolved",
     ticketAuthor: firstName + " " + secondName,
     ticketTrainer: "none",
-    ticketPriority: urgency,
+    ticketUrgency: urgency,
     ticketCohort: cohort,
   };
 
   const postData = (e) => {
-    settimestamp(new Date().toLocaleString());
+    console.log(new Date().toLocaleString("en-GB"));
+    const newDate = new Date().toLocaleString("en-GB");
+    console.log("data posted");
+    settimestamp(newDate);
     console.log(timestamp);
     axios
       .post("http://localhost:8081/createTicket", ticketData)

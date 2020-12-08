@@ -22,7 +22,7 @@ const EditTicketForm = ({id}) => {
                       ticketCohort: cohort};
 
   const updateData = (e) => {
-    settimestamp(new Date());
+    settimestamp(new Date.toLocaleString("en-GB"));
     console.log(ticketData);
     axios
       .put("http://localhost:8081/updateTicket" + id, ticketData)

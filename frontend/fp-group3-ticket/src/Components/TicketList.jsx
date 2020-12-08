@@ -54,8 +54,6 @@ const TicketList = () => {
     axios.get("http://localhost:8081/getTicket").then(
       (data) => {
         setLoaded(true);
-        console.log(data);
-        console.log(data.data);
         setTicketData(data.data);
       },
       (error) => {
@@ -104,7 +102,7 @@ const TicketList = () => {
               status={ticket.ticketStatus}
               trainee={ticket.ticketAuthor}
               trainer={ticket.ticketTrainer}
-              priority={ticket.ticketPriority}
+              priority={ticket.ticketUrgency}
               cohort={ticket.ticketCohort}
             />
           ))}
