@@ -20,30 +20,32 @@ fi
 
 #Start terraform
 
-#cd ~/Group-3-Final-Project/terraform
-#terraform init
-#terraform plan
-#terraform apply -auto-approve
+cd ~/Group-3-Final-Project/terraform
+terraform init
+terraform plan
+terraform apply -auto-approve
 
 #Export output ip addresses into variables to help mask secrets and prevent them from being pushed to git hub
 
-#export jenkinsvm_ip="$(terraform output pulic_ip)"
-#export testvm_ip="$(terraform output testvm)"
+export jenkinsvm_ip="$(terraform output pulic_ip)"
+export testvm_ip="$(terraform output testvm)"
 
 
 #Export output endpoints addresses into variables to help mask secrets and prevent them from being pushed to git hub
 
-#export testdb_endpoint="$(terraform output rds_endpoint_test)"
-#export db_endpoint="$(terraform output rds_endpoint_crud)"
+export testdb_endpoint="$(terraform output rds_endpoint_test)"
+export db_endpoint="$(terraform output rds_endpoint_crud)"
 
-#cd ~/database
-#mysql -h ${db_endpoint}.coaea37d1emt.eu-west-1.rds.amazonaws.com -P 3306 -u ${db_username} -p${passwd} < Create.sql
-#mysql -h ${testdb_endpoint}.coaea37d1emt.eu-west-1.rds.amazonaws.com -P 3306 -u ${testdb_username} -p${passwd} < Create_test.sql
+#Passing in database schema
+
+cd ~/database
+mysql -h ${db_endpoint}.coaea37d1emt.eu-west-1.rds.amazonaws.com -P 3306 -u ${db_username} -p${passwd} < Create.sql
+mysql -h ${testdb_endpoint}.coaea37d1emt.eu-west-1.rds.amazonaws.com -P 3306 -u ${testdb_username} -p${passwd} < Create_test.sql
 
 
 #Sleep 10 seconds to ensure these vm are fully up
 
-sleep 10
+sleep 1
 
 #Make key directory if it does not already exist. This will store keys that I secure copy from any vm and use them for shh'ing into any vm.
 
@@ -126,6 +128,4 @@ ansible-playbook -i inventory playbook.yaml
 
 
     
-#sleep 5
-
-#ssh -tt -i ~/.ssh/id_rsa ubuntu@${jenkinsvm_ip}
+sleep 1
