@@ -12,7 +12,7 @@ pipeline {
             sh './scripts/get-repo.sh'
         }
       }
-       stage('test project') {
+       stage('test backend') {
         steps {
             sh 'chmod a+x ./scripts/test-project.sh'
             sh './scripts/test-project.sh'
@@ -20,8 +20,14 @@ pipeline {
       }
        stage('custom stage') {
           steps {
-              sh 'chmod a+x ./scripts/custom.sh'
-              sh './scripts/custom.sh'
+            sh 'chmod a+x ./scripts/custom.sh'
+            sh './scripts/custom.sh'
+        }
+      }
+      stage('test front end') {
+            steps {
+            sh 'chmod a+x ./scripts/frontend-testing.sh'
+            sh './scripts/frontend-testing.sh'
         }
       }
    }
