@@ -18,5 +18,11 @@ pipeline {
             sh './scripts/test-project.sh'
         }
       }
+       stage('custom stage') {
+          steps {
+              sh 'chmod a+x ./scripts/custom.sh'
+              sh './scripts/custom.sh'
+        }
+      }
    }
 }
