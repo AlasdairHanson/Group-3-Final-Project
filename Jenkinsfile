@@ -2,7 +2,6 @@ pipeline{
         agent any
         environment {
 		DATABASE_URI=credentials('DATABASE_URI')
-		MYSQL_ROOT_PASSWORD=credentials('MYSQL_ROOT_PASSWORD')
 		TEST_DATABASE_URI=credentials('TEST_DATABASE_URI')
                 DOCKER_USERNAME=credentials('DOCKER_USERNAME')
 		DOCKER_PASSWORD=credentials('DOCKER_PASSWORD')
@@ -25,7 +24,6 @@ pipeline{
 		    sudo systemctl disable nginx
 		    export DATABASE_URI=${DATABASE_URI}
 		    export TEST_DATABASE_URI=${TEST_DATABASE_URI}
-                    export MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
 		    sudo docker-compose up -d --build
 		    sudo curl localhost:80
                     '''
@@ -57,17 +55,16 @@ pipeline{
             }    
 	    steps{
                     sh '''
-		    cd ~
-		    sudo kubectl apply -f secrets.yaml
-		    kubectl delete pods --all -n x
-		    cd ~/Group-3-Final-Project
-		    kubectl delete pods --all -n x
-		    sudo kubectl apply -f nginx.yaml 
-		    sudo kubectl apply -f configmap.yaml
+                    cd ~/Group-3-Final-Project
+                    sudo kubectl apply -f ~/secrets.yaml
+                    sudo kubectl create namespace group3
+		    sudo kubectl delete pods --all pods --namespace=group3
+                    sudo kubectl apply -f nginx.yaml 
+		    sudo kubectl apply -f nginx-conf.yaml
 		    sudo kubectl apply -f frontend.yaml
 		    sudo kubectl apply -f backend.yaml
-		    sudo kubectl apply -f nginxservice.yaml
-		    kubectl describe service nginxservice.yaml -n x
+		    sudo kubectl apply -f nginx-lb.yaml
+		    kubectl describe service nginx-lb.yaml --namespace=group3
                     echo "Done"
                     '''
 
