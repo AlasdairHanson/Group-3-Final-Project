@@ -4,7 +4,6 @@
   roles:
   - utilities
   - sudo-doers
-  - jenkinsvm_pub-key_to_testvm
 
 - hosts: jenkins
   become: true
@@ -23,7 +22,6 @@
   - jenkins
   - kubernetes
   - sudo-doers
-  - testvm_pub-key_to_jenkinsvm
   - docker
   - docker-compose
 

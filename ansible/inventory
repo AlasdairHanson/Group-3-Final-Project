@@ -1,13 +1,7 @@
 [testvm]
 testvm_ip
-
+ 
 [jenkins]
-jenkinsvm_ip
-
-[docker]
-jenkinsvm_ip
-
-[kubernetes]
 jenkinsvm_ip
 
 [untilities]

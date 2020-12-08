@@ -21,3 +21,9 @@
     name: nginx
     state: latest
     update_cache: true
+
+- name: Install maven
+  apt:
+    name: maven
+    state: latest
+    update_cache: true
