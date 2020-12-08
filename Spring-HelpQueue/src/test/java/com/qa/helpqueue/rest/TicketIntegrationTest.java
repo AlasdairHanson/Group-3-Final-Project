@@ -64,9 +64,8 @@ public class TicketIntegrationTest {
 
 		RequestBuilder request1 = delete("/deleteTicket/1");
 		ResultMatcher checkStatus1 = status().isOk();
-		ResultMatcher checkStatus2 = status().isInternalServerError();
 
-		this.mockMVC.perform(request1).andExpect(checkStatus2);
+		this.mockMVC.perform(request1).andExpect(checkStatus1);
 
 	}
 
