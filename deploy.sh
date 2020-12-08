@@ -30,9 +30,6 @@ fi
 #export jenkinsvm_ip="$(terraform output pulic_ip)"
 #export testvm_ip="$(terraform output testvm)"
 
-export jenkinsvm_ip=34.253.168.242
-export testvm_ip=34.246.187.233
-
 
 #Export output endpoints addresses into variables to help mask secrets and prevent them from being pushed to git hub
 
