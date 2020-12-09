@@ -1,0 +1,34 @@
+---
+- hosts: testvm
+  become: true
+  roles:
+  - utilities
+  - sudo-doers
+
+- hosts: jenkins
+  become: true
+  vars:
+    CTOP_VERSION: "0.7.3"
+    DOCKER_COMPOSE_VERSION: "1.25.1"
+    DOCKER_PACKAGES:
+      - apt-transport-https
+      - ca-certificates
+      - curl
+      - gnupg-agent
+      - software-properties-common
+    USER: "ubuntu"
+  roles:
+  - utilities
+  - jenkins
+  - kubernetes
+  - sudo-doers
+  - docker
+  - docker-compose
+
+  handlers:
+  - name: Restart docker
+    service:
+      name: docker
+      state: restarted
+
+
