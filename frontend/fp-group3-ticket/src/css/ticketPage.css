@@ -1,0 +1,159 @@
+.navBar {
+    background-color: #f3f3f3;
+    box-shadow: 0 4px 2px -2px #2d3436;
+}
+
+.sideBar {
+    padding-top: 15px;
+    height: 700%;
+}
+
+.status {
+    background-color: green;
+}
+
+.statusText {
+    writing-mode: vertical-rl;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    top: 0px;
+}
+
+.catContainer {
+    padding: 4%;
+    margin-bottom: 5px;
+
+}
+
+.ticketList {
+    padding: 15px;
+}
+
+.icons {
+    text-align: right;
+}
+
+.topic {
+    margin-left: 10px;
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid transparent;
+    border-top-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+}
+
+.ticket{
+    margin-bottom: 20px;
+    box-shadow: 0 4px 2px -2px #2d3436;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: lime;
+}
+
+.navBar{
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.header{
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+    .grey-1-bg {
+    background-color: #dfe6e9;
+}
+
+.grey-2-bg {
+    background-color: #b2bec3;
+}
+
+.grey-3-bg {
+    background-color: #636e72;
+}
+
+.grey-4-bg {
+    background-color: #2d3436;
+}
+
+.catButton {
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+    text-align: left;
+    color: #2a2a2a;
+}
+
+.sideBarCard {
+    height: 100%;
+}
+
+.catSidebar {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+    margin-right: 5px;
+    border-bottom: 2px solid grey;
+}
+
+.ticketModal{
+    width: 810px;
+    height: 70%;
+    overflow-y: auto;
+    max-width: none !important;
+}
+
+.Unresolved {
+    background-color: #e74c3c;
+}
+
+.Pending {
+    background-color: #e67e22;
+}
+
+.Resolved {
+    background-color: #2ecc71;
+}
+
+.sideDiv {
+    padding: 12px;
+}
+
+.sidebarHead {
+    text-align: left;
+    padding: 5px;
+    margin: 6px 6px 6px 6px;
+    font-weight: bolder;
+}
+
+.sidebarBody {
+    text-align: left;
+    padding: 5px;
+    margin: 6px 6px 6px 14px;
+    font-weight: normal;
+}
+
+.sidebarCont {
+    border-bottom: 1px solid black;
+}
+
+
+.sidebarCont:hover {
+    background-color: grey;
+}
+
+
