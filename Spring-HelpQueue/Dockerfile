@@ -14,8 +14,8 @@ FROM java:8 AS RUN
 #create a new directory /run
 WORKDIR /run
 #from the setup sttage where file is created, use directory /run
-COPY --from=setup /setup/target/Sspring-helpqueue.war /run
+COPY --from=setup /setup/target/spring-helpqueue.war /run
 
 EXPOSE 8081
 #execute war file
-ENTRYPOINT ["java", "-jar", "Sspring-helpqueue.war"]
+ENTRYPOINT ["java", "-jar", "spring-helpqueue.war"]
