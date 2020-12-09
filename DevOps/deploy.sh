@@ -5,6 +5,11 @@
 #Ensure to run command export testdb_endpoint="your testdb username"
 #Ensure to run command export passwd="yourpasswd"
 
+if [ ! -f ~/.ssh/id_rsa.pub ]; then
+  ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N ""
+else
+  echo "Public key already exist"
+fi
 
 cd ~
 rm -rf credentials
@@ -24,13 +29,14 @@ cd ~/Group-3-Final-Project/DevOps/terraform
 terraform fmt
 terraform init
 terraform plan
-terraform apply -auto-approve
+#terraform apply -auto-approve
 
 #Export output ip addresses into variables to help mask secrets and prevent them from being pushed to git hub
 
 export jenkinsvm_ip="$(terraform output jenkinsvm_ip)"
-export testvm_ip="$(terraform output testvm_ip)"
-
+export jenkinsvm_ip=$(echo ${jenkinsvm_ip} | jq -r .)
+export testvm_ip="$(terraform output testvm_ip | jq -r)"
+export testvm_ip=$(echo ${testvm_ip} | jq -r .)
 
 #Export output endpoints addresses into variables to help mask secrets and prevent them from being pushed to git hub
 
@@ -41,12 +47,13 @@ export testdb_endpoint="$(terraform output rds_endpoint_test)"
 
 cd ~/Group-3-Final-Project/DevOps/database
 #mysql -h ${db_endpoint}-P 3306 -u ${db_username} -p${passwd} < Create.sql
-mysql -h ${testdb_endpoint} -P 3306 -u ${testdb_username} -p${passwd} < Create_test.sql
+#mysql -h ${testdb_endpoint} -P 3306 -u ${testdb_username} -p${passwd} < Create_test.sql
 
 
 #Sleep 10 seconds to ensure these vm are fully up
 
 sleep 1
+
 
 #Make key directory if it does not already exist. This will store keys that I secure copy from any vm and use them for shh'ing into any vm.
 
@@ -113,6 +120,8 @@ cat ~/authorized_keys >> ~/.ssh/authorized_keys
 rm -rf authorized_keys
 
 EOF
+    
+sleep 1
 
 #Passing in the hosts into the known hosts
 
@@ -125,10 +134,6 @@ sudo -- sh -c -e "echo '${​​​​​jenkinsvm_ip}​​​​​ jenkinsvm_
 
 #Start anible playbook which installs all the neccessary softwares, add sudo doers and pass public keys into each vm to allow ssh'ing.
 
-cd ~/Group-3-Final-Project/ansible
+cd ~/Group-3-Final-Project/DevOps/ansible
 
 ansible-playbook -i inventory playbook.yaml
-
-
-    
-sleep 1

@@ -43,25 +43,19 @@ resource "aws_key_pair" "key_pub" {
 
 module "Jenkinsvm" {
   source                 = "./EC2"
-  #name                   = "ec2"
+  name                   = "jenkins_vm"
   subnet_id              = module.vpc.subnet_a_id
   vpc_security_group_ids = [module.sg_node.sg_id]
   keyy                   = aws_key_pair.key_pub.id
-  tags = {
-    Name = "jenkins_vm"
-  }
 }
 
 module "Testvm" {
   source                 = "./EC2"
-  #name                   = "ec2"
+  name                   = "test_vm"
   subnet_id              = module.vpc.subnet_a_id
   vpc_security_group_ids = [module.sg_node.sg_id]
   keyy                   = aws_key_pair.key_pub.id
-  instance = "t2.medium"
-  tags = {
-    Name = "test_vm"
-  }
+  instance               = "t2.medium"
 }
 
 resource "aws_db_subnet_group" "default" {
