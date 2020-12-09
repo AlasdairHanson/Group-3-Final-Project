@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
-import { PencilFill, PlusCircleFill } from "react-bootstrap-icons";
+import { PencilFill} from "react-bootstrap-icons";
 import EditTicketForm from "./EditTicketForm";
 const EditTicketButton = ({id, oldTitle, oldAuthor, oldUrgency, oldCohort, oldDesc, oldTopic}) => {
   const [show, setShow] = useState(false);

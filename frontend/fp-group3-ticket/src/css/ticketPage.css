@@ -28,7 +28,6 @@
 
 .ticketList {
     padding: 15px;
-
 }
 
 .icons {
@@ -130,6 +129,31 @@
     background-color: #2ecc71;
 }
 
+.sideDiv {
+    padding: 12px;
+}
 
+.sidebarHead {
+    text-align: left;
+    padding: 5px;
+    margin: 6px 6px 6px 6px;
+    font-weight: bolder;
+}
+
+.sidebarBody {
+    text-align: left;
+    padding: 5px;
+    margin: 6px 6px 6px 14px;
+    font-weight: normal;
+}
+
+.sidebarCont {
+    border-bottom: 1px solid black;
+}
+
+
+.sidebarCont:hover {
+    background-color: grey;
+}
 
 
