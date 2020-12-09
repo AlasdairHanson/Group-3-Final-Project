@@ -9,3 +9,7 @@ variable "password1" {
 variable "key_pub" {
   default = "~/.ssh/id_rsa.pub"
 }
+
+variable "instance" {
+  default = "t2.medium"
+}
