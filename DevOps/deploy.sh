@@ -28,14 +28,14 @@ fi
 cd ~/Group-3-Final-Project/DevOps/terraform
 terraform fmt
 terraform init
-terraform plan
+#terraform plan
 #terraform apply -auto-approve
 
 #Export output ip addresses into variables to help mask secrets and prevent them from being pushed to git hub
 
 export jenkinsvm_ip="$(terraform output jenkinsvm_ip)"
 export jenkinsvm_ip=$(echo ${jenkinsvm_ip} | jq -r .)
-export testvm_ip="$(terraform output testvm_ip | jq -r)"
+export testvm_ip="$(terraform output testvm_ip)"
 export testvm_ip=$(echo ${testvm_ip} | jq -r .)
 
 #Export output endpoints addresses into variables to help mask secrets and prevent them from being pushed to git hub
@@ -127,9 +127,10 @@ sleep 1
 
 cd ~
 
-sudo -- sh -c -e "echo '${​​​​​testvm_ip}​​​​​ testvm_ip' >> /etc/hosts";
+sudo -- sh -c -e "echo '${testvm_ip} testvm_ip' >> /etc/hosts";
 
-sudo -- sh -c -e "echo '${​​​​​jenkinsvm_ip}​​​​​ jenkinsvm_ip' >> /etc/hosts";
+sudo -- sh -c -e "echo '${jenkinsvm_ip} jenkinsvm_ip' >> /etc/hosts";
+
 
 
 #Start anible playbook which installs all the neccessary softwares, add sudo doers and pass public keys into each vm to allow ssh'ing.
