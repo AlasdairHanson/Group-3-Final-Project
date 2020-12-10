@@ -8,6 +8,7 @@ pipeline{
 		testvm_ip=credentials('testvm_ip')
 		
         }
+	
         stages{
             stage('Jenkin Test'){
                 steps{
