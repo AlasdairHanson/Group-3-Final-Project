@@ -15,8 +15,7 @@ CREATE TABLE `ticket` (
     `ticket_topic` VARCHAR(255),
     `ticket_status` VARCHAR(255),
     `ticket_trainer` VARCHAR(255) NOT NULL,
-    `ticket_cohort` VARCHAR(255) NOT NULL,
-
+    `ticket_cohort` VARCHAR(255) NOT NULL
 );
 
 

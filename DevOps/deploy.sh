@@ -16,20 +16,20 @@ rm -rf credentials
 if [ ! -d credentials/ ]; then
   mkdir credentials
   cd credentials
-  touch rds_passwd
+  touch rds_password
   touch rds_username
   echo ${username} >> rds_username
-  echo ${passwd} >> rds_passwd
+  echo ${password} >> rds_password
   cd ~
 fi
 
 #Start terraform
 
 cd ~/Group-3-Final-Project/DevOps/terraform
-terraform fmt
-terraform init
-terraform plan
-terraform apply -auto-approve
+#terraform fmt
+#terraform init
+#terraform plan
+#terraform apply -auto-approve
 
 echo "terraform finished"
 
@@ -46,6 +46,7 @@ echo "export terraform vars"
 
 export testdb_endpoint="$(terraform output rds_endpoint_test)"
 export testdb_endpoint=$(echo ${testdb_endpoint} | jq -r .)
+export testdb_endpoint=$(echo ${testdb_endpoint} | sed 's/:3306//')
 #export db_endpoint="$(terraform output rds_endpoint_crud)"
 #export db_endpoint=$(echo ${db_endpoint} | jq -r .)
 
@@ -85,7 +86,7 @@ echo "Make key directory"
 
 cd ~/Group-3-Final-Project/DevOps/ansible
 
-ansible-playbook -i inventory playbook.yaml
+#ansible-playbook -i inventory playbook.yaml
 
 sleep 5
 
@@ -125,6 +126,7 @@ EOF
 ssh ubuntu@${jenkinsvm_ip} << EOF 
 
 mkdir jenkinsusr_pubkey
+
 sudo su - jenkins << EOF1 
 
 if [ ! -f ~/.ssh/id_rsa.pub ]; then
@@ -191,24 +193,50 @@ sleep 1
 
 #echo "db_endpoint=${db_endpoint}" >> ~/databasecredentials.sh
 
-echo "testdb_endpoint=${testdb_endpoint}" >> ~/databasecredentials.sh
+echo "export testdb_endpoint=${testdb_endpoint}" >> ~/databasecredentials.sh
+echo "export testdb_username=${testdb_username}" >> ~/databasecredentials.sh
+echo "export password=${password}" >> ~/databasecredentials.sh
 
-scp ~/Group-3-Final-Project/DevOps/database ubuntu@${jenkinsvm_ip}:~/
 scp ~/databasecredentials.sh ubuntu@${jenkinsvm_ip}:~/
-scp ~/Group-3-Final-Project/DevOps/database ubuntu@${testvm_ip}:~/
 scp ~/databasecredentials.sh ubuntu@${testvm_ip}:~/
+
+sleep 2
+
+ssh ubuntu@${testvm_ip} <<EOF
+
+#Passing in database schema
+
+git clone https://github.com/AlasdairHanson/Group-3-Final-Project.git -b Dev
+
+. ./databasecredentials.sh
+sleep 2
+echo $password
+echo $testdb_username
+echo $testdb_endpoint 
+
+cd ~/Group-3-Final-Project/DevOps/database
+#mysql -h ${db_endpoint}-P 3306 -u ${db_username} -p${password} < Create.sql
+mysql -h ${testdb_endpoint} -P 3306 -u ${testdb_username} -p${password} < Create_test.sql
+
+echo "passing in sql schema"
+
+EOF
 
 ssh ubuntu@${jenkinsvm_ip} <<EOF
 
 #Passing in database schema
 
-source databasecredentials.sh
-export paswd testdb_username testdb_endpoint
+git clone https://github.com/AlasdairHanson/Group-3-Final-Project.git -b Dev
 
-cd ~/database
-#mysql -h ${db_endpoint}-P 3306 -u ${db_username} -p${passwd} < Create.sql
-mysql -h ${testdb_endpoint} -P 3306 -u ${testdb_username} -p${passwd} < Create_test.sql
+. ./databasecredentials.sh
+sleep 2
+echo $password
+echo $testdb_username
+echo $testdb_endpoint 
 
+cd ~/Group-3-Final-Project/DevOps/database
+
+mysql -h ${testdb_endpoint} -P 3306 -u ${testdb_username} -p${password} < Create.sql
 
 echo "passing in sql schema"
 

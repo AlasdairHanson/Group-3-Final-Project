@@ -91,7 +91,7 @@ fi
 if ! which terraform > /dev/null; then
         echo "Installing terraform"
         sleep 1
-	wget https://releases.hashicorp.com/terraform/0.12.12/terraform_0.12.12_linux_amd64.zip
+	wget https://releases.hashicorp.com/terraform/0.14.2/terraform_0.14.2_linux_amd64.zip
         unzip terraform_*_linux_*.zip
 	sudo mv terraform /usr/local/bin
 	rm terraform_*_linux_*.zip
