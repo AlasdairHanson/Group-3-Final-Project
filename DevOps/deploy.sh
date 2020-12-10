@@ -183,20 +183,33 @@ rm -rf authorized_keys
 rm -rf jenkinsusr_pubkey
 EOF
 
+echo "passed keys to keys directory"
+
 sleep 1
 
-scp ~/Group-3-Final-Project/DevOps/database ubuntu@${jenkinsvm_ip}:~/
+#Copying database schema and database URI securely
 
-#ssh ubuntu@${jenkinsvm_ip} <<EOF
+#echo "db_endpoint=${db_endpoint}" >> ~/databasecredentials.sh
+
+echo "testdb_endpoint=${testdb_endpoint}" >> ~/databasecredentials.sh
+
+scp ~/Group-3-Final-Project/DevOps/database ubuntu@${jenkinsvm_ip}:~/
+scp ~/databasecredentials.sh ubuntu@${jenkinsvm_ip}:~/
+scp ~/Group-3-Final-Project/DevOps/database ubuntu@${testvm_ip}:~/
+scp ~/databasecredentials.sh ubuntu@${testvm_ip}:~/
+
+ssh ubuntu@${jenkinsvm_ip} <<EOF
 
 #Passing in database schema
 
-#cd ~/database
+source databasecredentials.sh
+export paswd testdb_username testdb_endpoint
+
+cd ~/database
 #mysql -h ${db_endpoint}-P 3306 -u ${db_username} -p${passwd} < Create.sql
-#mysql -h ${testdb_endpoint} -P 3306 -u ${testdb_username} -p${passwd} < Create_test.sql
+mysql -h ${testdb_endpoint} -P 3306 -u ${testdb_username} -p${passwd} < Create_test.sql
 
-#echo "passing in sql schema"
+echo "passing in sql schema"
 
-#EOF
+EOF
 
-echo "passed keys to keys directory"
