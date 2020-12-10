@@ -114,5 +114,3 @@ else
 
 fi
 
-
-. ./deploy.sh
