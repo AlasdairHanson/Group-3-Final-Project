@@ -64,6 +64,7 @@ if [ ! -d keys/ ]; then
   cd keys
   mkdir testvm
   mkdir jenkins
+  mkdir jenkinsusr
   cd ~
 fi
  
@@ -92,16 +93,34 @@ else
   echo "Public key already exist"
 fi
 
+mkdir jenkinsusr_pubkey
+sudo su - jenkins
+
+if [ ! -f ~/.ssh/d_rsa.pub ]; then
+  ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N ""
+  cp -rf ~/.ssh/id_rsa.pub /home/ubuntu/jenkinsusr_pubkey
+
+else
+  echo "Public key already exist"
+fi
+
 EOF
 
 #Secure copy public key to the keys directory.
 
 scp ubuntu@${jenkinsvm_ip}:~/.ssh/id_rsa.pub ~/keys/jenkins
 
+
+#Secure copy public jenkins usr key to the keys directory.
+
+scp ubuntu@${jenkinsvm_ip}:~/jenkinsusr_pubkey/id_rsa.pub ~/keys/jenkinsusr
+
+
 #Passing all vm keys into master's autherized_keys file and sharing that file with the other vms to allow ssh'ing from anywhere.
 
 cd ~
 cat ~/keys/jenkins/id_rsa.pub >> ~/.ssh/authorized_keys
+cat ~/keys/jenkinsusr/id_rsa.pub >> ~/.ssh/authorized_keys
 cat ~/keys/testvm/id_rsa.pub >> ~/.ssh/authorized_keys
 cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 scp ~/.ssh/authorized_keys ubuntu@${jenkinsvm_ip}:~/
@@ -117,8 +136,10 @@ EOF
 ssh ubuntu@${jenkinsvm_ip} <<EOF
 cd ~
 cat ~/authorized_keys >> ~/.ssh/authorized_keys
-rm -rf authorized_keys
+cat ~/authorized_keys >> /home/jenkins/.ssh/authorized_keys
 
+rm -rf authorized_keys
+rm -rf jenkinsusr_pubkey
 EOF
     
 sleep 1
