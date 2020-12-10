@@ -54,8 +54,9 @@ pipeline{
                     '''
 
                 }
-            }    
-	    steps{
+            }
+	    stage('Deploy kubernetes cluster'){
+	    	steps{
                     sh '''
                     cd ~/Group-3-Final-Project
                     sudo kubectl apply -f ~/secrets.yaml
@@ -69,8 +70,9 @@ pipeline{
 		    kubectl describe service nginx-lb.yaml --namespace=group3
                     echo "Done"
                     '''
+		}
 
-                }
-	   }    
-      }
+             }
+	}    
+}
 
