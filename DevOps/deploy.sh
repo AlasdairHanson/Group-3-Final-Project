@@ -209,6 +209,7 @@ cd ~/database
 #mysql -h ${db_endpoint}-P 3306 -u ${db_username} -p${passwd} < Create.sql
 mysql -h ${testdb_endpoint} -P 3306 -u ${testdb_username} -p${passwd} < Create_test.sql
 
+
 echo "passing in sql schema"
 
 EOF
