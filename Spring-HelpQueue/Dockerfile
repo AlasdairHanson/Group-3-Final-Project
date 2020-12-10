@@ -6,16 +6,23 @@ WORKDIR /setup
 #copy file from working directory ls to directory /setup
 COPY . /setup
 
+#set environmental variables
+ENV PASSWD=${PASSWD}
+
+ENV USERNAME=${USERNAME}
+
+ENV DATABASE_URI=${DATABASE_URI}
+
 RUN mvn clean package
 
 #stage 2
 #install java SE as run stage
-FROM java:8 AS RUN
+FROM openjdk:11 AS RUN
 #create a new directory /run
 WORKDIR /run
 #from the setup sttage where file is created, use directory /run
-COPY --from=setup /setup/target/spring-helpqueue.war /run
+COPY --from=setup /setup/target/Spring-HelpQueue-0.0.1-SNAPSHOT.war /run
 
 EXPOSE 8081
 #execute war file
-ENTRYPOINT ["java", "-jar", "spring-helpqueue.war"]
+ENTRYPOINT ["java", "-jar", "Spring-HelpQueue-0.0.1-SNAPSHOT.war"]
