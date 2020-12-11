@@ -1,5 +1,6 @@
 import axios from "axios";
 import React from "react";
+import Avatar from "react-avatar";
 import { Col, Row, Button, Card, Accordion } from "react-bootstrap";
 import * as Icon from "react-bootstrap-icons";
 import EditTicketButton from "./EditTicketButton";
@@ -73,16 +74,51 @@ const Ticket = ({
       <Card.Footer>
         <Row>
           <Col xs={4}>
-            <p className="mutedText">Trainer:</p>
-            <h6 className="ticketText">{trainee}</h6>
+            <Row>
+              <Col xs={2}>
+                <Avatar
+                  name={trainee}
+                  round={true}
+                  size={50}
+                  textSizeRatio={2.5}
+                />
+              </Col>
+              <Col>
+                <p className="mutedText">Trainer:</p>
+                <h6 className="ticketText">{trainee}</h6>
+              </Col>
+            </Row>
+          </Col>
+
+          <Col xs={4}>
+            <Row>
+              <Col xs={2}>
+                <Avatar
+                  name={trainer}
+                  round={true}
+                  size={50}
+                  textSizeRatio={2.5}
+                />
+              </Col>
+              <Col>
+                <p className="mutedText">Trainer:</p>
+                <h6 className="ticketText">{trainer}</h6>
+              </Col>
+            </Row>
           </Col>
           <Col xs={4}>
-            <p className="mutedText">Trainee:</p>
-            <h6 className="ticketText">{trainer}</h6>
-          </Col>
-          <Col xs={4}>
-            <p className="mutedText">Priority:</p>
-            <h6 className="ticketText">{priority}</h6>
+            <Row>
+              <Col xs={4}>
+                <p className="mutedText">Priority:</p>
+                <h6 className="ticketText">{priority}</h6>
+              </Col>
+              <Col>
+                <div className="priorityBar">
+                  <div className={priority}>
+                  </div>
+                </div>
+              </Col>
+            </Row>
           </Col>
         </Row>
       </Card.Footer>
