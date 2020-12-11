@@ -4,6 +4,7 @@
   roles:
   - utilities
   - sudo-doers
+  - node
 
 - hosts: jenkins
   become: true
