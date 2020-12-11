@@ -13,19 +13,29 @@ pipeline{
             stage('Jenkin Test'){
                 steps{
                     sh '''
+		    rm -rf Group-3-Final-Project
+		    git clone https://github.com/AlasdairHanson/Group-3-Final-Project.git -b Dev
 		    echo "Hello From Group3"
                     '''
                     
                 }
 	    }
-	   
+	 stages{
+            stage('Export Database URI'){
+                steps{
+                    sh '''
+                    cd ~
+		    . ./databasecredentials.sh
+
+                    '''
+
+                }
+            }
             stage('Docker Build'){
                 steps{
                     sh '''
                     cd ~/Group-3-Final-Project
 		    sudo systemctl disable nginx
-		    export DATABASE_URI=${DATABASE_URI}
-		    export TEST_DATABASE_URI=${TEST_DATABASE_URI}
 		    sudo docker-compose up -d --build
 		    sudo curl localhost:80
                     '''

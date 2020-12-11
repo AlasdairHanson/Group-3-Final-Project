@@ -226,6 +226,8 @@ ssh ubuntu@${jenkinsvm_ip} <<EOF
 
 #Passing in database schema
 
+sudo cp -rf ~/databasecredentials.sh /home/jenkins/
+
 git clone https://github.com/AlasdairHanson/Group-3-Final-Project.git -b Dev
 
 . ./databasecredentials.sh
