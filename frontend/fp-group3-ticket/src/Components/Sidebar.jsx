@@ -1,15 +1,18 @@
 import React from "react";
-import { Accordion, Button, Card } from "react-bootstrap";
+import { Accordion, Button, Card, Container } from "react-bootstrap";
+import SideBody from "./SideBody";
+import SideHeader from "./SideHeader";
 const Sidebar = () => {
   return (
-    <Card>
-      <div className="sidebarCont">
-        <p className="sidebarHead">Head</p>
-      </div>
-      <div className="sidebarCont">
-        <p className="sidebarBody">Body 1</p>
-      </div>
-    </Card>
+    <div className="sidebarContainer">
+      <SideHeader />
+      <SideBody />
+      <SideBody />
+      <SideBody />
+      <SideBody />
+      <SideBody />
+      <SideBody />
+    </div>
   );
 };
 export default Sidebar;

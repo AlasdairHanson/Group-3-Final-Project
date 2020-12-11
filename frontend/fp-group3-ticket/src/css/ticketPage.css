@@ -147,13 +147,24 @@
     font-weight: normal;
 }
 
-.sidebarCont {
-    border-bottom: 1px solid black;
+.sidebarContainer {
+    border-radius: .25rem;
+    background-color: white;
+    box-shadow: 0 4px 2px -2px #2d3436;
 }
 
 
 .sidebarCont:hover {
     background-color: grey;
+}
+
+.sidebarInnerContainer {
+    padding: 10px 8px 10px 20px;
+}
+
+.sidebarInnerContainer:hover {
+    background-color:  	#004050;
+    color: white;
 }
 
 
