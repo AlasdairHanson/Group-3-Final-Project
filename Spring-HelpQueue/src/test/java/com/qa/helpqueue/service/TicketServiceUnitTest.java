@@ -30,8 +30,8 @@ public class TicketServiceUnitTest {
 	@Test
 	void testCreateTicket() {
 		Long id = 1L;
-		Ticket newTicket = new Ticket("Title", "Author", 3, "Desc", "Urgency", "Topic", "Status", "Trainer", "Cohort");
-		Ticket savedTicket = new Ticket("Title", "Author", 3, "Desc", "Urgency", "Topic", "Status", "Trainer",
+		Ticket newTicket = new Ticket("Title", "Author", "Some time", "Desc", "Urgency", "Topic", "Status", "Trainer", "Cohort");
+		Ticket savedTicket = new Ticket("Title", "Author", "Some time", "Desc", "Urgency", "Topic", "Status", "Trainer",
 				"Cohort");
 		savedTicket.setID(id);
 
@@ -48,7 +48,7 @@ public class TicketServiceUnitTest {
 
 		List<Ticket> tickets = new ArrayList<Ticket>();
 		Long id = 1L;
-		Ticket addedTicket = new Ticket("Title", "Author", 3, "Desc", "Urgency", "Topic", "Status", "Trainer",
+		Ticket addedTicket = new Ticket("Title", "Author", "Some time", "Desc", "Urgency", "Topic", "Status", "Trainer",
 				"Cohort");
 		addedTicket.setID(id);
 		tickets.add(addedTicket);
@@ -61,11 +61,11 @@ public class TicketServiceUnitTest {
 	@Test
 	void testUpdateTicket() {
 		Long id = 1L;
-		Ticket newTicket = new Ticket("Another Title", "Another Author", 7, "Desc", "Urgency", "Topic", "Status",
+		Ticket newTicket = new Ticket("Another Title", "Another Author", "Another time", "Desc", "Urgency", "Topic", "Status",
 				"Trainer", "Cohort");
-		Ticket oldTicket = new Ticket("Title", "Author", 3, "Desc", "Urgency", "Topic", "Status", "Trainer", "Cohort");
+		Ticket oldTicket = new Ticket("Title", "Author", "Some time", "Desc", "Urgency", "Topic", "Status", "Trainer", "Cohort");
 		oldTicket.setID(id);
-		Ticket updatedTicket = new Ticket("Another Title", "Another Author", 7, "Desc", "Urgency", "Topic", "Status",
+		Ticket updatedTicket = new Ticket("Another Title", "Another Author", "Another time", "Desc", "Urgency", "Topic", "Status",
 				"Trainer", "Cohort");
 		updatedTicket.setID(id);
 
@@ -79,7 +79,7 @@ public class TicketServiceUnitTest {
 	@Test
 	void testDeleteTicket() {
 		Long id = 1L;
-		Ticket toRemoveTicket = new Ticket("Title", "Author", 3, "Desc", "Urgency", "Topic", "Status", "Trainer",
+		Ticket toRemoveTicket = new Ticket("Title", "Author", "Some time", "Desc", "Urgency", "Topic", "Status", "Trainer",
 				"Cohort");
 		toRemoveTicket.setID(id);
 

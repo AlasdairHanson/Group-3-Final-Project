@@ -42,14 +42,14 @@ public class TicketIntegrationTest {
 
 	@Test
 	void testCreateTicket() throws Exception {
-		Ticket newTicket = new Ticket("Title", "Author", 3, "Desc", "Urgency", "Topic", "Status", "Trainer", "Cohort");
+		Ticket newTicket = new Ticket("Title", "Author", "Some time", "Desc", "Urgency", "Topic", "Status", "Trainer", "Cohort");
 		String requestBody = this.mapper.writeValueAsString(newTicket);
 
 		RequestBuilder request = post("/createTicket").contentType(MediaType.APPLICATION_JSON).content(requestBody);
 
 		ResultMatcher checkStatus = status().isCreated();
 
-		Ticket savedTicket = new Ticket("Title", "Author", 3, "Desc", "Urgency", "Topic", "Status", "Trainer",
+		Ticket savedTicket = new Ticket("Title", "Author", "Some time", "Desc", "Urgency", "Topic", "Status", "Trainer",
 				"Cohort");
 		savedTicket.setID(2L);
 
@@ -87,7 +87,7 @@ public class TicketIntegrationTest {
 	@Test
 	void testReadTicket() throws Exception {
 		// MUST match the test database record
-		Ticket ticket = new Ticket("Some Title", "Some Author", 3, "Desc", "Urgent", "React", "Completed", "Savannah",
+		Ticket ticket = new Ticket("Some Title", "Some Author", "Some time", "Desc", "Urgent", "React", "Completed", "Savannah",
 				"Cloud Native");
 		ticket.setID(1L);
 		List<Ticket> tickets = new ArrayList<>();
@@ -102,7 +102,7 @@ public class TicketIntegrationTest {
 	void testUpdateTicket() throws Exception {
 		// Updates the book with id=1 in the test database
 		Long id = 1L;
-		Ticket updatedTicket = new Ticket("Some Updated Title", "Some Author", 5, "Desc", "Urgent", "React",
+		Ticket updatedTicket = new Ticket("Some Updated Title", "Some Author", "Some updated time", "Desc", "Urgent", "React",
 				"Completed", "Savannah", "Cloud Native");
 		String requestBody = this.mapper.writeValueAsString(updatedTicket);
 		RequestBuilder request = put("/updateTicket/" + id).contentType(MediaType.APPLICATION_JSON)
@@ -110,7 +110,7 @@ public class TicketIntegrationTest {
 
 		ResultMatcher checkStatus = status().isAccepted();
 
-		Ticket returnedTicket = new Ticket("Some Updated Title", "Some Author", 5, "Desc", "Urgent", "React",
+		Ticket returnedTicket = new Ticket("Some Updated Title", "Some Author", "Some updated time", "Desc", "Urgent", "React",
 				"Completed", "Savannah", "Cloud Native");
 		returnedTicket.setID(id);
 

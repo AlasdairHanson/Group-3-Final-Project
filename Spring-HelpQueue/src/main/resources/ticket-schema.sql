@@ -4,7 +4,7 @@ CREATE TABLE ticket (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     ticket_title VARCHAR(255),
     ticket_author VARCHAR(255),
-    ticket_time BIGINT,
+    ticket_time VARCHAR(255),
     ticket_desc VARCHAR(255),
     ticket_urgency VARCHAR(255),
     ticket_topic VARCHAR(255),
