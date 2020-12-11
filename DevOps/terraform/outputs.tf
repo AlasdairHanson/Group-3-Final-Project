@@ -1,5 +1,5 @@
 output "rds_endpoint_test" {
-  value = module.test_rds.rds_endpoint_test
+  value = module.test_rds.rds_endpoint
 }
 
 output "jenkinsvm_ip" {
@@ -14,6 +14,6 @@ output "testvm_ip" {
 #  value = module.BastionHost.public_ip
 #}
 
-output "Jenkinsvm_private_ip" {
-  value = module.Jenkinsvm.private_ip
+output "rds_endpoint_prod" {
+  value = module.test_rds.rds_endpoint
 }

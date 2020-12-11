@@ -1,7 +1,3 @@
-output "rds_endpoint_test" {
+output "rds_endpoint" {
   value = aws_db_instance.testdb.endpoint
 }
-
-#output "rds_endpoint_prod" {
-#  value = aws_db_instance.production.endpoint
-#}
