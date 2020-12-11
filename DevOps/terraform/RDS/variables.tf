@@ -28,8 +28,8 @@ variable "rds_username" {
   sensitive   = true
 }
 
-variable "db_name" {
-  default = "testdb"
-}
+#variable "db_name" {
+#  default = "testdb"
+#}
 
 
