@@ -28,5 +28,7 @@ which java
 java -version
 
 mvn clean package
+
+pwd
 EOF
                     
