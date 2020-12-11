@@ -27,8 +27,8 @@ which java
 
 java -version
 
-mvn clean package
+mvn clean package | grep 'BUILD SUCCESS'
 
-pwd
+
 EOF
                     
