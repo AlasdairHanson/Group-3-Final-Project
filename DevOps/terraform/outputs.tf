@@ -15,5 +15,5 @@ output "testvm_ip" {
 #}
 
 output "rds_endpoint_prod" {
-  value = module.test_rds.rds_endpoint
+  value = module.prod_rds.rds_endpoint
 }
