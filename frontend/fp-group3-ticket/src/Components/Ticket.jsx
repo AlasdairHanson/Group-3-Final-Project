@@ -35,15 +35,17 @@ const Ticket = ({
       <Card.Header>
         <Row>
           <Accordion.Toggle as={Col} eventKey={acc_id}>
-            <Card.Title>{title}</Card.Title>
+            <p className="mutedText">Title:</p>
+            <h5 className="ticketText">{title}</h5>
           </Accordion.Toggle>
           <Col xs={2}>
-            <div className="topic blue">{topic}</div>
+            <div className="topic blue my-1">{topic}</div>
           </Col>
           <Col xs={3}>
-            <Card.Text>{cohort}</Card.Text>
+            <p className="mutedText">Cohort:</p>
+            <h5 className="ticketText">{cohort}</h5>
           </Col>
-          <Col xs={3} className="icons">
+          <Col xs={3} className="icons my-1">
             <EditTicketButton
               id={id}
               oldTitle={title}
@@ -68,11 +70,20 @@ const Ticket = ({
           </Row>
         </Card.Body>
       </Accordion.Collapse>
-      <Card.Footer className="text-muted">
+      <Card.Footer>
         <Row>
-          <Col xs={4}> {trainee} </Col>
-          <Col xs={4}> {trainer} </Col>
-          <Col xs={4}> {priority}</Col>
+          <Col xs={4}>
+            <p className="mutedText">Trainer:</p>
+            <h6 className="ticketText">{trainee}</h6>
+          </Col>
+          <Col xs={4}>
+            <p className="mutedText">Trainee:</p>
+            <h6 className="ticketText">{trainer}</h6>
+          </Col>
+          <Col xs={4}>
+            <p className="mutedText">Priority:</p>
+            <h6 className="ticketText">{priority}</h6>
+          </Col>
         </Row>
       </Card.Footer>
     </Card>

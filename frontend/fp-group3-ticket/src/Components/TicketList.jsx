@@ -32,7 +32,7 @@ const TicketList = () => {
           topic="placeholder"
           desc="placeholder"
           time="placeholder"
-          status="placeholder"
+          status="Unresolved"
           trainee="placeholder"
           trainer="placeholder"
           priority="placeholder"

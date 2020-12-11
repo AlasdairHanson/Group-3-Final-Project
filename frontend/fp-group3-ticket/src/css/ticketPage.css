@@ -187,4 +187,10 @@ body {
     border: 0px;
 }
 
+.mutedText {
+    color:#6c757d;
+    margin-bottom: 0px;
+    font-size: smaller;
+}
+
 
