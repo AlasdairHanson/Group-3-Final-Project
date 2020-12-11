@@ -1,5 +1,5 @@
  #! /bin/bash
-cd /home/jenkins/.jenkins/workspace/project3
+cd /var/lib/jenkins/workspace/project3
 if [ ! -d /var/lib/jenkins/workspace/project3/Group-3-Final-Project ]; then
    git clone https://github.com/AlasdairHanson/Group-3-Final-Project.git -b Dev
 else 
