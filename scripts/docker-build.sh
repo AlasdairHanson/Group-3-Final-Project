@@ -2,6 +2,10 @@
 
 sudo systemctl disable nginx
 
+cd ~
+
+. ./databasecredentials.sh
+
 echo 'Building backend docker image'
 cd /home/jenkins/.jenkins/workspace/project3/Group-3-Final-Project/Spring-HelpQueue
 sudo docker build -t ${DOCKER_USERNAME}/backend .

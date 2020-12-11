@@ -7,11 +7,13 @@ WORKDIR /setup
 COPY . /setup
 
 #set environmental variables
-ENV PASSWD=${PASSWD}
+ENV password=${password}
 
-ENV USERNAME=${USERNAME}
+ENV testdb_username=${testdb_username}
 
-ENV DATABASE_URI=${DATABASE_URI}
+ENV testdb_endpoint=${testdb_endpoint}
+
+ENV db_endpoint=${db_endpoint}
 
 RUN mvn clean package
 
