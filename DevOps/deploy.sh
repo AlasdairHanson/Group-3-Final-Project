@@ -47,8 +47,10 @@ echo "export terraform vars"
 export testdb_endpoint="$(terraform output rds_endpoint_test)"
 export testdb_endpoint=$(echo ${testdb_endpoint} | jq -r .)
 export testdb_endpoint=$(echo ${testdb_endpoint} | sed 's/:3306//')
-#export db_endpoint="$(terraform output rds_endpoint_crud)"
-#export db_endpoint=$(echo ${db_endpoint} | jq -r .)
+export db_endpoint="$(terraform output rds_endpoint_prod)"
+export db_endpoint=$(echo ${db_endpoint} | jq -r .)
+export db_endpoint=$(echo ${db_endpoint} | sed 's/:3306//')
+
 
 echo "export terraform rds endpoints"
 
@@ -190,12 +192,18 @@ echo "passed keys to keys directory"
 sleep 1
 
 #Copying database schema and database URI securely
-
+cd ~
+touch databasecredentials.sh
+chmod +x databasecredentials.sh
 #echo "db_endpoint=${db_endpoint}" >> ~/databasecredentials.sh
 
 echo "export testdb_endpoint=${testdb_endpoint}" >> ~/databasecredentials.sh
-echo "export testdb_username=${testdb_username}" >> ~/databasecredentials.sh
+echo "export db_endpoint=${db_endpoint}" >> ~/databasecredentials.sh
+echo "export db_username=${db_username}" >> ~/databasecredentials.sh
 echo "export password=${password}" >> ~/databasecredentials.sh
+echo "export testvm_ip=${testvm_ip}" >> ~/databasecredentials.sh
+echo "export DOCKER_USERNAME=${DOCKER_USERNAME}" >> ~/databasecredentials.sh
+echo "export DOCKER_PASSWORD=${DOCKER_PASSWORD}" >> ~/databasecredentials.sh
 
 scp ~/databasecredentials.sh ubuntu@${jenkinsvm_ip}:~/
 scp ~/databasecredentials.sh ubuntu@${testvm_ip}:~/
@@ -205,18 +213,24 @@ sleep 2
 ssh ubuntu@${testvm_ip} <<EOF
 
 #Passing in database schema
-
-git clone https://github.com/AlasdairHanson/Group-3-Final-Project.git -b Dev
+cd ~
 
 . ./databasecredentials.sh
+
+if [ ! -d ~/Group-3-Final-Project ]; then
+
+        git clone https://github.com/AlasdairHanson/Group-3-Final-Project.git -b Dev
+else
+        cd ~/Group-3-Final-Project
+        git pull
+
+fi
+
+
 sleep 2
-echo $password
-echo $testdb_username
-echo $testdb_endpoint 
 
 cd ~/Group-3-Final-Project/DevOps/database
-#mysql -h ${db_endpoint}-P 3306 -u ${db_username} -p${password} < Create.sql
-mysql -h ${testdb_endpoint} -P 3306 -u ${testdb_username} -p${password} < Create_test.sql
+mysql -h ${db_endpoint} -P 3306 -u ${db_username} -p${password} < Create.sql
 
 echo "passing in sql schema"
 
@@ -226,19 +240,28 @@ ssh ubuntu@${jenkinsvm_ip} <<EOF
 
 #Passing in database schema
 
-sudo cp -rf ~/databasecredentials.sh /home/jenkins/
-
-git clone https://github.com/AlasdairHanson/Group-3-Final-Project.git -b Dev
+cd ~
 
 . ./databasecredentials.sh
+
+
+sudo cp -rf ~/databasecredentials.sh /var/lib/jenkins
+
+if [ ! -d ~/Group-3-Final-Project ]; then
+	
+        git clone https://github.com/AlasdairHanson/Group-3-Final-Project.git -b Dev
+else
+        cd ~/Group-3-Final-Project
+        git pull
+
+fi
+
+
 sleep 2
-echo $password
-echo $testdb_username
-echo $testdb_endpoint 
 
 cd ~/Group-3-Final-Project/DevOps/database
 
-mysql -h ${testdb_endpoint} -P 3306 -u ${testdb_username} -p${password} < Create.sql
+mysql -h ${testdb_endpoint} -P 3306 -u ${db_username} -p${password} < Create.sql
 
 echo "passing in sql schema"
 
