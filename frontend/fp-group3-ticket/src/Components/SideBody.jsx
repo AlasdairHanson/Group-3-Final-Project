@@ -1,8 +1,8 @@
 import React from 'react';
-const SideBody = () => {
+const SideBody = ({content}) => {
 return (
   <div className="sidebarInnerContainer">
-    <p className="sidebarChildText">Text</p>
+    <p className="sidebarChildText">{content}</p>
   </div>
 );
 }

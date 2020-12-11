@@ -2,7 +2,7 @@ import React from "react";
 import { Accordion, Button, Card, Container } from "react-bootstrap";
 import SideBody from "./SideBody";
 import SideHeader from "./SideHeader";
-const SideBarAccordionCard = ({ acc_id }) => {
+const SideBarAccordionCard = ({ acc_id, title, contentList }) => {
   return (
     <Card className="sideBarContainer">
       <Accordion.Toggle
@@ -10,14 +10,13 @@ const SideBarAccordionCard = ({ acc_id }) => {
         eventKey={acc_id}
         className="p-0 sideBarContainer"
       >
-        <SideHeader />
+        <SideHeader title={title} />
       </Accordion.Toggle>
       <Accordion.Collapse eventKey={acc_id}>
         <Card.Body className="p-0">
-          <SideBody />
-          <SideBody />
-          <SideBody />
-          <SideBody />
+          {contentList.map((obj) => (
+            <SideBody content={obj}/>
+          ))}
         </Card.Body>
       </Accordion.Collapse>
     </Card>

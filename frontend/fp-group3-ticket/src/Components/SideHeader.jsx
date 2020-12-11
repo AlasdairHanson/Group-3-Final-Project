@@ -1,8 +1,8 @@
 import React from 'react';
-const SideHeader = () => {
+const SideHeader = ({title}) => {
 return (
   <div className="sidebarInnerContainer">
-    <h4 className="sidebarText">Header</h4>
+    <h5 className="sidebarText">{title}</h5>
   </div>
 );
 }
