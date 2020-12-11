@@ -25,7 +25,7 @@ pwd
 
 which java
 
-java --version
+java -version
 
 mvn clean package
 EOF
