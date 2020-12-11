@@ -21,6 +21,8 @@ cd ~/Group-3-Final-Project/Spring-HelpQueue
 
 which mvn
 
+pwd
+
 mvn clean package
 EOF
                     
