@@ -1,6 +1,6 @@
 #! /bin/bash
 
-cd /home/jenkins/
+cd /var/lib/jenkins
 
 . ./databasecredentials.sh
 
