@@ -1,5 +1,7 @@
 #! /bin/bash
 
+. ./databasecredentials.sh
+
 ssh ubuntu@${testvm_ip} <<EOF
 cd ~
 . ./databasecredentials.sh
