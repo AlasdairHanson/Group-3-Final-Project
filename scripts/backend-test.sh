@@ -4,6 +4,8 @@ cd /home/jenkins/
 
 . ./databasecredentials.sh
 
+echo ${testvm_ip}
+
 ssh ubuntu@${testvm_ip} <<EOF
 cd ~
 . ./databasecredentials.sh
