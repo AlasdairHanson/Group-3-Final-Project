@@ -3,83 +3,44 @@ pipeline{
         environment {
 		DATABASE_URI=credentials('DATABASE_URI')
 		TEST_DATABASE_URI=credentials('TEST_DATABASE_URI')
-                DOCKER_USERNAME=credentials('DOCKER_USERNAME')
+        DOCKER_USERNAME=credentials('DOCKER_USERNAME')
 		DOCKER_PASSWORD=credentials('DOCKER_PASSWORD')
 		testvm_ip=credentials('testvm_ip')
-		
         }
 	
         stages{
-            stage('Jenkin Test'){
+            stage('Clone repo'){
                 steps{
-                    sh '''
-		    rm -rf Group-3-Final-Project
-		    git clone https://github.com/AlasdairHanson/Group-3-Final-Project.git -b Dev
-		    echo "Hello From Group3"
-                    '''
-                    
+                    sh 'chmod a+x ./scripts/jenkins-get-repo.sh'
+                    sh './scripts/jenkins-get-repo.sh'
                 }
 	    }
 	 stages{
-            stage('Export Database URI'){
+            stage('Test backend'){
                 steps{
-                    sh '''
-                    cd ~
-		    . ./databasecredentials.sh
-
-                    '''
-
+                    sh 'chmod a+x ./scripts/backend-test.sh'
+                    sh './scripts/backend-test.sh'
                 }
             }
+            stage('Test frontend'){
+                steps{
+                    sh 'chmod a+x ./scripts/frontend-test.sh'
+                    sh './scripts/frontend-test.sh'
+                }
+            }
+
             stage('Docker Build'){
                 steps{
-                    sh '''
-                    cd ~/Group-3-Final-Project
-		    sudo systemctl disable nginx
-		    sudo docker-compose up -d --build
-		    sudo curl localhost:80
-                    '''
+                    sh 'chmod a+x ./scripts/docker-build.sh'
+                    sh './scripts/docker-build.sh'
                 }
             }
-	    stage('Test'){
-                steps{
-                    sh '''
-                    ssh ubuntu@${testvm_ip} <<EOF
-
-                    code here
-
-                    EOF
-                    echo "Done"
-                    '''
-
-                }
-            }
-	    stage('Docker Push'){
-                steps{
-                    sh '''
-		    sudo docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
-		    sudo docker push ${DOCKER_USERNAME}/frontend
-		    sudo docker push ${DOCKER_USERNAME}/backend
-		    sudo docker push ${DOCKER_USERNAME}/nginx
-                    '''
-
-                }
-            }
+	    
+	    
 	    stage('Deploy kubernetes cluster'){
 	    	steps{
-                    sh '''
-                    cd ~/Group-3-Final-Project
-                    sudo kubectl apply -f ~/secrets.yaml
-                    sudo kubectl create namespace group3
-		    sudo kubectl delete pods --all pods --namespace=group3
-                    sudo kubectl apply -f nginx.yaml 
-		    sudo kubectl apply -f nginx-conf.yaml
-		    sudo kubectl apply -f frontend.yaml
-		    sudo kubectl apply -f backend.yaml
-		    sudo kubectl apply -f nginx-lb.yaml
-		    kubectl describe service nginx-lb.yaml --namespace=group3
-                    echo "Done"
-                    '''
+                    sh 'chmod a+x ./scripts/kube.sh'
+                    sh './scripts/kube.sh'
 		}
 
              }
