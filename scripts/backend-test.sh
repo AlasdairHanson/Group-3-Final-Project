@@ -1,5 +1,7 @@
 #! /bin/bash
 
+cd /home/jenkins/
+
 . ./databasecredentials.sh
 
 ssh ubuntu@${testvm_ip} <<EOF
