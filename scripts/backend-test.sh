@@ -23,6 +23,10 @@ which mvn
 
 pwd
 
+which java
+
+java --version
+
 mvn clean package
 EOF
                     
