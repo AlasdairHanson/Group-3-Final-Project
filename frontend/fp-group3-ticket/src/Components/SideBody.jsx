@@ -2,7 +2,7 @@ import React from 'react';
 const SideBody = () => {
 return (
   <div className="sidebarInnerContainer">
-    <p>Text</p>
+    <p className="sidebarChildText">Text</p>
   </div>
 );
 }

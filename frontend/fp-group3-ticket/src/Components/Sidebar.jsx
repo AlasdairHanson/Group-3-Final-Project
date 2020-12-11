@@ -1,17 +1,15 @@
 import React from "react";
 import { Accordion, Button, Card, Container } from "react-bootstrap";
-import SideBody from "./SideBody";
-import SideHeader from "./SideHeader";
+import SideBarAccordionCard from "./SideBarAccordionCard";
 const Sidebar = () => {
   return (
     <div className="sidebarContainer">
-      <SideHeader />
-      <SideBody />
-      <SideBody />
-      <SideBody />
-      <SideBody />
-      <SideBody />
-      <SideBody />
+      <Accordion defaultActiveKey="0">
+        <SideBarAccordionCard acc_id="0" />
+        <SideBarAccordionCard acc_id="1" />
+        <SideBarAccordionCard acc_id="2" />
+        <SideBarAccordionCard acc_id="3" />
+      </Accordion>
     </div>
   );
 };

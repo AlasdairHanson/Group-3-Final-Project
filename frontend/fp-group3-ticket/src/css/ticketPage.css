@@ -1,3 +1,7 @@
+body {
+    color: #004050;
+}
+
 .navBar {
     background-color: #f3f3f3;
     box-shadow: 0 4px 2px -2px #2d3436;
@@ -133,29 +137,20 @@
     padding: 12px;
 }
 
-.sidebarHead {
-    text-align: left;
-    padding: 5px;
-    margin: 6px 6px 6px 6px;
-    font-weight: bolder;
-}
-
-.sidebarBody {
-    text-align: left;
-    padding: 5px;
-    margin: 6px 6px 6px 14px;
-    font-weight: normal;
-}
 
 .sidebarContainer {
     border-radius: .25rem;
     background-color: white;
     box-shadow: 0 4px 2px -2px #2d3436;
+    top: 0;
+    position: sticky;
 }
 
-
-.sidebarCont:hover {
-    background-color: grey;
+.solutionsBody {
+    border-radius: .25rem;
+    background-color: white;
+    box-shadow: 0 4px 2px -2px #2d3436;
+    padding: 20px;
 }
 
 .sidebarInnerContainer {
@@ -165,6 +160,31 @@
 .sidebarInnerContainer:hover {
     background-color:  	#004050;
     color: white;
+}
+
+.solutionsHeader {
+    color: #004050;
+    padding-bottom: 6px;
+    margin: 16px 0px 20px 0px;
+    border-bottom: 1px solid#dee2e6;
+}
+
+.sidebarText {
+    margin-bottom: 0px;
+}
+
+.ticketText {
+    margin-bottom: 0px;
+}
+
+.sidebarChildText {
+    margin-bottom: 0px;
+    padding-left: 12px;
+}
+
+.sideBarContainer {
+    background: none;
+    border: 0px;
 }
 
 
