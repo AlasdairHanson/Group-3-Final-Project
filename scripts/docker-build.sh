@@ -4,6 +4,8 @@ sudo systemctl disable nginx
 
 cd ~
 
+cd /var/lib/jenkins
+
 . ./databasecredentials.sh
 
 echo 'Building backend docker image'
