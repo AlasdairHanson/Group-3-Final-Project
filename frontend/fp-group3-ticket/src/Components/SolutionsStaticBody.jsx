@@ -1,9 +1,7 @@
 import React from "react";
-import ReactMarkdown from "react-markdown";
 import SolutionsBody from "./SolutionsBody";
 import SolutionsHeader from "./SolutionsHeader";
 import SolutionsSubHead from "./SolutionssSubHead";
-import SolutionssSubHead from "./SolutionssSubHead";
 const SolutionsStaticBody = () => {
   return (
     <>

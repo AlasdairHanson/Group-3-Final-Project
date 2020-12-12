@@ -34,7 +34,7 @@ const EditTicketForm = ({
   };
 
   const updateData = (e) => {
-    console.log("update data");
+    settimestamp(new Date().toLocaleString("en-GB"));
     axios
       .put("http://localhost:8081/updateTicket/" + id, ticketData)
       .then(function (response) {

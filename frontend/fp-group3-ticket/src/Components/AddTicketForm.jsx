@@ -126,10 +126,9 @@ const AddTicketForm = () => {
             }}
           >
             <option>Low</option>
-            <option>Low - Med</option>
             <option>Medium</option>
-            <option>Medium - High</option>
             <option>High</option>
+            <option>Critical</option>
           </Form.Control>
         </Form.Group>
       </Form>

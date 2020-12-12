@@ -17,8 +17,6 @@ const Ticket = ({
   priority,
   cohort,
 }) => {
-
-
   const deleteTicket = (e) => {
     console.log("delete data");
     axios.delete("http://localhost:8081/deleteTicket/" + id).then(
@@ -107,18 +105,11 @@ const Ticket = ({
             </Row>
           </Col>
           <Col xs={4}>
-            <Row>
-              <Col xs={4}>
-                <p className="mutedText">Priority:</p>
-                <h6 className="ticketText">{priority}</h6>
-              </Col>
-              <Col>
-                <div className="priorityBar">
-                  <div className={priority}>
-                  </div>
-                </div>
-              </Col>
-            </Row>
+            <div className="priorityBar">
+              <div className={priority}>
+                <p className="priorityText">{priority}</p>
+              </div>
+            </div>
           </Col>
         </Row>
       </Card.Footer>

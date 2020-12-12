@@ -1,5 +1,5 @@
 import React from "react";
-const SolutionsBody = ({content}) => {
+const SolutionsBody = ({ content }) => {
   return (
     <>
       <p>{content}</p>
