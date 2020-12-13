@@ -148,16 +148,6 @@ const EditTicketForm = ({
           </Form.Control>
         </Form.Group>
       </Form>
-
-      <Button
-        onClick={(e) => updateData(e)}
-        variant="primary"
-        size="lg"
-        block
-        className="mb-4"
-      >
-        Click me!
-      </Button>
     </>
   );
 };

@@ -33,14 +33,14 @@ const Ticket = ({
     <Card className="ticket">
       <Card.Header>
         <Row>
-          <Accordion.Toggle as={Col} eventKey={acc_id}>
+          <Accordion.Toggle as={Col} eventKey={acc_id} xs={4}>
             <p className="mutedText">Title:</p>
             <h5 className="ticketText">{title}</h5>
           </Accordion.Toggle>
           <Col xs={2}>
             <div className="textContainer blue my-1">{topic}</div>
           </Col>
-          <Col xs={3}>
+          <Col xs={2}>
             <p className="mutedText">Cohort:</p>
             <h5 className="ticketText">{cohort}</h5>
           </Col>
@@ -49,6 +49,8 @@ const Ticket = ({
               id={id}
               oldTitle={title}
               oldAuthor={trainee}
+              oldStatus={status}
+              oldTrainer={trainer}
               oldUrgency={priority}
               oldCohort={cohort}
               oldDesc={desc}
@@ -65,20 +67,19 @@ const Ticket = ({
         <Card.Body>
           <Row>
             <Col xs={8}> {desc}</Col>
-            <Col xs={4}> {time}</Col>
           </Row>
         </Card.Body>
       </Accordion.Collapse>
       <Card.Footer>
         <Row>
-          <Col xs={4}>
+          <Col xs={3}>
             <Row>
               <Col xs={2}>
                 <Avatar
                   name={trainee}
                   round={true}
-                  size={50}
-                  textSizeRatio={2.5}
+                  size={40}
+                  textSizeRatio={2.7}
                 />
               </Col>
               <Col>
@@ -88,14 +89,14 @@ const Ticket = ({
             </Row>
           </Col>
 
-          <Col xs={4}>
+          <Col xs={3}>
             <Row>
               <Col xs={2}>
                 <Avatar
                   name={trainer}
                   round={true}
-                  size={50}
-                  textSizeRatio={2.5}
+                  size={40}
+                  textSizeRatio={2.7}
                 />
               </Col>
               <Col>
@@ -103,6 +104,10 @@ const Ticket = ({
                 <h6 className="ticketText">{trainer}</h6>
               </Col>
             </Row>
+          </Col>
+          <Col xs={2}>
+            <p className="mutedText">Timestamp:</p>
+            <h6 className="ticketText">{time}</h6>
           </Col>
           <Col xs={4}>
             <div className="priorityBar">
