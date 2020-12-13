@@ -38,7 +38,7 @@ const Ticket = ({
             <h5 className="ticketText">{title}</h5>
           </Accordion.Toggle>
           <Col xs={2}>
-            <div className="topic blue my-1">{topic}</div>
+            <div className="textContainer blue my-1">{topic}</div>
           </Col>
           <Col xs={3}>
             <p className="mutedText">Cohort:</p>
@@ -57,7 +57,7 @@ const Ticket = ({
             <Button variant="link" onClick={(e) => deleteTicket(e)}>
               <Icon.TrashFill />
             </Button>
-            <div className={"topic " + status}>{status}</div>
+            <div className={"textContainer textShadow " + status}>{status}</div>
           </Col>
         </Row>
       </Card.Header>
@@ -107,7 +107,7 @@ const Ticket = ({
           <Col xs={4}>
             <div className="priorityBar">
               <div className={priority}>
-                <p className="priorityText">{priority}</p>
+                <p className="priorityText textShadow">{priority}</p>
               </div>
             </div>
           </Col>
