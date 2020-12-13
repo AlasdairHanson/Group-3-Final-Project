@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Nav, Navbar } from "react-bootstrap";
 import { PersonFill } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
-import AddTicketButton from "./AddTicketButton";
+import AddTicketButton from "./TicketPage/AddTicketButton";
 const UpperNavBar = () => {
   return (
     <Navbar bg="light" expand="lg" sticky="top" className="navBar">

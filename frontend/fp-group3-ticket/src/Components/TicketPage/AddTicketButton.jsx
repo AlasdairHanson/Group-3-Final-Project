@@ -1,31 +1,20 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Button, Modal, Form } from "react-bootstrap";
-import { PencilFill } from "react-bootstrap-icons";
-import EditTicketForm from "./EditTicketForm";
-const EditTicketButton = ({
-  id,
-  oldTitle,
-  oldAuthor,
-  oldStatus,
-  oldTrainer,
-  oldUrgency,
-  oldCohort,
-  oldDesc,
-  oldTopic,
-}) => {
+import { PlusCircleFill } from "react-bootstrap-icons";
+const AddTicketButton = () => {
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const [cohort, setcohort] = useState(oldCohort);
-  const [trainer, settrainer] = useState(oldTrainer);
-  const [title, settitle] = useState(oldTitle);
-  const [status, setStatus] = useState(oldStatus);
-  const [issue, setissue] = useState(oldDesc);
-  const [topic, settopic] = useState(oldTopic);
-  const [urgency, seturgency] = useState(oldUrgency);
+  const [firstName, setfirstName] = useState(``);
+  const [secondName, setsecondName] = useState(``);
+  const [cohort, setcohort] = useState(`CloudNative`);
+  const [title, settitle] = useState(``);
+  const [issue, setissue] = useState(``);
+  const [topic, settopic] = useState(`Networking`);
+  const [urgency, seturgency] = useState(`Low`);
   const [timestamp, settimestamp] = useState(
     new Date().toLocaleString("en-GB")
   );
@@ -34,18 +23,19 @@ const EditTicketButton = ({
     ticketTitle: title,
     ticketTopic: topic,
     ticketDesc: issue,
-    ticketStatus: status,
-    ticketTrainer: trainer,
+    ticketTime: timestamp,
+    ticketStatus: "Unresolved",
+    ticketAuthor: firstName + " " + secondName,
+    ticketTrainer: "none",
     ticketUrgency: urgency,
     ticketCohort: cohort,
-    ticketTime: timestamp,
-    ticketAuthor: oldAuthor,
   };
 
-  const updateData = (e) => {
-    settimestamp(new Date().toLocaleString("en-GB"));
+  const postData = (e) => {
+    const newDate = new Date().toLocaleString("en-GB");
+    settimestamp(newDate);
     axios
-      .put("http://localhost:8081/updateTicket/" + id, ticketData)
+      .post("http://localhost:8081/createTicket", ticketData)
       .then(function (response) {
         console.log(response);
       })
@@ -57,8 +47,12 @@ const EditTicketButton = ({
 
   return (
     <>
-      <Button variant="link" onClick={handleShow}>
-        <PencilFill />
+      <Button
+        variant="primary"
+        className="ml-3 qaColButton"
+        onClick={handleShow}
+      >
+        <PlusCircleFill /> New Ticket
       </Button>
 
       <Modal
@@ -68,42 +62,36 @@ const EditTicketButton = ({
         scrollable={true}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Edit Ticket Modal</Modal.Title>
+          <Modal.Title>Add Ticket Modal</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Form>
             <Form.Group>
-              <Form.Label>Trainer for Ticket</Form.Label>
+              <Form.Label>First Name</Form.Label>
               <Form.Control
                 type="text"
-                defaultValue={oldTrainer}
-                placeholder="Trainer Name"
+                placeholder="First Name"
                 onChange={(e) => {
-                  settrainer(e.target.value);
+                  setfirstName(e.target.value);
                 }}
               />
             </Form.Group>
 
             <Form.Group>
-              <Form.Label>Status</Form.Label>
+              <Form.Label>Second Name</Form.Label>
               <Form.Control
-                as="select"
-                defaultValue={oldStatus}
+                type="text"
+                placeholder="Second Name"
                 onChange={(e) => {
-                  setStatus(e.target.value);
+                  setsecondName(e.target.value);
                 }}
-              >
-                <option>Unresolved</option>
-                <option>Pending</option>
-                <option>Resolved</option>
-              </Form.Control>
+              />
             </Form.Group>
 
             <Form.Group>
               <Form.Label>Cohort</Form.Label>
               <Form.Control
                 as="select"
-                defaultValue={oldCohort}
                 onChange={(e) => {
                   setcohort(e.target.value);
                 }}
@@ -120,8 +108,7 @@ const EditTicketButton = ({
               <Form.Label>Title summary of the issue</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Issue Summary"
-                defaultValue={oldTitle}
+                placeholder="Issue Sumamary"
                 onChange={(e) => {
                   settitle(e.target.value);
                 }}
@@ -133,7 +120,6 @@ const EditTicketButton = ({
               <Form.Control
                 as="textarea"
                 rows={3}
-                defaultValue={oldDesc}
                 onChange={(e) => {
                   setissue(e.target.value);
                 }}
@@ -144,7 +130,6 @@ const EditTicketButton = ({
               <Form.Label>Topic</Form.Label>
               <Form.Control
                 as="select"
-                defaultValue={oldTopic}
                 onChange={(e) => {
                   settopic(e.target.value);
                 }}
@@ -161,7 +146,6 @@ const EditTicketButton = ({
               <Form.Label>Urgency</Form.Label>
               <Form.Control
                 as="select"
-                defaultValue={oldUrgency}
                 onChange={(e) => {
                   seturgency(e.target.value);
                 }}
@@ -173,18 +157,19 @@ const EditTicketButton = ({
               </Form.Control>
             </Form.Group>
           </Form>
+
           <Button
-            onClick={(e) => updateData(e)}
+            onClick={(e) => postData(e)}
             variant="primary"
             size="lg"
             block
             className="mb-4"
           >
-            Update Ticket
+            Create Ticket
           </Button>
         </Modal.Body>
       </Modal>
     </>
   );
 };
-export default EditTicketButton;
+export default AddTicketButton;

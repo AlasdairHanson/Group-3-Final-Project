@@ -1,8 +1,8 @@
-import TicketPage from './Components/TicketPage';
 import {BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Solutions from './Components/Solutions';
+import TicketPage from './Components/TicketPage/TicketPage';
+import Solutions from './Components/Solutions/Solutions';
 import UpperNavBar from './Components/UpperNavBar';
-import LandingPage from './Components/LandingPage';
+import LandingPage from './Components/LandingPage/LandingPage';
 
 function App() {
   return (

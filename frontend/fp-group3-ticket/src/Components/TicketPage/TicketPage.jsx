@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Row, Col, Container } from "react-bootstrap";
 import axios from "axios";
 import TicketList from "./TicketList";
-import Sidebar from "./Sidebar";
+import Sidebar from "../SideBar/Sidebar";
 
 const TicketPage = () => {
   const [error, setError] = useState(null);

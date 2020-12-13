@@ -1,8 +1,6 @@
 import React from "react";
 import { Accordion, Card } from "react-bootstrap";
-import SideBarAccordionCard from "./SideBarAccordionCard";
 import SideBarSubAccordionCard from "./SideBarSubAccordion";
-import SideBody from "./SideBody";
 import SideHeader from "./SideHeader";
 const FilterSideBar = () => {
   const filterList = [
