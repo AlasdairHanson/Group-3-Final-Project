@@ -16,7 +16,7 @@ cd ~/Group-3-Final-Project/Spring-HelpQueue
 
 which docker-compose
 
-sudo docker-compose up -d --build
+docker-compose up -d --build
 
 docker exec backend bash -c "mvn clean package" | grep 'BUILD SUCCESS'
 
