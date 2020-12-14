@@ -25,7 +25,7 @@ echo ${db_username}
 echo ${testdb_endpoint}
 echo ${db_endpoint}
 echo ${password}
-sudo docker build --build-arg testdb_endpoint="$testdb_endpoint" -t backend:latest ./Dockerfile 
+sudo docker build --build-arg testdb_endpoint="$testdb_endpoint" -t backend:latest /home/ubuntu/Group-3-Final-Project/Spring-HelpQueue/
 
 docker exec backend bash -c "mvn clean package" | grep 'BUILD SUCCESS'
 
