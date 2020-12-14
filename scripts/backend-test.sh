@@ -12,6 +12,8 @@ cd ~
 
 cd ~/Group-3-Final-Project/Spring-HelpQueue
 
+ls
+
 export testdb_username=${testdb_username}
 export db_username=${db_username}
 export testdb_endpoint=${testdb_endpoint}
