@@ -8,12 +8,10 @@ ssh ubuntu@${testvm_ip} <<EOF
 cd ~
 . ./databasecredentials.sh
 
-cd ~/Group-3-Final-Project/frontend/fp-group3-ticket
+cd ~/Group-3-Final-Project/
 
-pwd
+docker exec frontend bash -c "sudo npm install"
 
-sudo npm install
-
-sudo npm test -- --watchAll=false
+docker exec frontend bash -c "sudo npm test -- --watchAll=false"
 
 EOF

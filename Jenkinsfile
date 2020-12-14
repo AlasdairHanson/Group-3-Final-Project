@@ -8,8 +8,15 @@ pipeline{
                     sh './scripts/jenkins-get-repo.sh'
                 }
 	    }
+
+             stage('Test backend'){
+                steps{
+                    sh 'chmod a+x ./scripts/backend-run-test.sh'
+                    sh './scripts/backend-run-test.sh'
+                }
+            }
 	
-            stage('Test backend'){
+            stage('Build backend'){
                 steps{
                     sh 'chmod a+x ./scripts/backend-test.sh'
                     sh './scripts/backend-test.sh'

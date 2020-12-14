@@ -1,0 +1,24 @@
+version: "3.7"
+services:
+  frontend:
+    build: ./frontend/fp-group3-ticket
+    image: frontend:latest
+    container_name: frontend
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
+     
+  backend:
+    build: ./Spring-HelpQueue
+    image: backend:latest
+    container_name: backend
+    ports:
+    - target: 8081
+      published: 8081
+      protocol: tcp
+    environment:
+      db_endpoint: ${db_endpoint}
+      testdb_endpoint: ${testdb_endpoint}
+      db_username: ${db_username}
+      password: ${password}
