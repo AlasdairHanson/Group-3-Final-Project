@@ -29,7 +29,5 @@ sudo docker build --build-arg testdb_endpoint="$testdb_endpoint" --build-arg db_
 
 sudo docker run -d -p 8081:8081 --name backend backend:latest
 
-docker exec backend bash -c "mvn clean package" | grep 'BUILD SUCCESS'
-
 EOF
                     
