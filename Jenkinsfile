@@ -16,12 +16,7 @@ pipeline{
                 }
             }
 		
-	    stage('Test frontend'){
-                steps{
-                    sh 'chmod a+x ./scripts/frontend-test.sh'
-                    sh './scripts/frontend-test.sh'
-                }
-            }
+
             
             stage('Docker Build'){
                 steps{
