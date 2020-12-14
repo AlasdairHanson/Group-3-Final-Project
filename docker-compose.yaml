@@ -1,14 +1,5 @@
 version: "3.7"
 services:
-  frontend:
-    build: ./frontend/fp-group3-ticket
-    image: frontend:latest
-    container_name: frontend
-    ports:
-    - target: 5000
-      published: 5000
-      protocol: tcp
-     
   backend:
     build: ./Spring-HelpQueue
     image: backend:latest
