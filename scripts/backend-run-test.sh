@@ -32,6 +32,6 @@ echo ${password}
 
 echo ${testdb_username}
 
-mvn clean package | grep 'BUILD SUCCESS'
+mvn clean package
 
 EOF
