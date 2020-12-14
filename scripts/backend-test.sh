@@ -24,7 +24,7 @@ echo ${testdb_endpoint}
 echo ${db_endpoint}
 echo ${password}
 
-sudo -E ${testdb_endpoint} ${testdb_username} ${password} ${db_endpoint} ${db_username} docker-compose up -d --build
+sudo -E testdb_endpoint=${testdb_endpoint} ${testdb_username} ${password} ${db_endpoint} ${db_username} docker-compose up -d --build
 
 docker exec backend bash -c "mvn clean package" | grep 'BUILD SUCCESS'
 
