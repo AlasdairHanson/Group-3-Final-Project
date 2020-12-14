@@ -6,6 +6,8 @@ WORKDIR /setup
 #copy file from working directory ls to directory /setup
 COPY . /setup
 
+RUN mvn clean package
+
 #stage 2
 #install java SE as run stage
 FROM openjdk:11 AS RUN
