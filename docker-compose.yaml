@@ -13,5 +13,5 @@ services:
       testdb_endpoint: ${testdb_endpoint}
       db_username: ${db_username}
       password: ${password}
-      testdb_username: ${testdb_endpoint}
+      testdb_username: ${testdb_username}
       
