@@ -25,7 +25,7 @@ echo ${db_username}
 echo ${testdb_endpoint}
 echo ${db_endpoint}
 echo ${password}
-sudo docker build --build-arg testdb_username db_username testdb_endpoint db_endpoint password --tag backend:latest . 
+sudo docker build --build-arg testdb_endpoint -t backend:latest ./Dockerfile 
 
 docker exec backend bash -c "mvn clean package" | grep 'BUILD SUCCESS'
 
