@@ -29,7 +29,7 @@ sudo docker build --build-arg testdb_endpoint="$testdb_endpoint" --build-arg db_
 
 cp ~/.env ~/Group-3-Final-Project/Spring-HelpQueue/.env
 
-sudo docker run --env-file=.env -d -p 8081:8081 --name backend backend:latest 
+sudo docker run --env-file=.env -d -p 8081:8081 --name backend ${DOCKER_USERNAME}/backend:latest
 
 EOF
                     
