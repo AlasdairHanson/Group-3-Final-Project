@@ -16,7 +16,7 @@ cp ~/.env ~/Group-3-Final-Project/.env
 
 cd ~/Group-3-Final-Project/Spring-HelpQueue
 
-docker-compose up -d
+sudo -E docker-compose up -d
 
 docker exec backend bash -c "mvn clean package" | grep 'BUILD SUCCESS'
 
