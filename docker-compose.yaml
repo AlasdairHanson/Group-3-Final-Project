@@ -14,4 +14,6 @@ services:
       db_username: ${db_username}
       password: ${password}
       testdb_username: ${testdb_username}
+    env_file:
+    - .env
       
