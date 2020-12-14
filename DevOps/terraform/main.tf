@@ -55,7 +55,7 @@ module "Testvm" {
   subnet_id              = module.vpc.subnet_a_id
   vpc_security_group_ids = [module.sg_node.sg_id]
   keyy                   = aws_key_pair.key_pub.id
-  instance               = "t2.large"
+  instance               = "t2.xlarge"
 }
 
 resource "aws_db_subnet_group" "default" {
