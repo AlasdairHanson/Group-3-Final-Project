@@ -1,9 +1,40 @@
-#!/bin/bash
+#! /bin/bash
 
-#Creating secret credentials file for both rds's users
-#Ensure to run command export db_username="your db username"
-#Ensure to run command export testdb_endpoint="your testdb username"
-#Ensure to run command export passwd="yourpasswd"
+#Instaling all the nessesary sofwares to configure the home machine i.e terraform, ansible, awscli and more
+
+chmod +x automate_mainvm_software.sh
+cd ~
+. ./Group-3-Final-Project/DevOps/automate_mainvm_software.sh
+
+sleep 1
+
+echo "Software installations done"
+
+#Congigure awscli credentials automatically 
+
+chmod +x ~/secrets/aws_configure.sh
+. ./secrets/aws_configure.sh
+
+echo "aws configuration done"
+
+#Export database password and username
+
+chmod +x ~/secrets/cred.sh
+. ./cred.sh
+
+echo "Exporting database credentials done"
+
+#Adding in Terraform secrets for run time
+
+if [ ! -f ~/Group-3-Final-Project/DevOps/terraform/terraform.tfvars ]; then
+  chmod +x ~/secrets/terraform.tfvars
+  cp -rf ~/secrets/terraform.tfvars ~/Group-3-Final-Project/DevOps/terraform
+else
+  echo "terraform.tfvars already exist"
+fi
+
+
+#Generate ssh keys if not already exist
 
 if [ ! -f ~/.ssh/id_rsa.pub ]; then
   ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N ""
@@ -11,25 +42,14 @@ else
   echo "Public key already exist"
 fi
 
-cd ~
-rm -rf credentials
-if [ ! -d credentials/ ]; then
-  mkdir credentials
-  cd credentials
-  touch rds_password
-  touch rds_username
-  echo ${username} >> rds_username
-  echo ${password} >> rds_password
-  cd ~
-fi
 
 #Start terraform
 
 cd ~/Group-3-Final-Project/DevOps/terraform
-#terraform fmt
-#terraform init
-#terraform plan
-#terraform apply -auto-approve
+terraform fmt
+terraform init
+terraform plan
+terraform apply -auto-approve
 
 echo "terraform finished"
 
@@ -40,7 +60,7 @@ export jenkinsvm_ip=$(echo ${jenkinsvm_ip} | jq -r .)
 export testvm_ip="$(terraform output testvm_ip)"
 export testvm_ip=$(echo ${testvm_ip} | jq -r .)
 
-echo "export terraform vars"
+echo "export terraform ip addresses into vars done"
 
 #Export output endpoints addresses into variables to help mask secrets and prevent them from being pushed to git hub
 
@@ -52,9 +72,9 @@ export db_endpoint=$(echo ${db_endpoint} | jq -r .)
 export db_endpoint=$(echo ${db_endpoint} | sed 's/:3306//')
 
 
-echo "export terraform rds endpoints"
+echo "export terraform rds endpoints into vars done"
 
-#Passing in the hosts into the known hosts
+#Passing in the hosts into the known hosts for ansible softare installation and automation
 
 cd ~
 
@@ -62,11 +82,11 @@ sudo -- sh -c -e "echo '${testvm_ip} testvm_ip' >> /etc/hosts";
 
 sudo -- sh -c -e "echo '${jenkinsvm_ip} jenkinsvm_ip' >> /etc/hosts";
 
-echo "passing terraform outputs to hosts"
+echo "Passing terraform ip outputs to hosts done"
 
-#Sleep 10 seconds to ensure these vm are fully up
+#Sleep 2 seconds to ensure these vm are fully up
 
-sleep 1
+sleep 2
 
 
 #Make key directory if it does not already exist. This will store keys that I secure copy from any vm and use them for shh'ing into any vm.
@@ -82,15 +102,15 @@ if [ ! -d keys/ ]; then
   cd ~
 fi
 
-echo "Make key directory"
+echo "Making key directory done"
 
 #Start anible playbook which installs all the neccessary softwares, add sudo doers and pass public keys into each vm to allow ssh'ing.
 
 cd ~/Group-3-Final-Project/DevOps/ansible
 
-#ansible-playbook -i inventory playbook.yaml
+ansible-playbook -i inventory playbook.yaml
 
-sleep 5
+sleep 3
 
 echo "Ansible playbook done"
  
@@ -108,13 +128,13 @@ EOF
 
 echo "testvm ssh keys generated"
 
-#Secure copy public key to the keys directory.
+#Secure copy public key from testvm to the keys directory.
 
 scp ubuntu@${testvm_ip}:~/.ssh/id_rsa.pub ~/keys/testvm
 
-echo "scp public key to keys directory"
+echo "scp public key to keys directory done"
       
-#Generate jenkins ssh public keys if it does not already exist.
+#Generate jenkinvm ssh public keys if it does not already exist.
 
 ssh ubuntu@${jenkinsvm_ip} <<EOF
 if [ ! -f ~/.ssh/id_rsa.pub ]; then
@@ -125,8 +145,18 @@ fi
 
 EOF
 
+#Secure copy public key from jenkinsvm to the keys directory.
+
+scp ubuntu@${jenkinsvm_ip}:~/.ssh/id_rsa.pub ~/keys/jenkins
+
+echo "scp jenkinsvm public key to keys directory"
+
+
+#Secure copy public key from jenkinsvm jenkins_urs to the keys directory.
+
 ssh ubuntu@${jenkinsvm_ip} << EOF 
 
+cd ~
 mkdir jenkinsusr_pubkey
 
 sudo su - jenkins << EOF1 
@@ -146,20 +176,14 @@ EOF1
 
 EOF
 
-echo "ssh keygen on jenkins vm"
-
-#Secure copy public key to the keys directory.
-
-scp ubuntu@${jenkinsvm_ip}:~/.ssh/id_rsa.pub ~/keys/jenkins
-
-echo "scp jenkins public key to keys directory"
+echo "ssh keygen on jenkins_usr vm done"
 
 
-#Secure copy public jenkins usr key to the keys directory.
+#Secure copy public jenkinsvm jenkins_usr key to the keys directory.
 
 scp ubuntu@${jenkinsvm_ip}:~/jenkinsusr_pubkey/id_rsa.pub ~/keys/jenkinsusr
 
-echo "scp jenkinsuser public key to keys directory"
+echo "scp jenkinsuser public key to keys directory done"
 
 
 #Passing all vm keys into master's autherized_keys file and sharing that file with the other vms to allow ssh'ing from anywhere.
@@ -187,15 +211,17 @@ rm -rf authorized_keys
 rm -rf jenkinsusr_pubkey
 EOF
 
-echo "passed keys to keys directory"
+echo "Passed authorized_keys to testvm and jenkinsvm done"
 
 sleep 1
 
-#Copying database schema and database URI securely
+#Copying database schema and database URI securely to testvm, jenkinsvm and jenkinsvm_usr. 
+#This helps to easily export and use variables such as database passwords, database usrnames, docker username, docker password and database URI's for the databases and dockerhub.
 cd ~
 touch databasecredentials.sh
 chmod +x databasecredentials.sh
-#echo "db_endpoint=${db_endpoint}" >> ~/databasecredentials.sh
+
+#Setting up cresentials file
 
 echo "export testdb_endpoint=${testdb_endpoint}" >> ~/databasecredentials.sh
 echo "export db_endpoint=${db_endpoint}" >> ~/databasecredentials.sh
@@ -205,14 +231,18 @@ echo "export testvm_ip=${testvm_ip}" >> ~/databasecredentials.sh
 echo "export DOCKER_USERNAME=${DOCKER_USERNAME}" >> ~/databasecredentials.sh
 echo "export DOCKER_PASSWORD=${DOCKER_PASSWORD}" >> ~/databasecredentials.sh
 
+#Copying credentials file over to jenkinsvm and testvm
+
 scp ~/databasecredentials.sh ubuntu@${jenkinsvm_ip}:~/
 scp ~/databasecredentials.sh ubuntu@${testvm_ip}:~/
 
 sleep 2
 
+
+#ssh'ing into testvm, exporting all variables, cloning done schema folder then passing in the test database schema.
+
 ssh ubuntu@${testvm_ip} <<EOF
 
-#Passing in database schema
 cd ~
 
 . ./databasecredentials.sh
@@ -229,21 +259,25 @@ fi
 
 sleep 2
 
+#Passing in database schema
+
 cd ~/Group-3-Final-Project/DevOps/database
-mysql -h ${db_endpoint} -P 3306 -u ${db_username} -p${password} < Create.sql
+mysql -h ${testdb_endpoint} -P 3306 -u ${db_username} -p${password} < Create.sql
 
 echo "passing in sql schema"
 
 EOF
 
-ssh ubuntu@${jenkinsvm_ip} <<EOF
+#ssh'ing into jenkinsvm, exporting all variables, cloning done schema folder then passing in the main database schema.
+#Copying credentials from jenkinvm to jenkins_usr.
 
-#Passing in database schema
+ssh ubuntu@${jenkinsvm_ip} <<EOF
 
 cd ~
 
 . ./databasecredentials.sh
 
+#Copying credentials from jenkinvm to jenkins_usr to be able to export the neccessary variables in the jenkins pipeline.
 
 sudo cp -rf ~/databasecredentials.sh /var/lib/jenkins
 
@@ -259,9 +293,11 @@ fi
 
 sleep 2
 
+#Passing in database schema
+
 cd ~/Group-3-Final-Project/DevOps/database
 
-mysql -h ${testdb_endpoint} -P 3306 -u ${db_username} -p${password} < Create.sql
+mysql -h ${db_endpoint} -P 3306 -u ${db_username} -p${password} < Create.sql
 
 echo "passing in sql schema"
 
