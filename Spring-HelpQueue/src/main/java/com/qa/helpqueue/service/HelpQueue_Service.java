@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.qa.helpqueue.repo.HelpQueue_Repo;
@@ -27,6 +28,26 @@ public class HelpQueue_Service {
 	public List<Ticket> getTicket() {
 		return this.repo.findAll();
 	}
+	
+	
+	public List<Ticket> getAllSort(String query) {
+		return this.repo.findByAndSort(Sort.by(query));
+	}
+	
+	/*
+	public List<Ticket> getAllTicketStatusValue(String status) {
+		return this.repo.findTicketByStatus(status);
+	}
+	*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	public Ticket updateTicket(Ticket ticket, Long id) {
 		//Optional<Ticket> optTicket = this.repo.findById(id);

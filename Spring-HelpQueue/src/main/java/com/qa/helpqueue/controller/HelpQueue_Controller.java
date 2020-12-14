@@ -37,6 +37,23 @@ public class HelpQueue_Controller {
 		return ResponseEntity.ok(this.service.getTicket());
 	}
 	
+	//GET MAPS FOR SORTING
+	
+ 
+	@GetMapping("/getTicket/sort/{query}")
+	public ResponseEntity<List<Ticket>> getAllSortTitle(@PathVariable String query){
+		return ResponseEntity.ok(this.service.getAllSort(query));
+	}
+	
+	/*
+	@GetMapping("/getTicket/{status}")
+	public ResponseEntity<List<Ticket>> getAllFilter(@PathVariable String status){
+		return ResponseEntity.ok(this.service.getAllTicketStatusValue(status));
+	}
+	*/
+	
+
+	
 	@PutMapping("/updateTicket/{id}")
 	public ResponseEntity<Ticket> updateTicket(@RequestBody Ticket ticket, @PathVariable Long id){
 		return new ResponseEntity<Ticket>(this.service.updateTicket(ticket, id), HttpStatus.ACCEPTED);
