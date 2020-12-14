@@ -6,6 +6,16 @@ WORKDIR /setup
 #copy file from working directory ls to directory /setup
 COPY . /setup
 
+ENV password=$password
+
+ENV testdb_username=$testdb_username
+
+ENV testdb_endpoint=$testdb_endpoint
+
+ENV db_endpoint=$db_endpoint
+
+ENV db_username=$db_username
+
 RUN mvn clean package
 
 #stage 2
