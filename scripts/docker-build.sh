@@ -13,10 +13,10 @@ cd ~
 
 echo 'Building frontend docker image'
 cd ~/Group-3-Final-Project/frontend/fp-group3-ticket
-docker build -t ${DOCKER_USERNAME}/frontend .
+docker build -t ${DOCKER_USERNAME}/frontend:latest .
 
 
 sudo docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
-docker push ${DOCKER_USERNAME}/frontend
-docker push ${DOCKER_USERNAME}/backend
+docker push ${DOCKER_USERNAME}/frontend:latest
+docker push ${DOCKER_USERNAME}/backend:latest
 EOF
