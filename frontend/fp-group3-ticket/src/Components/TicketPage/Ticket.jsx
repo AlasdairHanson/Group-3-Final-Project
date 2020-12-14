@@ -35,14 +35,14 @@ const Ticket = ({
         <Row>
           <Accordion.Toggle as={Col} eventKey={acc_id} xs={4}>
             <p className="mutedText">Title:</p>
-            <h5 className="ticketText">{title}</h5>
+            <h5 id="tickTitle" className="ticketText">{title}</h5>
           </Accordion.Toggle>
           <Col xs={2}>
-            <div className="textContainer blue my-1">{topic}</div>
+            <div id="tickTopic" className="textContainer blue my-1">{topic}</div>
           </Col>
           <Col xs={2}>
             <p className="mutedText">Cohort:</p>
-            <h5 className="ticketText">{cohort}</h5>
+            <h5 id="tickCohort" className="ticketText">{cohort}</h5>
           </Col>
           <Col xs={3} className="icons my-1">
             <EditTicketButton
@@ -84,7 +84,7 @@ const Ticket = ({
               </Col>
               <Col>
                 <p className="mutedText">Trainer:</p>
-                <h6 className="ticketText">{trainee}</h6>
+                <h6 id="tickTrainee"className="ticketText">{trainee}</h6>
               </Col>
             </Row>
           </Col>
@@ -101,18 +101,18 @@ const Ticket = ({
               </Col>
               <Col>
                 <p className="mutedText">Trainer:</p>
-                <h6 className="ticketText">{trainer}</h6>
+                <h6 id="tickTrainer" className="ticketText">{trainer}</h6>
               </Col>
             </Row>
           </Col>
           <Col xs={2}>
             <p className="mutedText">Timestamp:</p>
-            <h6 className="ticketText">{time}</h6>
+            <h6 id="tickTime" className="ticketText">{time}</h6>
           </Col>
           <Col xs={4}>
             <div className="priorityBar">
               <div className={priority}>
-                <p className="priorityText textShadow">{priority}</p>
+                <p id="tickPriority" className="priorityText textShadow">{priority}</p>
               </div>
             </div>
           </Col>
