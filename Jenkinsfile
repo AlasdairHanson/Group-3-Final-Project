@@ -16,13 +16,6 @@ pipeline{
                 }
             }
 		
-            stage('Run backend on test vm'){
-                steps{
-                    sh 'chmod a+x ./scripts/run-backend.sh'
-                    sh './scripts/run-backend.sh'
-                }
-            }
-		
 	    stage('Test frontend'){
                 steps{
                     sh 'chmod a+x ./scripts/frontend-test.sh'
