@@ -14,4 +14,6 @@ sudo npm install
 
 sudo npm test -- --watchAll=false
 
+pwd
+
 EOF
