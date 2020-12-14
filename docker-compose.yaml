@@ -8,5 +8,3 @@ services:
     - target: 8081
       published: 8081
       protocol: tcp
-    env_file:
-      - .env
