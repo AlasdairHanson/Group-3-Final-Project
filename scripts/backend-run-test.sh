@@ -19,6 +19,14 @@ fi
 
 cd ~/Group-3-Final-Project/Spring-HelpQueue
 
+echo ${db_endpoint}
+
+echo ${testdb_endpoint}
+
+echo ${password}
+
+echo ${testdb_username}
+
 mvn clean package | grep 'BUILD SUCCESS'
 
 EOF
