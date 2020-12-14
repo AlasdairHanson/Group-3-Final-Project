@@ -11,10 +11,6 @@ ssh ubuntu@${testvm_ip} <<EOF
 cd ~
 . ./databasecredentials.sh
 
-echo 'Building backend docker image'
-cd ~/Group-3-Final-Project/Spring-HelpQueue
-docker build -t ${DOCKER_USERNAME}/backend:latest .
-
 echo 'Building frontend docker image'
 cd ~/Group-3-Final-Project/frontend/fp-group3-ticket
 docker build -t ${DOCKER_USERNAME}/frontend .
