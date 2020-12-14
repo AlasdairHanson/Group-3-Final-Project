@@ -108,7 +108,7 @@ echo "Making key directory done"
 
 cd ~/Group-3-Final-Project/DevOps/ansible
 
-ansible-playbook -i inventory playbook.yaml
+#ansible-playbook -i inventory playbook.yaml
 
 sleep 3
 
@@ -226,6 +226,7 @@ chmod +x databasecredentials.sh
 echo "export testdb_endpoint=${testdb_endpoint}" >> ~/databasecredentials.sh
 echo "export db_endpoint=${db_endpoint}" >> ~/databasecredentials.sh
 echo "export db_username=${db_username}" >> ~/databasecredentials.sh
+echo "export testdb_username=${testdb_username}" >> ~/databasecredentials.sh
 echo "export password=${password}" >> ~/databasecredentials.sh
 echo "export testvm_ip=${testvm_ip}" >> ~/databasecredentials.sh
 echo "export DOCKER_USERNAME=${DOCKER_USERNAME}" >> ~/databasecredentials.sh
@@ -250,10 +251,11 @@ cd ~
 touch .env
 chmod +x .env
 
-echo "db_endpoint='${db_endpoint}'" >> ~/.env
-echo "db_username='${db_username}'" >> ~/.env
-echo "password='${password}'" >> ~/.env
-echo "testdb_endpoint='${testdb_endpoint}'" >> ~/.env
+echo "db_endpoint=${db_endpoint}" >> ~/.env
+echo "db_username=${db_username}" >> ~/.env
+echo "testdb_username=${testdb_username}" >> ~/.env
+echo "password=${password}" >> ~/.env
+echo "testdb_endpoint=${testdb_endpoint}" >> ~/.env
 
 
 if [ ! -d ~/Group-3-Final-Project ]; then
@@ -271,7 +273,7 @@ sleep 2
 #Passing in database schema
 
 cd ~/Group-3-Final-Project/DevOps/database
-mysql -h ${testdb_endpoint} -P 3306 -u ${db_username} -p${password} < Create.sql
+mysql -h ${testdb_endpoint} -P 3306 -u ${testdb_username} -p${password} < Create.sql
 
 echo "passing in sql schema"
 
