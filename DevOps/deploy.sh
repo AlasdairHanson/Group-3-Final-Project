@@ -18,9 +18,9 @@ chmod +x ~/secrets/aws_configure.sh
 echo "aws configuration done"
 
 #Export database password and username
-
+cd ~
 chmod +x ~/secrets/cred.sh
-. ./cred.sh
+. ./secrets/cred.sh
 
 echo "Exporting database credentials done"
 
@@ -49,7 +49,7 @@ cd ~/Group-3-Final-Project/DevOps/terraform
 terraform fmt
 terraform init
 terraform plan
-terraform apply -auto-approve
+#terraform apply -auto-approve
 
 echo "terraform finished"
 
@@ -246,6 +246,15 @@ ssh ubuntu@${testvm_ip} <<EOF
 cd ~
 
 . ./databasecredentials.sh
+
+touch .env
+chmod +x .env
+
+echo "db_endpoint='${db_endpoint}'" >> ~/.env
+echo "db_username='${db_username}'" >> ~/.env
+echo "password='${password}'" >> ~/.env
+echo "testdb_endpoint='${testdb_endpoint}'" >> ~/.env
+
 
 if [ ! -d ~/Group-3-Final-Project ]; then
 
