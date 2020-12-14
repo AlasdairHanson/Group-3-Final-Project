@@ -5,7 +5,7 @@ cd /var/lib/jenkins
 . ./databasecredentials.sh
 
 echo ${testvm_ip}
-
+echo ${db_username}
 echo ${db_endpoint}
 echo ${testdb_endpoint}
 echo ${password}
