@@ -6,17 +6,6 @@ WORKDIR /setup
 #copy file from working directory ls to directory /setup
 COPY . /setup
 
-#set environmental variables
-ENV password=${password}
-
-ENV testdb_username=${testdb_username}
-
-ENV testdb_endpoint=${testdb_endpoint}
-
-ENV db_endpoint=${db_endpoint}
-
-RUN mvn clean package
-
 #stage 2
 #install java SE as run stage
 FROM openjdk:11 AS RUN
