@@ -6,6 +6,11 @@ cd /var/lib/jenkins
 
 echo ${testvm_ip}
 
+echo ${db_endpoint}
+echo ${testdb_endpoint}
+echo ${password}
+echo ${testdb_username}
+
 ssh ubuntu@${testvm_ip} <<EOF
 cd ~
 . ./databasecredentials.sh
