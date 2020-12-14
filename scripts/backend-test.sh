@@ -10,11 +10,19 @@ ssh ubuntu@${testvm_ip} <<EOF
 cd ~
 . ./databasecredentials.sh
 
-cp ~/.env ~/Group-3-Final-Project/.env
-
 cd ~/Group-3-Final-Project/Spring-HelpQueue
 
-which docker-compose
+export testdb_username=${testdb_username}
+export db_username=${db_username}
+export testdb_endpoint=${testdb_endpoint}
+export db_endpoint=${db_endpoint}
+export password=${password}
+
+echo ${testdb_username}
+echo ${db_username}
+echo ${testdb_endpoint}
+echo ${db_endpoint}
+echo ${password}
 
 docker-compose up -d --build
 
