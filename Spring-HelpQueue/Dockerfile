@@ -6,6 +6,16 @@ WORKDIR /setup
 #copy file from working directory ls to directory /setup
 COPY . /setup
 
+ARG testdb_username
+
+ARG testdb_endpoint
+
+ARG db_endpoint
+
+ARG db_username
+
+ARG password
+
 ENV password=$password
 
 ENV testdb_username=$testdb_username
