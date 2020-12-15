@@ -8,7 +8,7 @@ const TicketList = () => {
   const [ticketData, setTicketData] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:8081/getTicket").then(
+    axios.get("http://backend:8081/getTicket").then(
       (data) => {
         setLoaded(true);
         setTicketData(data.data);
