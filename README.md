@@ -1,33 +1,52 @@
-# Group-3-Final-Project
+# Group 3 Final Project
 
-##Resources (All)
+## Resources (All)
+---
+- Presentation:
+- Jira Board:
+- Risk Assessment:
 
-##Contents (All)
+## Contents (All)
+---
 
 
-##Brief (All)
+## Brief (All)
+---
 
-##Project Management (All)
+Our group has been tasked with 
 
-##Risk Assesment (Basia + Abdul)
+### Requirements
 
-##Research (Reece)
+In addition to the brief, we are also required to include:
 
-### Market research Meeting
+- 
+
+## Project Management (All)
+---
+
+## Risk Assesment (Basia + Abdul)
+---
+
+## Research (Reece)
+---
+
+### Market Research Meeting
 erfgwererg
 
 ### other subtitle
 wefwefwefwef
 
-##FrontEnd Design (Reece)
+## FrontEnd Design (Reece)
+---
 
-##Architecture (+ ERDs) 
+## Architecture (+ ERDs) 
+---
 
-###Frontend (Reece)
+### Frontend (Reece)
 
-###Backend (Alasdair)
+### Backend (Alasdair)
 
-###DevOps (Abdul + Alanzo)
+### DevOps (Abdul + Alanzo)
 
 **Ci Pipeline (Basia)
 
@@ -35,13 +54,22 @@ wefwefwefwef
 
 **Walkthrough (Abdul)
 
-##Testing (Basia)
+## Testing (Basia)
+---
 
-##Improvements (All)
+## Improvements (All)
+---
 
-##Acknowledgements (All)
+## Acknowledgements (All)
+---
 
-##Authors (All)
+## Authors 
+---
 
+Alanzo Davis
+Basia Adamiec
+Abdul Shaker
+Alasdair Hanson
+Reece Elder
 
 
