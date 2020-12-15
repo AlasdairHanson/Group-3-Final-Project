@@ -1,6 +1,10 @@
  #! /bin/bash
 
 cd /var/lib/jenkins
+
+sudo chown -R jenkins .kube
+sudo chgrp -R jenkins .kube
+
 . ./databasecredentials.sh
 
 echo ${testvm_ip}
