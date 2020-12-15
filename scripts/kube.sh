@@ -1,5 +1,10 @@
  #! /bin/bash
-cd /home/jenkins/.jenkins/workspace/project3/Group-3-Final-Project/DevOps/kubernetes
+
+cd /var/lib/jenkins
+. ./databasecredentials.sh
+
+
+cd /var/lib/jenkins/.jenkins/workspace/project3/Group-3-Final-Project/DevOps/kubernetes
 sudo kubectl apply -f ~/secrets.yaml
 sudo kubectl create namespace group3
 sudo kubectl delete pods --all pods --namespace=group3
