@@ -1,12 +1,47 @@
 # Group-3-Final-Project
-QA Academy Final Group Project
 
-reece is here
+##Resources (All)
 
-basia is also here
+##Contents (All)
 
-Don't forget about me, Abdul!
 
-Count me in, A.D
+##Brief (All)
 
-ro is here
+##Project Management (All)
+
+##Risk Assesment (Basia + Abdul)
+
+##Research (Reece)
+
+### Market research Meeting
+erfgwererg
+
+### other subtitle
+wefwefwefwef
+
+##FrontEnd Design (Reece)
+
+##Architecture (+ ERDs) 
+
+###Frontend (Reece)
+
+###Backend (Alasdair)
+
+###DevOps (Abdul + Alanzo)
+
+**Ci Pipeline (Basia)
+
+**Usage Requirements (Abdul)
+
+**Walkthrough (Abdul)
+
+##Testing (Basia)
+
+##Improvements (All)
+
+##Acknowledgements (All)
+
+##Authors (All)
+
+
+
