@@ -49,9 +49,9 @@ public class TicketIntegrationTest {
 
 		ResultMatcher checkStatus = status().isCreated();
 
-		Ticket savedTicket = new Ticket("Title", "Author", "Some time", "Desc", "Urgency", "Topic", "Status", "Trainer",
+		Ticket savedTicket = new Ticket("Title", "Author", "2018-07-07 05:15:09", "Desc", "Urgency", "Topic", "Status", "Trainer",
 				"Cohort");
-		savedTicket.setID(2L);
+		savedTicket.setId(2L);
 
 		String resultBody = this.mapper.writeValueAsString(savedTicket);
 		ResultMatcher checkBody = content().json(resultBody);
@@ -87,9 +87,9 @@ public class TicketIntegrationTest {
 	@Test
 	void testReadTicket() throws Exception {
 		// MUST match the test database record
-		Ticket ticket = new Ticket("Some Title", "Some Author", "Some time", "Desc", "Urgent", "React", "Completed", "Savannah",
+		Ticket ticket = new Ticket("Some Title", "Some Author", "2018-07-07 05:15:09", "Desc", "Urgent", "React", "Completed", "Savannah",
 				"Cloud Native");
-		ticket.setID(1L);
+		ticket.setId(1L);
 		List<Ticket> tickets = new ArrayList<>();
 		tickets.add(ticket);
 		String responseBody = this.mapper.writeValueAsString(tickets);
@@ -102,7 +102,7 @@ public class TicketIntegrationTest {
 	void testUpdateTicket() throws Exception {
 		// Updates the book with id=1 in the test database
 		Long id = 1L;
-		Ticket updatedTicket = new Ticket("Some Updated Title", "Some Author", "Some updated time", "Desc", "Urgent", "React",
+		Ticket updatedTicket = new Ticket("Some Updated Title", "Some Author", "2018-08-08 05:15:10", "Desc", "Urgent", "React",
 				"Completed", "Savannah", "Cloud Native");
 		String requestBody = this.mapper.writeValueAsString(updatedTicket);
 		RequestBuilder request = put("/updateTicket/" + id).contentType(MediaType.APPLICATION_JSON)
@@ -110,9 +110,9 @@ public class TicketIntegrationTest {
 
 		ResultMatcher checkStatus = status().isAccepted();
 
-		Ticket returnedTicket = new Ticket("Some Updated Title", "Some Author", "Some updated time", "Desc", "Urgent", "React",
+		Ticket returnedTicket = new Ticket("Some Updated Title", "Some Author", "2018-08-08 05:15:10", "Desc", "Urgent", "React",
 				"Completed", "Savannah", "Cloud Native");
-		returnedTicket.setID(id);
+		returnedTicket.setId(id);
 
 		String resultBody = this.mapper.writeValueAsString(returnedTicket);
 		ResultMatcher checkBody = content().json(resultBody);

@@ -11,7 +11,7 @@ INSERT INTO `ticket`
 VALUES
 ('Some Title',
 'Some Author',
-'Some time',
+'2018-07-07 05:15:09',
 'Desc',
 'Urgent',
 'React',

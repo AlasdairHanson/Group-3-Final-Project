@@ -30,10 +30,10 @@ public class TicketServiceUnitTest {
 	@Test
 	void testCreateTicket() {
 		Long id = 1L;
-		Ticket newTicket = new Ticket("Title", "Author", "Some time", "Desc", "Urgency", "Topic", "Status", "Trainer", "Cohort");
-		Ticket savedTicket = new Ticket("Title", "Author", "Some time", "Desc", "Urgency", "Topic", "Status", "Trainer",
+		Ticket newTicket = new Ticket("Title", "Author", "2018-07-07 05:15:09", "Desc", "Urgency", "Topic", "Status", "Trainer", "Cohort");
+		Ticket savedTicket = new Ticket("Title", "Author", "2018-07-07 05:15:09", "Desc", "Urgency", "Topic", "Status", "Trainer",
 				"Cohort");
-		savedTicket.setID(id);
+		savedTicket.setId(id);
 
 		Mockito.when(this.repo.save(newTicket)).thenReturn(savedTicket);
 	}
@@ -48,9 +48,9 @@ public class TicketServiceUnitTest {
 
 		List<Ticket> tickets = new ArrayList<Ticket>();
 		Long id = 1L;
-		Ticket addedTicket = new Ticket("Title", "Author", "Some time", "Desc", "Urgency", "Topic", "Status", "Trainer",
+		Ticket addedTicket = new Ticket("Title", "Author", "2018-07-07 05:15:09", "Desc", "Urgency", "Topic", "Status", "Trainer",
 				"Cohort");
-		addedTicket.setID(id);
+		addedTicket.setId(id);
 		tickets.add(addedTicket);
 
 		Mockito.when(this.repo.findAll()).thenReturn(tickets);
@@ -61,11 +61,11 @@ public class TicketServiceUnitTest {
 	@Test
 	void testUpdateTicket() {
 		Long id = 1L;
-		Ticket newTicket = new Ticket("Another Title", "Another Author", "Another time", "Desc", "Urgency", "Topic", "Status",
+		Ticket newTicket = new Ticket("Another Title", "Another Author", "2018-08-08 05:15:10", "Desc", "Urgency", "Topic", "Status",
 				"Trainer", "Cohort");
-		Ticket oldTicket = new Ticket("Title", "Author", "Some time", "Desc", "Urgency", "Topic", "Status", "Trainer", "Cohort");
+		Ticket oldTicket = new Ticket("Title", "Author", "2018-07-07 05:15:09", "Desc", "Urgency", "Topic", "Status", "Trainer", "Cohort");
 		oldTicket.setID(id);
-		Ticket updatedTicket = new Ticket("Another Title", "Another Author", "Another time", "Desc", "Urgency", "Topic", "Status",
+		Ticket updatedTicket = new Ticket("Another Title", "Another Author", "2018-08-08 05:15:10", "Desc", "Urgency", "Topic", "Status",
 				"Trainer", "Cohort");
 		updatedTicket.setID(id);
 
@@ -79,9 +79,9 @@ public class TicketServiceUnitTest {
 	@Test
 	void testDeleteTicket() {
 		Long id = 1L;
-		Ticket toRemoveTicket = new Ticket("Title", "Author", "Some time", "Desc", "Urgency", "Topic", "Status", "Trainer",
+		Ticket toRemoveTicket = new Ticket("Title", "Author", "2018-07-07 05:15:09", "Desc", "Urgency", "Topic", "Status", "Trainer",
 				"Cohort");
-		toRemoveTicket.setID(id);
+		toRemoveTicket.setId(id);
 
 		Mockito.when(this.repo.existsById(id)).thenReturn(false);
 
@@ -94,11 +94,11 @@ public class TicketServiceUnitTest {
 		Ticket ticket = new Ticket();
 		String testedString = ticket.toString();
 		assertEquals(testedString,
-				"Ticket [ID=" + ticket.getID() + ", TicketTitle=" + ticket.getTicketTitle() + ", TicketAuthor="
-						+ ticket.getTicketAuthor() + ", TicketTime=" + ticket.getTicketTime() + ", TicketDesc="
-						+ ticket.getTicketDesc() + ", TicketUrgency=" + ticket.getTicketUrgency() + ", TicketTopic="
-						+ ticket.getTicketTopic() + ", TicketStatus=" + ticket.getTicketStatus() + ", TicketTrainer="
-						+ ticket.getTicketTrainer() + ", TicketCohort=" + ticket.getTicketCohort() + "]");
+				"Ticket [id=" + ticket.getID() + ", title=" + ticket.getTitle() + ", author="
+						+ ticket.getAuthor() + ", time=" + ticket.getTimestamp() + ", content="
+						+ ticket.getContent() + ", priority=" + ticket.getPriority() + ", topic="
+						+ ticket.getTopic() + ", status=" + ticket.getStatus() + ", trainer="
+						+ ticket.getTrainer() + ", cohort=" + ticket.getCohort() + "]");
 
 	}
 
