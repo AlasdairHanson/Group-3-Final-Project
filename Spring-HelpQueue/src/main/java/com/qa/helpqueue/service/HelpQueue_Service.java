@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.qa.helpqueue.repo.HelpQueue_Repo;
@@ -28,19 +29,45 @@ public class HelpQueue_Service {
 		return this.repo.findAll();
 	}
 	
+	//SORTING
+	public List<Ticket> getAllSort(String query) {
+		return this.repo.findByAndSort(Sort.by(query));
+	}
+		
+	//STATUS
+	public List<Ticket> filterStatus(String value) {
+		return this.repo.findTicketByStatus(value);
+	}
+		
+	//PRIORITY
+	public List<Ticket> filterPriority(String value) {
+		return this.repo.findTicketByPriority(value);
+	}
+		
+	//TOPIC
+	public List<Ticket> filterTopic(String value) {
+		return this.repo.findTicketByTopic(value);
+	}
+		
+	//COHORT
+	public List<Ticket> filterCohort(String value) {
+		return this.repo.findTicketByCohort(value);
+	}
+	
+	
 	public Ticket updateTicket(Ticket ticket, Long id) {
 		//Optional<Ticket> optTicket = this.repo.findById(id);
 		Ticket oldTicket = this.repo.findById(id).orElseThrow();
 		
-		oldTicket.setTicketTitle(ticket.getTicketTitle());
-		oldTicket.setTicketAuthor(ticket.getTicketAuthor());
-		oldTicket.setTicketDesc(ticket.getTicketDesc());
-		oldTicket.setTicketTime(ticket.getTicketTime());
-		oldTicket.setTicketUrgency(ticket.getTicketUrgency());
-		oldTicket.setTicketTopic(ticket.getTicketTopic());
-		oldTicket.setTicketStatus(ticket.getTicketStatus());
-		oldTicket.setTicketTrainer(ticket.getTicketTrainer());
-		oldTicket.setTicketCohort(ticket.getTicketCohort());
+		oldTicket.setTitle(ticket.getTitle());
+		oldTicket.setAuthor(ticket.getAuthor());
+		oldTicket.setContent(ticket.getContent());
+		oldTicket.setTimestamp(ticket.getTimestamp());
+		oldTicket.setPriority(ticket.getPriority());
+		oldTicket.setTopic(ticket.getTopic());
+		oldTicket.setStatus(ticket.getStatus());
+		oldTicket.setTrainer(ticket.getTrainer());
+		oldTicket.setCohort(ticket.getCohort());
 		
 		Ticket saved = this.repo.save(oldTicket);
 		return saved;
@@ -50,5 +77,6 @@ public class HelpQueue_Service {
 		this.repo.deleteById(id);
 		return !this.repo.existsById(id);
 	}
+
 
 }

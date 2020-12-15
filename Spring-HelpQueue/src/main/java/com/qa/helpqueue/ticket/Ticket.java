@@ -9,185 +9,145 @@ import javax.persistence.Id;
 @Entity
 public class Ticket {
 
- 
-
     //attributes
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private Long ID;
-        private String TicketTitle;
-        private String TicketAuthor;
-        private String TicketTime;
-        private String TicketDesc;
-        private String TicketUrgency;
-        private String TicketTopic;
-        private String TicketStatus;
-        private String TicketTrainer;
-        private String TicketCohort;
+        private Long id;
+        private String title;
+        private String author;
+        private String timestamp;
+        private String content;
+        private String priority;
+        private String topic;
+        private String status;
+        private String trainer;
+        private String cohort;
         
         public Ticket() {
             super();
         }
         
     // Constructor
-        public Ticket(String ticketTitle, String ticketAuthor, String ticketTime, String ticketDesc,
-                String ticketUrgency, String ticketTopic, String ticketStatus, String ticketTrainer, String ticketCohort) {
-            super();
-            this.TicketTitle = ticketTitle;
-            this.TicketAuthor = ticketAuthor;
-            this.TicketTime = ticketTime;
-            this.TicketDesc = ticketDesc;
-            this.TicketUrgency = ticketUrgency;
-            this.TicketTopic = ticketTopic;
-            this.TicketStatus = ticketStatus;
-            this.TicketTrainer = ticketTrainer;
-            this.TicketCohort = ticketCohort;
-        }
+        public Ticket(Long id, String title, String author, String timestamp, String content, String priority,
+				String topic, String status, String trainer, String cohort) {
+			super();
+			this.id = id;
+			this.title = title;
+			this.author = author;
+			this.timestamp = timestamp;
+			this.content = content;
+			this.priority = priority;
+			this.topic = topic;
+			this.status = status;
+			this.trainer = trainer;
+			this.cohort = cohort;
+		}
     // Getters and Setters
 
- 
 
-        public Long getID() {
-            return ID;
-        }
+		public Long getId() {
+			return id;
+		}
 
- 
+		public void setId(Long id) {
+			this.id = id;
+		}
 
-        public void setID(Long iD) {
-            ID = iD;
-        }
+		public String getTitle() {
+			return title;
+		}
 
- 
+		public void setTitle(String title) {
+			this.title = title;
+		}
 
-        public String getTicketTitle() {
-            return TicketTitle;
-        }
+		public String getAuthor() {
+			return author;
+		}
 
- 
+		public void setAuthor(String author) {
+			this.author = author;
+		}
 
-        public void setTicketTitle(String ticketTitle) {
-            TicketTitle = ticketTitle;
-        }
+		public String getTimestamp() {
+			return timestamp;
+		}
 
- 
+		public void setTimestamp(String timestamp) {
+			this.timestamp = timestamp;
+		}	
+		
+		public String getContent() {
+			return content;
+		}
 
-        public String getTicketAuthor() {
-            return TicketAuthor;
-        }
+		public void setContent(String content) {
+			this.content = content;
+		}
 
- 
+		public String getPriority() {
+			return priority;
+		}
 
-        public void setTicketAuthor(String ticketAuthor) {
-            TicketAuthor = ticketAuthor;
-        }
+		public void setPriority(String priority) {
+			this.priority = priority;
+		}
 
- 
+		public String getTopic() {
+			return topic;
+		}
 
-        public String getTicketTime() {
-            return TicketTime;
-        }
+		public void setTopic(String topic) {
+			this.topic = topic;
+		}
 
- 
+		public String getStatus() {
+			return status;
+		}
 
-        public void setTicketTime(String ticketTime) {
-            TicketTime = ticketTime;
-        }
+		public void setStatus(String status) {
+			this.status = status;
+		}
 
- 
+		public String getTrainer() {
+			return trainer;
+		}
 
-        public String getTicketDesc() {
-            return TicketDesc;
-        }
+		public void setTrainer(String trainer) {
+			this.trainer = trainer;
+		}
 
- 
+		public String getCohort() {
+			return cohort;
+		}
 
-        public void setTicketDesc(String ticketDesc) {
-            TicketDesc = ticketDesc;
-        }
-
- 
-
-        public String getTicketUrgency() {
-            return TicketUrgency;
-        }
-
- 
-
-        public void setTicketUrgency(String ticketUrgency) {
-            TicketUrgency = ticketUrgency;
-        }
-
- 
-
-        public String getTicketTopic() {
-            return TicketTopic;
-        }
-
- 
-
-        public void setTicketTopic(String ticketTopic) {
-            TicketTopic = ticketTopic;
-        }
-
- 
-
-        public String getTicketStatus() {
-            return TicketStatus;
-        }
-
- 
-
-        public void setTicketStatus(String ticketStatus) {
-            TicketStatus = ticketStatus;
-        }
-
- 
-
-        public String getTicketTrainer() {
-            return TicketTrainer;
-        }
-
- 
-
-        public void setTicketTrainer(String ticketTrainer) {
-            TicketTrainer = ticketTrainer;
-        }
-
- 
-
-        public String getTicketCohort() {
-            return TicketCohort;
-        }
-
- 
-
-        public void setTicketCohort(String ticketCohort) {
-            TicketCohort = ticketCohort;
-        }
-
- 
-
-        @Override
+		public void setCohort(String cohort) {
+			this.cohort = cohort;
+		}
+		
+		
+		@Override
         public String toString() {
-            return "Ticket [ID=" + ID + ", TicketTitle=" + TicketTitle + ", TicketAuthor=" + TicketAuthor
-                    + ", TicketTime=" + TicketTime + ", TicketDesc=" + TicketDesc + ", TicketUrgency=" + TicketUrgency
-                    + ", TicketTopic=" + TicketTopic + ", TicketStatus=" + TicketStatus + ", TicketTrainer="
-                    + TicketTrainer + ", TicketCohort=" + TicketCohort + "]";
+            return "Ticket [id=" + id + ", title=" + title + ", author=" + author
+                    + ", time=" + timestamp + ", content=" + content + ", priority=" + priority
+                    + ", topic=" + topic + ", status=" + status + ", trainer="
+                    + trainer + ", cohort=" + cohort + "]";
         }
+        
 
 		@Override
 		public int hashCode() {
 			final int prime = 31;
 			int result = 1;
-			result = prime * result + ((TicketAuthor == null) ? 0 : TicketAuthor.hashCode());
-			result = prime * result + ((TicketCohort == null) ? 0 : TicketCohort.hashCode());
-			result = prime * result + ((TicketDesc == null) ? 0 : TicketDesc.hashCode());
-			result = prime * result + ((TicketStatus == null) ? 0 : TicketStatus.hashCode());
-			result = prime * result + ((TicketTime == null) ? 0 : TicketTime.hashCode());
-			result = prime * result + ((TicketTitle == null) ? 0 : TicketTitle.hashCode());
-			result = prime * result + ((TicketTopic == null) ? 0 : TicketTopic.hashCode());
-			result = prime * result + ((TicketTrainer == null) ? 0 : TicketTrainer.hashCode());
-			result = prime * result + ((TicketUrgency == null) ? 0 : TicketUrgency.hashCode());
+			result = prime * result + ((author == null) ? 0 : author.hashCode());
+			result = prime * result + ((cohort == null) ? 0 : cohort.hashCode());
+			result = prime * result + ((content == null) ? 0 : content.hashCode());
+			result = prime * result + ((status == null) ? 0 : status.hashCode());
+			result = prime * result + ((timestamp == null) ? 0 : timestamp.hashCode());
+			result = prime * result + ((title == null) ? 0 : title.hashCode());
+			result = prime * result + ((topic == null) ? 0 : topic.hashCode());
+			result = prime * result + ((trainer == null) ? 0 : trainer.hashCode());
+			result = prime * result + ((priority == null) ? 0 : priority.hashCode());
 			return result;
 		}
 
@@ -200,57 +160,53 @@ public class Ticket {
 			if (getClass() != obj.getClass())
 				return false;
 			Ticket other = (Ticket) obj;
-			if (TicketAuthor == null) {
-				if (other.TicketAuthor != null)
+			if (author == null) {
+				if (other.author != null)
 					return false;
-			} else if (!TicketAuthor.equals(other.TicketAuthor))
+			} else if (!author.equals(other.author))
 				return false;
-			if (TicketCohort == null) {
-				if (other.TicketCohort != null)
+			if (cohort == null) {
+				if (other.cohort != null)
 					return false;
-			} else if (!TicketCohort.equals(other.TicketCohort))
+			} else if (!cohort.equals(other.cohort))
 				return false;
-			if (TicketDesc == null) {
-				if (other.TicketDesc != null)
+			if (content == null) {
+				if (other.content != null)
 					return false;
-			} else if (!TicketDesc.equals(other.TicketDesc))
+			} else if (!content.equals(other.content))
 				return false;
-			if (TicketStatus == null) {
-				if (other.TicketStatus != null)
+			if (status == null) {
+				if (other.status != null)
 					return false;
-			} else if (!TicketStatus.equals(other.TicketStatus))
+			} else if (!status.equals(other.status))
 				return false;
-			if (TicketTime == null) {
-				if (other.TicketTime != null)
+			if (timestamp == null) {
+				if (other.timestamp != null)
 					return false;
-			} else if (!TicketTime.equals(other.TicketTime))
+			} else if (!timestamp.equals(other.timestamp))
 				return false;
-			if (TicketTitle == null) {
-				if (other.TicketTitle != null)
+			if (title == null) {
+				if (other.title != null)
 					return false;
-			} else if (!TicketTitle.equals(other.TicketTitle))
+			} else if (!title.equals(other.title))
 				return false;
-			if (TicketTopic == null) {
-				if (other.TicketTopic != null)
+			if (topic == null) {
+				if (other.topic != null)
 					return false;
-			} else if (!TicketTopic.equals(other.TicketTopic))
+			} else if (!topic.equals(other.topic))
 				return false;
-			if (TicketTrainer == null) {
-				if (other.TicketTrainer != null)
+			if (trainer == null) {
+				if (other.trainer != null)
 					return false;
-			} else if (!TicketTrainer.equals(other.TicketTrainer))
+			} else if (!trainer.equals(other.trainer))
 				return false;
-			if (TicketUrgency == null) {
-				if (other.TicketUrgency != null)
+			if (priority == null) {
+				if (other.priority != null)
 					return false;
-			} else if (!TicketUrgency.equals(other.TicketUrgency))
+			} else if (!priority.equals(other.priority))
 				return false;
 			return true;
 		}
 
-
- 
-
-        
         
 }

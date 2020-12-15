@@ -42,7 +42,7 @@ public class TicketIntegrationTest {
 
 	@Test
 	void testCreateTicket() throws Exception {
-		Ticket newTicket = new Ticket("Title", "Author", "Some time", "Desc", "Urgency", "Topic", "Status", "Trainer", "Cohort");
+		Ticket newTicket = new Ticket("Title", "Author", "2018-07-07 05:15:09", "Desc", "Urgency", "Topic", "Status", "Trainer", "Cohort");
 		String requestBody = this.mapper.writeValueAsString(newTicket);
 
 		RequestBuilder request = post("/createTicket").contentType(MediaType.APPLICATION_JSON).content(requestBody);
