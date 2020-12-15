@@ -169,9 +169,6 @@ else
   echo "Public key already exist"
 fi
 
-touch ~/.ssh/authorized_keys
-exit
-
 EOF1
 
 EOF
