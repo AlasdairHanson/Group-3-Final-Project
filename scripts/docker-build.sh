@@ -22,4 +22,9 @@ echo ${DOCKER_PASSWORD}
 sudo docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
 sudo docker push ${DOCKER_USERNAME}/frontend:latest
 
+sudo docker stop $(docker ps -aq)
+sudo docker rm $(docker ps -aq)
+docker rmi -f $(docker images -a -q)
+sudo docker system prune
+
 EOF

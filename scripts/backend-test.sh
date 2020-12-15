@@ -35,5 +35,10 @@ sudo docker build --build-arg testdb_endpoint="$testdb_endpoint" --build-arg db_
 
 sudo docker push ${DOCKER_USERNAME}/backend:latest
 
+sudo docker stop $(docker ps -aq)
+sudo docker rm $(docker ps -aq)
+docker rmi -f $(docker images -a -q)
+sudo docker system prune
+
 EOF
                     
