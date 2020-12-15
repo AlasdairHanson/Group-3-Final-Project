@@ -49,7 +49,7 @@ cd ~/Group-3-Final-Project/DevOps/terraform
 terraform fmt
 terraform init
 terraform plan
-#terraform apply -auto-approve
+terraform apply -auto-approve
 
 echo "terraform finished"
 
@@ -108,7 +108,7 @@ echo "Making key directory done"
 
 cd ~/Group-3-Final-Project/DevOps/ansible
 
-#ansible-playbook -i inventory playbook.yaml
+ansible-playbook -i inventory playbook.yaml
 
 sleep 3
 
