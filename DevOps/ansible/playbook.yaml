@@ -1,7 +1,6 @@
 ---
 - hosts: testvm
   become: true
-  roles:
   vars:
     CTOP_VERSION: "0.7.3"
     DOCKER_COMPOSE_VERSION: "1.25.1"
@@ -12,6 +11,7 @@
       - gnupg-agent
       - software-properties-common
     USER: "ubuntu"
+  roles:
   - utilities
   - sudo-doers
   - node
