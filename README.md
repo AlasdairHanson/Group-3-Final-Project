@@ -66,10 +66,10 @@ wefwefwefwef
 ## Authors 
 ---
 
-Alanzo Davis
-Basia Adamiec
-Abdul Shaker
-Alasdair Hanson
-Reece Elder
+- Alanzo Davis
+- Basia Adamiec
+- Abdul Shaker
+- Alasdair Hanson
+- Reece Elder
 
 
