@@ -46,6 +46,14 @@ wefwefwefwef
 
 ### Backend (Alasdair)
 
+The backend is a micro service that enables the frontend to communicate with a database. It is deployed inside a Docker container where it listens for HTTP CRUD (Create, Read, Update, Delete) requests from the frontend and performs SQL queries on a connected database.
+
+
+
+
+
+
+
 ### DevOps (Abdul + Alanzo)
 
 **Ci Pipeline (Basia)
