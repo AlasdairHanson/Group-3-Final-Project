@@ -1,4 +1,4 @@
-insert into MOCK_DATA (id, title, author, timestamp, content, priority, topic, status, trainer, cohort) values (1, 'curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam', 'Tricia Corner', '2020-10-30 21:29:48', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.
+insert into ticket (id, title, author, timestamp, content, priority, topic, status, trainer, cohort) values (1, 'curabitur gravida nisi at nibh in hac habitasse platea dictumst aliquam augue quam', 'Tricia Corner', '2020-10-30 21:29:48', 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.
 
 Vestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.
 
