@@ -28,10 +28,9 @@ public class Ticket {
         }
         
     // Constructor
-        public Ticket(Long id, String title, String author, String timestamp, String content, String priority,
+        public Ticket(String title, String author, String timestamp, String content, String priority,
 				String topic, String status, String trainer, String cohort) {
 			super();
-			this.id = id;
 			this.title = title;
 			this.author = author;
 			this.timestamp = timestamp;
