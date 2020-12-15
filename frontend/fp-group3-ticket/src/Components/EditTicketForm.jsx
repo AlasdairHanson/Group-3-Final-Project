@@ -36,7 +36,7 @@ const EditTicketForm = ({
   const updateData = (e) => {
     console.log("update data");
     axios
-      .put("http://localhost:8081/updateTicket/" + id, ticketData)
+      .put("http://backend:8081/updateTicket/" + id, ticketData)
       .then(function (response) {
         console.log(response);
       })
