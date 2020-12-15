@@ -49,7 +49,7 @@ cd ~/Group-3-Final-Project/DevOps/terraform
 terraform fmt
 terraform init
 terraform plan
-#terraform apply -auto-approve
+terraform apply -auto-approve
 
 echo "terraform finished"
 
@@ -108,7 +108,7 @@ echo "Making key directory done"
 
 cd ~/Group-3-Final-Project/DevOps/ansible
 
-#ansible-playbook -i inventory playbook.yaml
+ansible-playbook -i inventory playbook.yaml
 
 sleep 3
 
@@ -168,9 +168,6 @@ if [ ! -f ~/.ssh/id_rsa.pub ]; then
 else
   echo "Public key already exist"
 fi
-
-touch ~/.ssh/authorized_keys
-exit
 
 EOF1
 
@@ -247,6 +244,8 @@ ssh ubuntu@${testvm_ip} <<EOF
 cd ~
 
 . ./databasecredentials.sh
+
+#Passing in ,env file
 
 touch .env
 chmod +x .env
