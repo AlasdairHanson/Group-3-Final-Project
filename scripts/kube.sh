@@ -1,4 +1,8 @@
  #! /bin/bash
+ 
+cd /var/lib/jenkins/secrets
+
+. ./aws_configure.sh
 
 cd /var/lib/jenkins
 
