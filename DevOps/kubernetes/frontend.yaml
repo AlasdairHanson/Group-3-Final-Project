@@ -29,7 +29,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: (dockerhubusername)/frontend
+        image: ${DOCKER_USERNAME}/frontend
        #imagePullPolicy: "Always"
         ports:
         - containerPort: 3000

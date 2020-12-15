@@ -33,22 +33,13 @@ spec:
     spec:
       containers:
       - name: backend
-        image: (dockerusername)/backend
+        image: ${DOCKER_USERNAME}/backend
         env:
-        - name: DATABASE_URI #environment variable for security
-          valueFrom:
-            secretKeyRef:
-              name: secretsql #name of secret
-              key: DATABASE_URI
-        - name: TEST_DATABASE_URI
-          valueFrom:
-            secretKeyRef:
-              name: secretsql
-              key: TEST_DATABASE_URI
-        - name: SECRET_KEY
-          valueFrom:
-            secretKeyRef:
-              name: secretsql
-              key: SECRET_KEY
+        - name: db_endpoint
+          value: ${db_endpoint}
+        - name: password
+          value: ${password}
+        - name: db_username
+          value: ${db_username}
         ports:
         - containerPort: 8081
