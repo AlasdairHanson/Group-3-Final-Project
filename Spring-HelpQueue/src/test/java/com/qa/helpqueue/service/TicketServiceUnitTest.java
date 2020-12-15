@@ -64,10 +64,10 @@ public class TicketServiceUnitTest {
 		Ticket newTicket = new Ticket("Another Title", "Another Author", "2018-08-08 05:15:10", "Desc", "Urgency", "Topic", "Status",
 				"Trainer", "Cohort");
 		Ticket oldTicket = new Ticket("Title", "Author", "2018-07-07 05:15:09", "Desc", "Urgency", "Topic", "Status", "Trainer", "Cohort");
-		oldTicket.setID(id);
+		oldTicket.setId(id);
 		Ticket updatedTicket = new Ticket("Another Title", "Another Author", "2018-08-08 05:15:10", "Desc", "Urgency", "Topic", "Status",
 				"Trainer", "Cohort");
-		updatedTicket.setID(id);
+		updatedTicket.setId(id);
 
 		Mockito.when(this.repo.findById(id)).thenReturn(Optional.of(oldTicket));
 		Mockito.when(this.repo.save(updatedTicket)).thenReturn(updatedTicket);
