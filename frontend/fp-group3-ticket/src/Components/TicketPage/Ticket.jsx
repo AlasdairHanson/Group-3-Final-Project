@@ -35,16 +35,22 @@ const Ticket = ({
         <Row>
           <Accordion.Toggle as={Col} eventKey={acc_id} xs={4}>
             <p className="mutedText">Title:</p>
-            <h5 id="tickTitle" className="ticketText">{title}</h5>
+            <h5 id="tickTitle" className="ticketText">
+              {title}
+            </h5>
           </Accordion.Toggle>
           <Col xs={2}>
-            <div id="tickTopic" className="textContainer blue my-1">{topic}</div>
+            <div id="tickTopic" className="textContainer blue my-1">
+              {topic}
+            </div>
           </Col>
           <Col xs={2}>
             <p className="mutedText">Cohort:</p>
-            <h5 id="tickCohort" className="ticketText">{cohort}</h5>
+            <h5 id="tickCohort" className="ticketText">
+              {cohort}
+            </h5>
           </Col>
-          <Col xs={3} className="icons my-1">
+          <Col xs={4} className="icons my-1">
             <EditTicketButton
               id={id}
               oldTitle={title}
@@ -59,7 +65,7 @@ const Ticket = ({
             <Button variant="link" onClick={(e) => deleteTicket(e)}>
               <Icon.TrashFill />
             </Button>
-            <div className={"textContainer textShadow " + status}>{status}</div>
+            <div className={"textContainer " + status}>{status}</div>
           </Col>
         </Row>
       </Card.Header>
@@ -72,6 +78,15 @@ const Ticket = ({
       </Accordion.Collapse>
       <Card.Footer>
         <Row>
+          <Col xs={4}>
+            <div className="priorityBar">
+              <div className={priority}>
+                <p id="tickPriority" className="priorityText">
+                  {priority}
+                </p>
+              </div>
+            </div>
+          </Col>
           <Col xs={3}>
             <Row>
               <Col xs={2}>
@@ -83,8 +98,10 @@ const Ticket = ({
                 />
               </Col>
               <Col>
-                <p className="mutedText">Trainer:</p>
-                <h6 id="tickTrainee"className="ticketText">{trainee}</h6>
+                <p className="mutedText">Author:</p>
+                <h6 id="tickTrainee" className="ticketText">
+                  {trainee}
+                </h6>
               </Col>
             </Row>
           </Col>
@@ -101,20 +118,17 @@ const Ticket = ({
               </Col>
               <Col>
                 <p className="mutedText">Trainer:</p>
-                <h6 id="tickTrainer" className="ticketText">{trainer}</h6>
+                <h6 id="tickTrainer" className="ticketText">
+                  {trainer}
+                </h6>
               </Col>
             </Row>
           </Col>
           <Col xs={2}>
             <p className="mutedText">Timestamp:</p>
-            <h6 id="tickTime" className="ticketText">{time}</h6>
-          </Col>
-          <Col xs={4}>
-            <div className="priorityBar">
-              <div className={priority}>
-                <p id="tickPriority" className="priorityText textShadow">{priority}</p>
-              </div>
-            </div>
+            <h6 id="tickTime" className="ticketText">
+              {time}
+            </h6>
           </Col>
         </Row>
       </Card.Footer>

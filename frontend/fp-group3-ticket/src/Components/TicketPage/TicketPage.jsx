@@ -9,6 +9,7 @@ const TicketPage = () => {
   const [isLoaded, setLoaded] = useState(false);
   const [ticketData, setTicketData] = useState([]);
   const [isUpdate, setIsUpdate] = useState(true);
+  const [dataSort, setDataSort] = useState(`getTicket`);
 
   const placeHolderList = [
     {
@@ -65,33 +66,36 @@ const TicketPage = () => {
     },
   ];
 
+  const dataSortSetup = field => {
+    setDataSort("/getTicket"+ field);
+  }
+
+
   useEffect(() => {
     setIsUpdate(false);
-    axios.get("http://localhost:8081/getTicket").then(
+    axios.get("http://localhost:8081" + dataSort).then(
       (data) => {
         setLoaded(true);
         setTicketData(data.data);
       },
       (error) => {
+        console.log("useEffect" + dataSort);
         setLoaded(true);
         setError(error);
         setTicketData(placeHolderList);
       }
     );
-  },[isUpdate]);
+  }, [dataSort]);
+  
 
   return (
     <Container fluid={true}>
       <Row className="noMargin">
         <Col xs={2} className="mt-3 pt-3 pl-0" sticky="top">
-          <Sidebar/>
+          <Sidebar dataSortSetup={dataSortSetup} />
         </Col>
         <Col xs={10} className="pt-3 mt-3 pr-0">
-          <TicketList
-            data={ticketData}
-            error={error}
-            isLoaded={isLoaded}
-          />
+          <TicketList data={ticketData} error={error} isLoaded={isLoaded} />
         </Col>
       </Row>
     </Container>

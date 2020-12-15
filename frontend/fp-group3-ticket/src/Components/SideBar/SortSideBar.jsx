@@ -1,11 +1,31 @@
 import React from "react";
 import { Accordion, Card, Container, Col } from "react-bootstrap";
-import SideBarAccordionCard from "./SideBarAccordionCard";
 import SideBody from "./SideBody";
 import SideHeader from "./SideHeader";
-const SortSideBar = () => {
+const SortSideBar = ({dataSortSetup}) => {
 
-const sortList = ["Title", "Topic", "Cohort", "Trainee", "Trainer"];
+const sortList = [
+  {
+    text: "Title",
+    request: "/sort/title",
+  },
+  {
+    text: "Topic",
+    request: "/sort/topic",
+  },
+  {
+    text: "Cohort",
+    request: "/sort/cohort",
+  },
+  {
+    text: "Author",
+    request: "/sort/author",
+  },
+  {
+    text: "Trainer",
+    request: "/sort/trainer",
+  }
+];
 
   return (
     <div className="sidebarContainer mb-3">
@@ -20,8 +40,15 @@ const sortList = ["Title", "Topic", "Cohort", "Trainee", "Trainer"];
           </Accordion.Toggle>
           <Accordion.Collapse eventKey="0">
             <Card.Body className="p-0">
-              {sortList.map((obj) => (
-                <SideBody content={obj} />
+              {sortList.map((field) => (
+                <>
+                  <div
+                    className="sidebarInnerContainer sideBody"
+                    onClick={() => dataSortSetup(field.request)}
+                  >
+                    <p className="sidebarChildText">{field.text}</p>
+                  </div>
+                </>
               ))}
             </Card.Body>
           </Accordion.Collapse>
