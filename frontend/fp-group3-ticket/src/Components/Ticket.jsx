@@ -20,7 +20,7 @@ const Ticket = ({
 
   const deleteTicket = (e) => {
     console.log("delete data");
-    axios.delete("http://localhost:8081/deleteTicket/" + id).then(
+    axios.delete("http://backend:8081/deleteTicket/" + id).then(
       (response) => {
         console.log(response);
       },
