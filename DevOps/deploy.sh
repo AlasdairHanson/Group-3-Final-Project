@@ -248,6 +248,8 @@ cd ~
 
 . ./databasecredentials.sh
 
+#Passing in ,env file
+
 touch .env
 chmod +x .env
 
