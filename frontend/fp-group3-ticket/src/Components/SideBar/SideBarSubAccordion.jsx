@@ -14,11 +14,14 @@ const SideBarSubAccordionCard = ({ acc_id, title, contentList }) => {
       </Accordion.Toggle>
       <Accordion.Collapse eventKey={acc_id}>
         <Card.Body className="p-0">
-          {contentList.map((obj) => (
-            <SideBody content={obj} />
+          {contentList.map(() => (
+            <div className="sidebarInnerContainer sideBody">
+              <p className="sidebarChildText">{}</p>
+            </div>
           ))}
         </Card.Body>
       </Accordion.Collapse>
+
     </Card>
   );
 };

@@ -1,12 +1,13 @@
 import React from "react";
 import FilterSideBar from "./FilterSideBar";
+import FilterSideBarContainer from "./FilterSideBarContainer";
 import SortSideBar from "./SortSideBar";
 const Sidebar = ({dataSortSetup}) => {
 
   return (
     <div className="parentSideContainer">
       <SortSideBar dataSortSetup={dataSortSetup} />
-      <FilterSideBar dataSortSetup={dataSortSetup} />
+      <FilterSideBarContainer dataSortSetup={dataSortSetup} />
     </div>
   );
 };

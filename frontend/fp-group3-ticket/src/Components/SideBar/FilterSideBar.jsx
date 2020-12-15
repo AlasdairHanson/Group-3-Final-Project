@@ -2,6 +2,7 @@ import React from "react";
 import { Accordion, Card } from "react-bootstrap";
 import SideBarSubAccordionCard from "./SideBarSubAccordion";
 import SideHeader from "./SideHeader";
+import SideSubHeader from "./SideSubHeader";
 const FilterSideBar = () => {
   const filterList = [
     {
@@ -30,6 +31,8 @@ const FilterSideBar = () => {
     },
   ];
 
+  console.log(filterList);
+
   
   return (
     <>
@@ -46,15 +49,28 @@ const FilterSideBar = () => {
             <Accordion.Collapse eventKey="0">
               <Card.Body className="p-0">
                 <Accordion>
-                {filterList.map((obj) => (
-                  <SideBarSubAccordionCard
-                  acc_id = {obj.acc_id}
-                  key = {obj.key}
-                  title ={obj.title}
-                  contentList = {obj.content}
-                  />
-                ))}
-                </Accordion> 
+                  {filterList.map((parent) => (
+                    <>
+                      <Card className="sideBarContainer">
+                        <Accordion.Toggle
+                          as={Card.Header}
+                          eventKey={parent.acc_id}
+                          className="p-0 sideBarContainer">
+                          <SideSubHeader title={parent.title} />
+                        </Accordion.Toggle>
+                        <Accordion.Collapse eventKey={parent.acc_id}>
+                          <Card.Body className="p-0">
+                            {parent.content.map((child) => (
+                              <div className="sidebarInnerContainer sideBody">
+                                <p className="sidebarChildText">{child.content}</p>
+                              </div>
+                            ))}
+                          </Card.Body>
+                        </Accordion.Collapse>
+                      </Card>
+                    </>
+                  ))}
+                </Accordion>
               </Card.Body>
             </Accordion.Collapse>
           </Card>
