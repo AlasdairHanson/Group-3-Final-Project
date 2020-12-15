@@ -20,6 +20,6 @@ echo ${DOCKER_PASSWORD}
 
 
 sudo docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
-docker push ${DOCKER_USERNAME}/frontend:latest
+sudo docker push ${DOCKER_USERNAME}/frontend:latest
 
 EOF
