@@ -19,11 +19,11 @@ public class Ticket {
         private String TicketAuthor;
         private String TicketTime;
         private String TicketDesc;
-        private String TicketUrgency;
-        private String TicketTopic;
-        private String TicketStatus;
+        private String priority;
+        private String topic;
+        private String status;
         private String TicketTrainer;
-        private String TicketCohort;
+        private String cohort;
         
         public Ticket() {
             super();
@@ -37,11 +37,11 @@ public class Ticket {
             this.TicketAuthor = ticketAuthor;
             this.TicketTime = ticketTime;
             this.TicketDesc = ticketDesc;
-            this.TicketUrgency = ticketUrgency;
-            this.TicketTopic = ticketTopic;
-            this.TicketStatus = ticketStatus;
+            this.priority = ticketUrgency;
+            this.topic = ticketTopic;
+            this.status = ticketStatus;
             this.TicketTrainer = ticketTrainer;
-            this.TicketCohort = ticketCohort;
+            this.cohort = ticketCohort;
         }
     // Getters and Setters
 
@@ -108,37 +108,37 @@ public class Ticket {
  
 
         public String getTicketUrgency() {
-            return TicketUrgency;
+            return priority;
         }
 
  
 
         public void setTicketUrgency(String ticketUrgency) {
-            TicketUrgency = ticketUrgency;
+            priority = ticketUrgency;
         }
 
  
 
         public String getTicketTopic() {
-            return TicketTopic;
+            return topic;
         }
 
  
 
         public void setTicketTopic(String ticketTopic) {
-            TicketTopic = ticketTopic;
+            topic = ticketTopic;
         }
 
  
 
         public String getTicketStatus() {
-            return TicketStatus;
+            return status;
         }
 
  
 
         public void setTicketStatus(String ticketStatus) {
-            TicketStatus = ticketStatus;
+            status = ticketStatus;
         }
 
  
@@ -156,13 +156,13 @@ public class Ticket {
  
 
         public String getTicketCohort() {
-            return TicketCohort;
+            return cohort;
         }
 
  
 
         public void setTicketCohort(String ticketCohort) {
-            TicketCohort = ticketCohort;
+            cohort = ticketCohort;
         }
 
  
@@ -170,9 +170,9 @@ public class Ticket {
         @Override
         public String toString() {
             return "Ticket [ID=" + ID + ", TicketTitle=" + TicketTitle + ", TicketAuthor=" + TicketAuthor
-                    + ", TicketTime=" + TicketTime + ", TicketDesc=" + TicketDesc + ", TicketUrgency=" + TicketUrgency
-                    + ", TicketTopic=" + TicketTopic + ", TicketStatus=" + TicketStatus + ", TicketTrainer="
-                    + TicketTrainer + ", TicketCohort=" + TicketCohort + "]";
+                    + ", TicketTime=" + TicketTime + ", TicketDesc=" + TicketDesc + ", TicketUrgency=" + priority
+                    + ", TicketTopic=" + topic + ", TicketStatus=" + status + ", TicketTrainer="
+                    + TicketTrainer + ", TicketCohort=" + cohort + "]";
         }
 
 		@Override
@@ -180,14 +180,14 @@ public class Ticket {
 			final int prime = 31;
 			int result = 1;
 			result = prime * result + ((TicketAuthor == null) ? 0 : TicketAuthor.hashCode());
-			result = prime * result + ((TicketCohort == null) ? 0 : TicketCohort.hashCode());
+			result = prime * result + ((cohort == null) ? 0 : cohort.hashCode());
 			result = prime * result + ((TicketDesc == null) ? 0 : TicketDesc.hashCode());
-			result = prime * result + ((TicketStatus == null) ? 0 : TicketStatus.hashCode());
+			result = prime * result + ((status == null) ? 0 : status.hashCode());
 			result = prime * result + ((TicketTime == null) ? 0 : TicketTime.hashCode());
 			result = prime * result + ((TicketTitle == null) ? 0 : TicketTitle.hashCode());
-			result = prime * result + ((TicketTopic == null) ? 0 : TicketTopic.hashCode());
+			result = prime * result + ((topic == null) ? 0 : topic.hashCode());
 			result = prime * result + ((TicketTrainer == null) ? 0 : TicketTrainer.hashCode());
-			result = prime * result + ((TicketUrgency == null) ? 0 : TicketUrgency.hashCode());
+			result = prime * result + ((priority == null) ? 0 : priority.hashCode());
 			return result;
 		}
 
@@ -205,20 +205,20 @@ public class Ticket {
 					return false;
 			} else if (!TicketAuthor.equals(other.TicketAuthor))
 				return false;
-			if (TicketCohort == null) {
-				if (other.TicketCohort != null)
+			if (cohort == null) {
+				if (other.cohort != null)
 					return false;
-			} else if (!TicketCohort.equals(other.TicketCohort))
+			} else if (!cohort.equals(other.cohort))
 				return false;
 			if (TicketDesc == null) {
 				if (other.TicketDesc != null)
 					return false;
 			} else if (!TicketDesc.equals(other.TicketDesc))
 				return false;
-			if (TicketStatus == null) {
-				if (other.TicketStatus != null)
+			if (status == null) {
+				if (other.status != null)
 					return false;
-			} else if (!TicketStatus.equals(other.TicketStatus))
+			} else if (!status.equals(other.status))
 				return false;
 			if (TicketTime == null) {
 				if (other.TicketTime != null)
@@ -230,20 +230,20 @@ public class Ticket {
 					return false;
 			} else if (!TicketTitle.equals(other.TicketTitle))
 				return false;
-			if (TicketTopic == null) {
-				if (other.TicketTopic != null)
+			if (topic == null) {
+				if (other.topic != null)
 					return false;
-			} else if (!TicketTopic.equals(other.TicketTopic))
+			} else if (!topic.equals(other.topic))
 				return false;
 			if (TicketTrainer == null) {
 				if (other.TicketTrainer != null)
 					return false;
 			} else if (!TicketTrainer.equals(other.TicketTrainer))
 				return false;
-			if (TicketUrgency == null) {
-				if (other.TicketUrgency != null)
+			if (priority == null) {
+				if (other.priority != null)
 					return false;
-			} else if (!TicketUrgency.equals(other.TicketUrgency))
+			} else if (!priority.equals(other.priority))
 				return false;
 			return true;
 		}

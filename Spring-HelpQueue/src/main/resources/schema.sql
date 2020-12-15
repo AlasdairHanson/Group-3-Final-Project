@@ -4,10 +4,10 @@ CREATE TABLE ticket (
     ticket_author VARCHAR(255),
     ticket_time DATETIME,
     ticket_desc VARCHAR(255),
-    ticket_urgency VARCHAR(255),
-    ticket_topic VARCHAR(255),
-    ticket_status VARCHAR(255),
+    priority VARCHAR(255),
+    topic VARCHAR(255),
+    status VARCHAR(255),
     ticket_trainer VARCHAR(255),
-    ticket_cohort VARCHAR(255)
+    cohort VARCHAR(255)
 
 );

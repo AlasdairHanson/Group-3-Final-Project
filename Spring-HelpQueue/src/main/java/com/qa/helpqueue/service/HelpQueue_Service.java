@@ -29,25 +29,30 @@ public class HelpQueue_Service {
 		return this.repo.findAll();
 	}
 	
-	
+	//SORTING
 	public List<Ticket> getAllSort(String query) {
 		return this.repo.findByAndSort(Sort.by(query));
 	}
 	
-	/*
-	public List<Ticket> getAllTicketStatusValue(String status) {
-		return this.repo.findTicketByStatus(status);
+	//STATUS
+	public List<Ticket> filterStatus(String value) {
+		return this.repo.findTicketByStatus(value);
 	}
-	*/
 	
+	//PRIORITY
+	public List<Ticket> filterPriority(String value) {
+		return this.repo.findTicketByPriority(value);
+	}
 	
+	//TOPIC
+	public List<Ticket> filterTopic(String value) {
+		return this.repo.findTicketByTopic(value);
+	}
 	
-	
-	
-	
-	
-	
-	
+	//COHORT
+	public List<Ticket> filterCohort(String value) {
+		return this.repo.findTicketByCohort(value);
+	}
 	
 	public Ticket updateTicket(Ticket ticket, Long id) {
 		//Optional<Ticket> optTicket = this.repo.findById(id);

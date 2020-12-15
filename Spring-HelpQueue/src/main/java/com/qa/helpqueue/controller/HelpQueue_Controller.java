@@ -37,23 +37,38 @@ public class HelpQueue_Controller {
 		return ResponseEntity.ok(this.service.getTicket());
 	}
 	
-	//GET MAPS FOR SORTING
-	
- 
+	//SORTING
 	@GetMapping("/getTicket/sort/{query}")
 	public ResponseEntity<List<Ticket>> getAllSortTitle(@PathVariable String query){
 		return ResponseEntity.ok(this.service.getAllSort(query));
 	}
 	
-	/*
-	@GetMapping("/getTicket/{status}")
-	public ResponseEntity<List<Ticket>> getAllFilter(@PathVariable String status){
-		return ResponseEntity.ok(this.service.getAllTicketStatusValue(status));
+	//FILTERING
+	//STATUS
+	@GetMapping("/getTicket/status/{value}")
+	public ResponseEntity<List<Ticket>> filterStatus(@PathVariable String value){
+		return ResponseEntity.ok(this.service.filterStatus(value));
 	}
-	*/
+	
+	//PRIORITY
+	@GetMapping("/getTicket/priority/{value}")
+	public ResponseEntity<List<Ticket>> filterPriority(@PathVariable String value){
+		return ResponseEntity.ok(this.service.filterPriority(value));
+	}
+	
+	//TOPIC
+	@GetMapping("/getTicket/topic/{value}")
+	public ResponseEntity<List<Ticket>> filterTopic(@PathVariable String value){
+		return ResponseEntity.ok(this.service.filterTopic(value));
+	}
+	
+	//COHORT
+	@GetMapping("/getTicket/cohort/{value}")
+	public ResponseEntity<List<Ticket>> filterCohort(@PathVariable String value){
+		return ResponseEntity.ok(this.service.filterCohort(value));
+	}
 	
 
-	
 	@PutMapping("/updateTicket/{id}")
 	public ResponseEntity<Ticket> updateTicket(@RequestBody Ticket ticket, @PathVariable Long id){
 		return new ResponseEntity<Ticket>(this.service.updateTicket(ticket, id), HttpStatus.ACCEPTED);

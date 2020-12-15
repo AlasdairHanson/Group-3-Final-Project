@@ -16,6 +16,12 @@ public interface HelpQueue_Repo extends JpaRepository<Ticket, Long> {
 	@Query("Select t From Ticket t")
 	List<Ticket> findByAndSort(Sort sort);
 	
-	//List<Ticket> findTicketByStatus(String status);
+	List<Ticket> findTicketByStatus(String value);
+	
+	List<Ticket> findTicketByPriority(String value);
+	
+	List<Ticket> findTicketByTopic(String value);
+	
+	List<Ticket> findTicketByCohort(String value);
 	
 }
