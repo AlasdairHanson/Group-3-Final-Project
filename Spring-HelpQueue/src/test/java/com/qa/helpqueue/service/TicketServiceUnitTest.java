@@ -94,7 +94,7 @@ public class TicketServiceUnitTest {
 		Ticket ticket = new Ticket();
 		String testedString = ticket.toString();
 		assertEquals(testedString,
-				"Ticket [id=" + ticket.getID() + ", title=" + ticket.getTitle() + ", author="
+				"Ticket [id=" + ticket.getId() + ", title=" + ticket.getTitle() + ", author="
 						+ ticket.getAuthor() + ", time=" + ticket.getTimestamp() + ", content="
 						+ ticket.getContent() + ", priority=" + ticket.getPriority() + ", topic="
 						+ ticket.getTopic() + ", status=" + ticket.getStatus() + ", trainer="
