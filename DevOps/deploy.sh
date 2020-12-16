@@ -233,6 +233,7 @@ echo "export DOCKER_PASSWORD=${DOCKER_PASSWORD}" >> ~/databasecredentials.sh
 
 scp ~/databasecredentials.sh ubuntu@${jenkinsvm_ip}:~/
 scp ~/databasecredentials.sh ubuntu@${testvm_ip}:~/
+scp -r ~/secrets ubuntu@${jenkinsvm_ip}:~/
 
 sleep 2
 
@@ -287,9 +288,15 @@ cd ~
 
 . ./databasecredentials.sh
 
+. ./secrets/secrets.sh
+
+cp -rf ~/secrets/secrets.sh ~/ 
+
 #Copying credentials from jenkinvm to jenkins_usr to be able to export the neccessary variables in the jenkins pipeline.
 
 sudo cp -rf ~/databasecredentials.sh /var/lib/jenkins
+sudo cp -rf ~/secrets /var/lib/jenkins
+
 
 if [ ! -d ~/Group-3-Final-Project ]; then
 	
