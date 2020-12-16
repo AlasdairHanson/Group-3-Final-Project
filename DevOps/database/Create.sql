@@ -4,19 +4,21 @@ DROP DATABASE IF EXISTS project;
 CREATE DATABASE project;
 USE project;
 
-DROP TABLE IF EXISTS `ticket`;
+DROP TABLE ticket;
 
-CREATE TABLE `ticket` (
-    `id` BIGINT PRIMARY KEY AUTO_INCREMENT,
-    `ticket_title` VARCHAR(255) NOT NULL,
-    `ticket_author` VARCHAR(255) NOT NULL,
-    `ticket_time` VARCHAR(255) NOT NULL,
-    `ticket_desc` VARCHAR(255),
-    `ticket_urgency` VARCHAR(255) NOT NULL,
-    `ticket_topic` VARCHAR(255),
-    `ticket_status` VARCHAR(255),
-    `ticket_trainer` VARCHAR(255) NOT NULL,
-    `ticket_cohort` VARCHAR(255) NOT NULL
+CREATE TABLE ticket (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255),
+    author VARCHAR(255),
+    timestamp DATETIME,
+    content VARCHAR(255),
+    priority VARCHAR(255),
+    topic VARCHAR(255),
+    status VARCHAR(255),
+    trainer VARCHAR(255),
+    cohort VARCHAR(255)
+
 );
+
 
 
