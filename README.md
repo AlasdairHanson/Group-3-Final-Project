@@ -64,6 +64,10 @@ The backend is a micro service that enables the frontend to communicate with a d
 
 ## Testing (Basia)
 ---
+![backendtests][backendtests]
+![backendcoverage][backendcoverage]
+
+
 
 ## Improvements (All)
 ---
@@ -79,5 +83,9 @@ The backend is a micro service that enables the frontend to communicate with a d
 - Abdul Shaker
 - Alasdair Hanson
 - Reece Elder
+
+
+[backendtests]:https://i.imgur.com/ZuPZr5m.png
+[backendcoverage]:https://i.imgur.com/4CI1HcH.png
 
 
