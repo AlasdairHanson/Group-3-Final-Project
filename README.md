@@ -46,9 +46,9 @@ wefwefwefwef
 
 ### Backend (Alasdair)
 
-The backend is a micro service that enables the frontend to communicate with a database. It is deployed inside a Docker container where it listens for HTTP CRUD (Create, Read, Update, Delete) requests from the frontend and performs SQL queries on a connected database.
+The backend is a micro service running on Spring Boot that enables the frontend to communicate with a database. It is deployed inside a Docker container where it listens for HTTP CRUD (Create, Read, Update, Delete) requests from the frontend and performs SQL queries on a connected database.
 
-![Backend Diagram](https://user-images.githubusercontent.com/71394754/102343928-16313c80-3f93-11eb-9c40-057cc9a148ee.png)
+![Backend Diagram](https://user-images.githubusercontent.com/71394754/102358242-33700600-3fa7-11eb-87ee-e2fd9c46bc9f.png)
 
 The structure of the backend consists of 3 components:
 
