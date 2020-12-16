@@ -12,6 +12,11 @@ sudo chgrp -R jenkins .kube
 . ./databasecredentials.sh
 
 echo ${testvm_ip}
+echo ${db_username}
+echo ${db_endpoint}
+echo ${testdb_endpoint}
+echo ${password}
+echo ${testdb_username}
 
 cd /var/lib/jenkins/workspace/project3/Group-3-Final-Project/DevOps/kubernetes
 
