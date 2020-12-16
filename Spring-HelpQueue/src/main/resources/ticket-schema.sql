@@ -1,3 +1,5 @@
+DROP TABLE ticket;
+
 CREATE TABLE ticket (
     id BIGINT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255),
