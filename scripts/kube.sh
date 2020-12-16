@@ -27,6 +27,5 @@ sudo kubectl apply -f nginx-conf.yaml
 sudo kubectl apply -f frontend.yaml
 sudo kubectl apply -f backend.yaml
 sudo kubectl apply -f nginx-lb.yaml
-kubectl describe service nginx-lb --namespace=group3
-#kubectl describe service nginx-lb
+sudo kubectl describe service nginx-lb
 echo "Done"
