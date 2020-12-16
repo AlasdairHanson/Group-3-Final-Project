@@ -1,3 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: reeceelder/frontend:latest
+       #imagePullPolicy: "Always"
+        ports:
+        - containerPort: 5000
+
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -9,27 +34,3 @@ spec:
   - protocol: TCP
     port: 5000
   type: ClusterIP
-
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: frontend
-  labels:
-    app: frontend
-spec:
-  replicas: 3
-  selector: 
-    matchLabels:
-      app: frontend
-  template:
-    metadata: 
-      labels:
-        app: frontend    
-    spec:
-      containers:
-      - name: frontend
-        image: ${DOCKER_USERNAME}/frontend
-       #imagePullPolicy: "Always"
-        ports:
-        - containerPort: 5000
