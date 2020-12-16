@@ -6,6 +6,15 @@ metadata:
   labels:
     app: backend
 spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
       containers:
       - name: backend
         image: reeceelder/backend:latest
