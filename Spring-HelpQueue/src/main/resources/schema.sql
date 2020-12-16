@@ -3,7 +3,7 @@ CREATE TABLE ticket (
     title VARCHAR(255),
     author VARCHAR(255),
     timestamp DATETIME,
-    description VARCHAR(255),
+    content VARCHAR(255),
     priority VARCHAR(255),
     topic VARCHAR(255),
     status VARCHAR(255),

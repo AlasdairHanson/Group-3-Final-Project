@@ -18,7 +18,7 @@ public class Ticket {
         private String title;
         private String author;
         private String timestamp;
-        private String description;
+        private String content;
         private String priority;
         private String topic;
         private String status;
@@ -30,149 +30,109 @@ public class Ticket {
         }
         
     // Constructor
-        public Ticket(String ticketTitle, String ticketAuthor, String ticketTime, String ticketDesc,
-                String ticketUrgency, String ticketTopic, String ticketStatus, String ticketTrainer, String ticketCohort) {
+        public Ticket(String title, String author, String timestamp, String content,
+                String priority, String topic, String status, String trainer, String cohort) {
             super();
-            this.title = ticketTitle;
-            this.author = ticketAuthor;
-            this.timestamp = ticketTime;
-            this.description = ticketDesc;
-            this.priority = ticketUrgency;
-            this.topic = ticketTopic;
-            this.status = ticketStatus;
-            this.trainer = ticketTrainer;
-            this.cohort = ticketCohort;
+            this.title = title;
+            this.author = author;
+            this.timestamp = timestamp;
+            this.content = content;
+            this.priority = priority;
+            this.topic = topic;
+            this.status = status;
+            this.trainer = trainer;
+            this.cohort = cohort;
         }
     // Getters and Setters
 
- 
 
-        public Long getID() {
-            return id;
-        }
+		public Long getId() {
+			return id;
+		}
 
- 
+		public void setId(Long id) {
+			this.id = id;
+		}
 
-        public void setID(Long iD) {
-            id = iD;
-        }
+		public String getTitle() {
+			return title;
+		}
 
- 
+		public void setTitle(String title) {
+			this.title = title;
+		}
 
-        public String getTicketTitle() {
-            return title;
-        }
+		public String getAuthor() {
+			return author;
+		}
 
- 
+		public void setAuthor(String author) {
+			this.author = author;
+		}
 
-        public void setTicketTitle(String ticketTitle) {
-            title = ticketTitle;
-        }
+		public String getTimestamp() {
+			return timestamp;
+		}
 
- 
+		public void setTimestamp(String timestamp) {
+			this.timestamp = timestamp;
+		}
 
-        public String getTicketAuthor() {
-            return author;
-        }
+		public String getContent() {
+			return content;
+		}
 
- 
+		public void setContent(String content) {
+			this.content = content;
+		}
 
-        public void setTicketAuthor(String ticketAuthor) {
-            author = ticketAuthor;
-        }
+		public String getPriority() {
+			return priority;
+		}
 
- 
+		public void setPriority(String priority) {
+			this.priority = priority;
+		}
 
-        public String getTicketTime() {
-            return timestamp;
-        }
+		public String getTopic() {
+			return topic;
+		}
 
- 
+		public void setTopic(String topic) {
+			this.topic = topic;
+		}
 
-        public void setTicketTime(String ticketTime) {
-            timestamp = ticketTime;
-        }
+		public String getStatus() {
+			return status;
+		}
 
- 
+		public void setStatus(String status) {
+			this.status = status;
+		}
 
-        public String getTicketDesc() {
-            return description;
-        }
+		public String getTrainer() {
+			return trainer;
+		}
 
- 
+		public void setTrainer(String trainer) {
+			this.trainer = trainer;
+		}
 
-        public void setTicketDesc(String ticketDesc) {
-            description = ticketDesc;
-        }
+		public String getCohort() {
+			return cohort;
+		}
 
- 
-
-        public String getTicketUrgency() {
-            return priority;
-        }
-
- 
-
-        public void setTicketUrgency(String ticketUrgency) {
-            priority = ticketUrgency;
-        }
-
- 
-
-        public String getTicketTopic() {
-            return topic;
-        }
-
- 
-
-        public void setTicketTopic(String ticketTopic) {
-            topic = ticketTopic;
-        }
-
- 
-
-        public String getTicketStatus() {
-            return status;
-        }
-
- 
-
-        public void setTicketStatus(String ticketStatus) {
-            status = ticketStatus;
-        }
-
- 
-
-        public String getTicketTrainer() {
-            return trainer;
-        }
-
- 
-
-        public void setTicketTrainer(String ticketTrainer) {
-            trainer = ticketTrainer;
-        }
-
- 
-
-        public String getTicketCohort() {
-            return cohort;
-        }
-
- 
-
-        public void setTicketCohort(String ticketCohort) {
-            cohort = ticketCohort;
-        }
-
- 
-
-        @Override
+		public void setCohort(String cohort) {
+			this.cohort = cohort;
+		}
+		
+		
+		@Override
         public String toString() {
-            return "Ticket [ID=" + id + ", TicketTitle=" + title + ", TicketAuthor=" + author
-                    + ", TicketTime=" + timestamp + ", TicketDesc=" + description + ", TicketUrgency=" + priority
-                    + ", TicketTopic=" + topic + ", TicketStatus=" + status + ", TicketTrainer="
-                    + trainer + ", TicketCohort=" + cohort + "]";
+            return "Ticket [id=" + id + ", title=" + title + ", author=" + author
+                    + ", timestamp=" + timestamp + ", content=" + content + ", priority=" + priority
+                    + ", topic=" + topic + ", status=" + status + ", trainer="
+                    + trainer + ", cohort=" + cohort + "]";
         }
 
 		@Override
@@ -181,7 +141,7 @@ public class Ticket {
 			int result = 1;
 			result = prime * result + ((author == null) ? 0 : author.hashCode());
 			result = prime * result + ((cohort == null) ? 0 : cohort.hashCode());
-			result = prime * result + ((description == null) ? 0 : description.hashCode());
+			result = prime * result + ((content == null) ? 0 : content.hashCode());
 			result = prime * result + ((status == null) ? 0 : status.hashCode());
 			result = prime * result + ((timestamp == null) ? 0 : timestamp.hashCode());
 			result = prime * result + ((title == null) ? 0 : title.hashCode());
@@ -210,10 +170,10 @@ public class Ticket {
 					return false;
 			} else if (!cohort.equals(other.cohort))
 				return false;
-			if (description == null) {
-				if (other.description != null)
+			if (content == null) {
+				if (other.content != null)
 					return false;
-			} else if (!description.equals(other.description))
+			} else if (!content.equals(other.content))
 				return false;
 			if (status == null) {
 				if (other.status != null)
@@ -247,10 +207,5 @@ public class Ticket {
 				return false;
 			return true;
 		}
-
-
- 
-
-        
-        
+    
 }

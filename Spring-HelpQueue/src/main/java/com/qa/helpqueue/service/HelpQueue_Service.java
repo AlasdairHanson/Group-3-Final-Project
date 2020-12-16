@@ -58,15 +58,15 @@ public class HelpQueue_Service {
 		//Optional<Ticket> optTicket = this.repo.findById(id);
 		Ticket oldTicket = this.repo.findById(id).orElseThrow();
 		
-		oldTicket.setTicketTitle(ticket.getTicketTitle());
-		oldTicket.setTicketAuthor(ticket.getTicketAuthor());
-		oldTicket.setTicketDesc(ticket.getTicketDesc());
-		oldTicket.setTicketTime(ticket.getTicketTime());
-		oldTicket.setTicketUrgency(ticket.getTicketUrgency());
-		oldTicket.setTicketTopic(ticket.getTicketTopic());
-		oldTicket.setTicketStatus(ticket.getTicketStatus());
-		oldTicket.setTicketTrainer(ticket.getTicketTrainer());
-		oldTicket.setTicketCohort(ticket.getTicketCohort());
+		oldTicket.setTitle(ticket.getTitle());
+		oldTicket.setAuthor(ticket.getAuthor());
+		oldTicket.setCohort(ticket.getCohort());
+		oldTicket.setTimestamp(ticket.getTimestamp());
+		oldTicket.setPriority(ticket.getPriority());
+		oldTicket.setTopic(ticket.getTopic());
+		oldTicket.setStatus(ticket.getStatus());
+		oldTicket.setTrainer(ticket.getTrainer());
+		oldTicket.setCohort(ticket.getCohort());
 		
 		Ticket saved = this.repo.save(oldTicket);
 		return saved;
