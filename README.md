@@ -56,6 +56,7 @@ The structure of the backend consists of 3 components:
 - **Service**: Contains methods for passing in data to the repository and returning the result as a ticket object to the controller.
 - **Repository**: An interface that extends the Spring Boot JpaRepository class. It exposes methods that translate requests by the service into SQL requests for the connected RDS.
 
+![Backend Diagram 2](https://user-images.githubusercontent.com/71394754/102369313-b434ff00-3fb3-11eb-9ffe-e7211d46cfc6.png)
 
 
 
