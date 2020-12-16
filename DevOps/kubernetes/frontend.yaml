@@ -7,7 +7,7 @@ spec:
     app: frontend
   ports:
   - protocol: TCP
-    port: 3000
+    port: 5000
   type: ClusterIP
 
 ---
@@ -32,4 +32,4 @@ spec:
         image: ${DOCKER_USERNAME}/frontend
        #imagePullPolicy: "Always"
         ports:
-        - containerPort: 3000
+        - containerPort: 5000
