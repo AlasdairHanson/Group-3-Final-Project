@@ -24,6 +24,6 @@ fi
 
 cd ~/Group-3-Final-Project/Spring-HelpQueue
 
-mvn clean package
+mvn clean package | grep 'BUILD SUCCESS'
 
 EOF
