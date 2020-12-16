@@ -1,3 +1,46 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  labels:
+    app: backend
+spec:
+      containers:
+      - name: backend
+        image: reeceelder/backend:latest
+        env:
+        - name: db_endpoint
+          valueFrom:
+            secretKeyRef:
+              name: secretvar
+              key: db_endpoint
+        - name: password
+          valueFrom:
+            secretKeyRef:
+              name: secretvar
+              key: password
+        - name: db_username
+          valueFrom:
+            secretKeyRef:
+              name: secretvar
+              key: db_username
+        - name: testdb_username
+          valueFrom:
+            secretKeyRef:
+              name: secretvar
+              key: testdb_username
+        - name: testdb_endpoint
+          valueFrom:
+            secretKeyRef:
+              name: secretvar
+              key: testdb_endpoint
+        - name: SECRET_KEY
+          value: "password1234"
+        ports:
+        - containerPort: 8081
+
+---
 apiVersion: v1
 kind: Service
 metadata:
@@ -12,34 +55,3 @@ spec:
     port: 8081
     targetPort: 8081
   type: ClusterIP
-
----
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: backend
-  labels:
-    app: backend
-spec: 
-  replicas: 3
-  selector:
-    matchLabels:
-      app: backend
-  template:
-    metadata:
-      labels:
-        app: backend
-    spec:
-      containers:
-      - name: backend
-        image: ${DOCKER_USERNAME}/backend
-        env:
-        - name: db_endpoint
-          value: ${db_endpoint}
-        - name: password
-          value: ${password}
-        - name: db_username
-          value: ${db_username}
-        ports:
-        - containerPort: 8081
