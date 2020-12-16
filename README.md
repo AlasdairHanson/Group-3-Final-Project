@@ -48,7 +48,13 @@ wefwefwefwef
 
 The backend is a micro service that enables the frontend to communicate with a database. It is deployed inside a Docker container where it listens for HTTP CRUD (Create, Read, Update, Delete) requests from the frontend and performs SQL queries on a connected database.
 
+![Backend Diagram](https://user-images.githubusercontent.com/71394754/102343928-16313c80-3f93-11eb-9c40-057cc9a148ee.png)
 
+The structure of the backend consists of 3 components:
+
+- **Controller**: Contains addresses for different HTTP request types and header and body contents. The frontend sends a HTTP CRUD request targeting a specific controller address. The controller returns a ResponseEntity containing a ticket object and HTTP status code.
+- **Service**: Contains methods for passing in data to the repository and returning the result as a ticket object to the controller.
+- **Repository**: An interface that extends the Spring Boot JpaRepository class. It exposes methods that translate requests by the service into SQL requests for the connected RDS.
 
 
 
