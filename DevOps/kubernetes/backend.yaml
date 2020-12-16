@@ -35,8 +35,6 @@ spec:
             secretKeyRef:
               name: secretvar
               key: testdb_endpoint
-        - name: SECRET_KEY
-          value: "password1234"
         ports:
         - containerPort: 8081
 
