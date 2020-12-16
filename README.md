@@ -89,7 +89,7 @@ The structure of the backend consists of 3 components:
 - Abdul Shaker
 - Alasdair Hanson
 - Reece Elder
-
+- Jinx the Cat
 
 [backendtests]:https://i.imgur.com/ZuPZr5m.png
 [backendcoverage]:https://i.imgur.com/4CI1HcH.png
