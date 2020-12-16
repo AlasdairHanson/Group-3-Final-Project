@@ -2,9 +2,7 @@ import React from "react";
 import { Accordion } from "react-bootstrap";
 import Ticket from "./Ticket";
 const TicketList = ({ data, error, isLoaded }) => {
-  if (error) {
-    return <p> oops.. something happened..</p>;
-  } else if (!isLoaded) {
+  if (!isLoaded) {
     return <p> Please wait.... we are loading your information</p>;
   } else {
     return (
