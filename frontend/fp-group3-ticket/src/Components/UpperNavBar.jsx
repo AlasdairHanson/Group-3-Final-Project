@@ -1,8 +1,8 @@
 import React from "react";
-import { Button, Form, FormControl, Nav, Navbar } from "react-bootstrap";
+import { Button, Nav, Navbar } from "react-bootstrap";
 import { PersonFill } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
-import AddTicketButton from "./AddTicketButton";
+import AddTicketButton from "./TicketPage/AddTicketButton";
 const UpperNavBar = () => {
   return (
     <Navbar bg="light" expand="lg" sticky="top" className="navBar">
@@ -32,10 +32,6 @@ const UpperNavBar = () => {
           </Link>
           <AddTicketButton />
         </Nav>
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-success">Search</Button>
-        </Form>
       </Navbar.Collapse>
     </Navbar>
   );
