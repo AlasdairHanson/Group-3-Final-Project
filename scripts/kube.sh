@@ -20,16 +20,22 @@ echo ${testdb_username}
 
 cd /var/lib/jenkins/kube
 
-sudo kubectl apply -f secrets.yaml
+cp /var/lib/jenkins/workspace/project3/Group-3-Final-Project/DevOps/kubernetes /var/lib/jenkins/kube/kubernetes
 
-cd /var/lib/jenkins/workspace/project3/Group-3-Final-Project/DevOps/kubernetes
+cp /var/lib/jenkins/kube/secrets.yaml /var/lib/jenkins/kube/kubernetes/secrets.yaml
+
+cd /var/lib/jenkins/kube/kubernetes
 
 sudo kubectl create namespace group3
 sudo kubectl delete pods --all pods --namespace=group3
+sudo kubectl apply -f secrets.yaml
 sudo kubectl apply -f frontend.yaml
 sudo kubectl apply -f backend.yaml
 sudo kubectl apply -f nginx.yaml 
 sudo kubectl apply -f nginx-conf.yaml
 sudo kubectl apply -f nginx-lb.yaml
 #sudo kubectl describe service nginx-lb
+
+rm -rf /var/lib/jenkins/kube/kubernetes
+
 echo "Done"
