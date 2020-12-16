@@ -8,6 +8,41 @@ pipeline{
                     sh './scripts/jenkins-get-repo.sh'
                 }
 	    }
+		
+	    stage('Docker cleanup'){
+                steps{
+                    sh 'chmod a+x ./scripts/docker-cleanup.sh'
+                    sh './scripts/docker-cleanup.sh'
+                }
+            }
+
+             stage('Test backend'){
+                steps{
+                    sh 'chmod a+x ./scripts/backend-run-test.sh'
+                    sh './scripts/backend-run-test.sh'
+                }
+            }
+	
+            stage('Build backend'){
+                steps{
+                    sh 'chmod a+x ./scripts/backend-test.sh'
+                    sh './scripts/backend-test.sh'
+                }
+            }
+
+            	    stage('Test frontend'){
+                steps{
+                    sh 'chmod a+x ./scripts/frontend-test.sh'
+                    sh './scripts/frontend-test.sh'
+                }
+            }
+
+            stage('Docker Build'){
+                steps{
+                    sh 'chmod a+x ./scripts/docker-build.sh'
+                    sh './scripts/docker-build.sh'
+                }
+            }
 
            
 	    
