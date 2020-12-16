@@ -7,23 +7,23 @@ const SortSideBar = ({dataSortSetup}) => {
 const sortList = [
   {
     text: "CloudNative",
-    request: "/cohort/cloudnative",
+    request: "/cohort/Cloudnative",
   },
   {
     text: "Software",
-    request: "/cohort/software",
+    request: "/cohort/Software",
   },
   {
     text: "DevOps",
-    request: "/cohort/devops",
+    request: "/cohort/Devops",
   },
   {
     text: "Testing",
-    request: "/cohort/testing",
+    request: "/cohort/Testing",
   },
   {
     text: "Other",
-    request: "/cohort/other",
+    request: "/cohort/Other",
   }
 ];
 

@@ -7,15 +7,15 @@ const SortSideBar = ({dataSortSetup}) => {
 const sortList = [
   {
     text: "Unresolved",
-    request: "/status/unresolved",
+    request: "/status/Unresolved",
   },
   {
     text: "Ongoing",
-    request: "/status/ongoing",
+    request: "/status/Ongoing",
   },
   {
     text: "Resolved",
-    request: "/status/resolved",
+    request: "/status/Resolved",
   }
 ];
 

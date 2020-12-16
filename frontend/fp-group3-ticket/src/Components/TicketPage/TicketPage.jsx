@@ -5,7 +5,7 @@ import TicketList from "./TicketList";
 import Sidebar from "../SideBar/Sidebar";
 
 const TicketPage = () => {
-  const [error, setError] = useState(null);
+  const [error, setError] = useState(`false`);
   const [isLoaded, setLoaded] = useState(false);
   const [ticketData, setTicketData] = useState([]);
   const [isUpdate, setIsUpdate] = useState(true);
@@ -14,55 +14,139 @@ const TicketPage = () => {
   const placeHolderList = [
     {
       id: 1,
-      ticketTitle: "Occaecat sunt laborum est",
-      ticketTopic: "Networking",
-      ticketDesc:
-        "Laboris deserunt aute esse id. Mollit aliqua velit minim laborum dolore aliqua quis eiusmod qui. Duis eiusmod culpa amet sunt dolor do sit velit aliquip.",
-      ticketTime: "21/05/2020 10:59:04",
-      ticketStatus: "Unresolved",
-      ticketAuthor: "Florence Riley",
-      ticketTrainer: "Maud Erickson",
-      ticketUrgency: "Low",
-      ticketCohort: "CloudNative",
+      title: "lorem vitae mattis nibh ligula nec sem duis",
+      author: "Drusilla Crowder",
+      timestamp: "2020-06-29 18:48:00",
+      content:
+        "In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus.",
+      priority: "Critical",
+      topic: "orchestration",
+      status: "Unresolved",
+      trainer: "Shelley Littrick",
+      cohort: "Testing",
     },
     {
       id: 2,
-      ticketTitle: "Nisi quis amet dolor commodo consequat",
-      ticketTopic: "current",
-      ticketDesc:
-        "Sint anim sunt fugiat aliquip officia quis veniam nisi nulla consectetur eiusmod elit. Laboris nulla et esse velit nisi aute nostrud culpa adipisicing qui culpa occaecat excepteur. Culpa amet duis pariatur laborum magna velit pariatur exercitation sint. Nostrud fugiat velit magna dolor voluptate culpa exercitation. Velit elit non culpa non velit nostrud nulla veniam. Nostrud commodo adipisicing ad do laborum quis amet excepteur sit exercitation. Aliquip fugiat commodo eu id pariatur dolore nulla aliqua officia.",
-      ticketTime: "01/11/2019 05:12:55",
-      ticketStatus: "Pending",
-      ticketAuthor: "Lucas Tucker",
-      ticketTrainer: "Chris Becker",
-      ticketUrgency: "Medium",
-      ticketCohort: "CloudNative",
+      title:
+        "semper rutrum nulla nunc purus phasellus in felis donec semper sapien a",
+      author: "Jethro Sharpin",
+      timestamp: "2020-06-22 17:55:43",
+      content:
+        "Sed sagittis. Nam congue, risus semper porta volutpat, quam pede lobortis ligula, sit amet eleifend pede libero quis orci. Nullam molestie nibh in lectus.",
+      priority: "Critical",
+      topic: "stable",
+      status: "Ongoing",
+      trainer: "Reagan Fowlestone",
+      cohort: "Testing",
     },
     {
       id: 3,
-      ticketTitle: "Duis commodo sint sunt deserunt.",
-      ticketTopic: "clear",
-      ticketDesc:
-        "Consectetur eiusmod sint velit esse aute quis in dolor dolore. Non nulla culpa eu culpa eu Lorem exercitation adipisicing nisi nisi nulla Lorem. Est velit velit ipsum ut eu pariatur labore amet tempor. Esse irure duis adipisicing dolore veniam tempor enim culpa sint. Elit ut nostrud aliqua ipsum consectetur qui nulla.",
-      ticketTime: "16/01/2019",
-      ticketStatus: "Resolved",
-      ticketAuthor: "Bernard Collier",
-      ticketTrainer: "William Flowers",
-      ticketUrgency: "High",
-      ticketCohort: "Software",
+      title: "posuere cubilia curae mauris",
+      author: "Helaina Michele",
+      timestamp: "2020-03-06 02:36:43",
+      content:
+        "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.",
+      priority: "High",
+      topic: "incremental",
+      status: "Resolved",
+      trainer: "Brigitta Simanek",
+      cohort: "BigData",
     },
     {
       id: 4,
-      ticketTitle: "Elit labore occaecat enim dolor ut enim.",
-      ticketTopic: "shells",
-      ticketDesc:
-        "Excepteur deserunt adipisicing cillum tempor pariatur cupidatat tempor et. Irure dolor aute cupidatat incididunt consectetur. Do aliqua enim reprehenderit officia do minim. Officia ad veniam adipisicing pariatur ea irure fugiat consequat.",
-      ticketTime: "16/11/2020 03:51:23",
-      ticketStatus: "Pending",
-      ticketAuthor: "Jason Lindsey",
-      ticketTrainer: "Gussie Saunders",
-      ticketUrgency: "Medium",
-      ticketCohort: "Devops",
+      title: "nulla ac enim in tempor turpis nec euismod scelerisque",
+      author: "Morganne Burcombe",
+      timestamp: "2020-05-30 13:22:54",
+      content:
+        "Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",
+      priority: "Low",
+      topic: "exuding",
+      status: "Unresolved",
+      trainer: "Abeu Donald",
+      cohort: "CloudNative",
+    },
+    {
+      id: 5,
+      title:
+        "sollicitudin ut suscipit a feugiat et eros vestibulum ac est lacinia nisi venenatis tristique fusce",
+      author: "Annis Reed",
+      timestamp: "2020-07-13 04:53:37",
+      content:
+        "Aenean lectus. Pellentesque eget nunc. Donec quis orci eget orci vehicula condimentum.",
+      priority: "Critical",
+      topic: "zero defect",
+      status: "Resolved",
+      trainer: "Nickolaus Carryer",
+      cohort: "Software",
+    },
+    {
+      id: 6,
+      title:
+        "eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum",
+      author: "Marika Bremley",
+      timestamp: "2020-05-15 17:16:52",
+      content:
+        "Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque.\n\nDuis bibendum. Morbi non quam nec dui luctus rutrum. Nulla tellus.\n\nIn sagittis dui vel nisl. Duis ac nibh. Fusce lacus purus, aliquet at, feugiat non, pretium quis, lectus.",
+      priority: "Medium",
+      topic: "Distributed",
+      status: "Unresolved",
+      trainer: "Tootsie Dicte",
+      cohort: "Testing",
+    },
+    {
+      id: 7,
+      title: "mauris vulputate elementum nullam varius nulla facilisi cras",
+      author: "Haley Cullin",
+      timestamp: "2020-02-06 10:27:25",
+      content:
+        "Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla. Quisque arcu libero, rutrum ac, lobortis vel, dapibus at, diam.",
+      priority: "Low",
+      topic: "Cross-platform",
+      status: "Resolved",
+      trainer: "Miles Jurca",
+      cohort: "Other",
+    },
+    {
+      id: 8,
+      title:
+        "donec pharetra magna vestibulum aliquet ultrices erat tortor sollicitudin mi sit amet lobortis",
+      author: "Agnese Ousbie",
+      timestamp: "2020-07-11 08:09:38",
+      content:
+        "Curabitur gravida nisi at nibh. In hac habitasse platea dictumst. Aliquam augue quam, sollicitudin vitae, consectetuer eget, rutrum at, lorem.",
+      priority: "Medium",
+      topic: "radical",
+      status: "Unresolved",
+      trainer: "Angie Ashton",
+      cohort: "DevOps",
+    },
+    {
+      id: 9,
+      title:
+        "neque duis bibendum morbi non quam nec dui luctus rutrum nulla tellus",
+      author: "Tony Lobe",
+      timestamp: "2020-02-22 06:43:10",
+      content:
+        "In quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.\n\nMaecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui.",
+      priority: "High",
+      topic: "grid-enabled",
+      status: "Ongoing",
+      trainer: "Xaviera Ply",
+      cohort: "Software",
+    },
+    {
+      id: 10,
+      title:
+        "dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia",
+      author: "Hermine Northridge",
+      timestamp: "2020-02-24 04:46:24",
+      content:
+        "Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero.",
+      priority: "High",
+      topic: "projection",
+      status: "Resolved",
+      trainer: "Annabelle Dwyer",
+      cohort: "CloudNative",
     },
   ];
 
@@ -76,10 +160,11 @@ const TicketPage = () => {
     axios.get("http://localhost:8081" + dataSort).then(
       (data) => {
         setLoaded(true);
+        setError(false);
         setTicketData(data.data);
+        console.log(ticketData)
       },
       (error) => {
-        console.log("useEffect" + dataSort);
         setLoaded(true);
         setError(error);
         setTicketData(placeHolderList);

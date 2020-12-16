@@ -31,6 +31,7 @@ body {
 
 .ticketList {
   padding: 15px;
+  font-size: small;
 }
 
 .icons {
@@ -124,7 +125,7 @@ body {
   background-color: #d2222d;
 }
 
-.Pending {
+.Ongoing{
   background-color: #ffbf00;
 }
 

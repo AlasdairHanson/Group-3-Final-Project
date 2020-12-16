@@ -20,9 +20,9 @@ return (
         <Accordion.Collapse eventKey="0">
           <Card.Body className="p-0">
             <SideFilterPriority dataSortSetup={dataSortSetup} />
-            <SideFilterStatus />
-            <SideFilterTopic />
-            <SideFilterCohort />
+            <SideFilterStatus dataSortSetup={dataSortSetup} />
+            <SideFilterTopic dataSortSetup={dataSortSetup} />
+            <SideFilterCohort dataSortSetup={dataSortSetup} />
           </Card.Body>
         </Accordion.Collapse>
       </Card>

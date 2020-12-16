@@ -46,9 +46,9 @@ const Ticket = ({
           </Col>
           <Col xs={2}>
             <p className="mutedText">Cohort:</p>
-            <h5 id="tickCohort" className="ticketText">
+            <h6 id="tickCohort" className="ticketText">
               {cohort}
-            </h5>
+            </h6>
           </Col>
           <Col xs={4} className="icons my-1">
             <EditTicketButton

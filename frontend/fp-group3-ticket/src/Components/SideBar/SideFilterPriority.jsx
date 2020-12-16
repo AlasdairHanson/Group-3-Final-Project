@@ -7,19 +7,19 @@ const SortSideBar = ({dataSortSetup}) => {
 const sortList = [
   {
     text: "Low",
-    request: "/priority/low",
+    request: "/priority/Low",
   },
   {
     text: "Medium",
-    request: "/priority/medium",
+    request: "/priority/Medium",
   },
   {
     text: "High",
-    request: "/priority/high",
+    request: "/priority/High",
   },
   {
     text: "Critical",
-    request: "/priority/critical",
+    request: "/priority/Critical",
   },
 ];
 

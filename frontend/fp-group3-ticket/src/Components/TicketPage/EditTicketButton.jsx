@@ -49,6 +49,7 @@ const EditTicketButton = ({
         console.log(response);
       })
       .catch(function (error) {
+        console.log(ticketData);
         console.log(error);
       });
     handleClose();

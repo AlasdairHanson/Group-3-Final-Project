@@ -7,23 +7,23 @@ const SortSideBar = ({dataSortSetup}) => {
 const sortList = [
   {
     text: "Networking",
-    request: "/topic/networking",
+    request: "/topic/Networking",
   },
   {
     text: "Security",
-    request: "/topic/security",
+    request: "/topic/Security",
   },
   {
     text: "Privacy",
-    request: "/topic/privacy",
+    request: "/topic/Privacy",
   },
   {
     text: "Hardware",
-    request: "/sort/author",
+    request: "/topic/Hardware",
   },
   {
     text: "Other",
-    request: "/sort/trainer",
+    request: "/topic/Other",
   }
 ];
 
@@ -35,7 +35,7 @@ const sortList = [
             eventKey="0"
             className="p-0 sideBarContainer"
           >
-            <SideSubHeader title="Status" />
+            <SideSubHeader title="Topic" />
           </Accordion.Toggle>
           <Accordion.Collapse eventKey="0">
             <Card.Body className="p-0">
