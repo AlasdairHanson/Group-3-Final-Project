@@ -9,7 +9,7 @@ jest.mock(`../Components/TicketPage/TicketList`, () => {
   }
 });
 
-jest.mock(`../Components/Sidebar/Sidebar`, () => {
+jest.mock(`../Components/SideBar/Sidebar`, () => {
     return function SidebarMock(props){
       return(<p>Mocked Sidebar</p>)
     }
