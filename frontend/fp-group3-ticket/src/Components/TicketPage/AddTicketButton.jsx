@@ -35,7 +35,7 @@ const AddTicketButton = () => {
     const newDate = new Date().toLocaleString("en-GB");
     settimestamp(newDate);
     axios
-      .post("http://backend:8081/createTicket", ticketData)
+      .post("backend:8081/createTicket", ticketData)
       .then(function (response) {
         console.log(response);
       })
