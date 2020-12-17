@@ -17,7 +17,7 @@ echo ${db_endpoint}
 echo ${testdb_endpoint}
 echo ${password}
 echo ${testdb_username}
-
+aws eks --region eu-west-1 update-kubeconfig --name cne_cluster
 cp /var/lib/jenkins/secrets.yaml /var/lib/jenkins/workspace/project3/Group-3-Final-Project/DevOps/kubernetes/secrets.yaml
 
 cd /var/lib/jenkins/workspace/project3/Group-3-Final-Project/DevOps/kubernetes/
