@@ -19,7 +19,11 @@ const Ticket = ({
 }) => {
   const deleteTicket = (e) => {
     console.log("delete data");
-    axios.delete("http://backend:8081/deleteTicket/" + id).then(
+    axios.delete("http://backend:8081/deleteTicket/" + id, {
+      headers: {
+        'Access-Control-Allow-Origin' : '*'
+        }
+    }).then(
       (response) => {
         console.log(response);
       },
