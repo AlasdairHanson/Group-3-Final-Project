@@ -12,7 +12,7 @@ import Header from '../Components/LandingPage/Header';
         expect(linkElement).toBeInTheDocument();
       });
 
-    test(` Header should match the snapshot every time it is rendered`, () => {
+    test(`Header should match the snapshot every time it is rendered`, () => {
       const instance = create(<Header/>).toJSON(); 
       expect(instance).toMatchSnapshot();
     });
