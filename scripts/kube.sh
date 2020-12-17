@@ -26,6 +26,8 @@ sudo kubectl delete -f secrets.yaml
 sudo kubectl delete -f nginx.yaml
 sudo kubectl delete -f nginx-lb.yaml
 sudo kubectl delete -f nginx-conf.yaml
+sudo kubectl delete -f fe-nginx.yaml
+sudo kubectl delete -f fe-nginx-cong.yaml
 sudo kubectl delete -f backend.yaml
 sudo kubectl delete -f frontend.yaml
 
@@ -37,6 +39,8 @@ sudo kubectl apply -f backend.yaml
 sudo kubectl apply -f nginx.yaml 
 sudo kubectl apply -f nginx-conf.yaml
 sudo kubectl apply -f nginx-lb.yaml
+sudo kubectl apply -f fe-nginx.yaml
+sudo kubectl apply -f fe-nginx-cong.yaml
 
 sleep 20
 
