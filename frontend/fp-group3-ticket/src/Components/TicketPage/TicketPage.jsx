@@ -17,7 +17,7 @@ const TicketPage = () => {
 
   useEffect(() => {
     setIsUpdate(false);
-    axios.get("backend:8081" + dataSort).then(
+    axios.get("backend:8081/getTicket").then(
       (data) => {
         setLoaded(true);
         setError(false);

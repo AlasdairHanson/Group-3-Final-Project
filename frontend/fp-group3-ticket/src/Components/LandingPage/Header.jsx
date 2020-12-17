@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 const Header = () => {
   return (
     <Container className="pt-5">
-      <h1 className="text-center whiteText">QA HelpDesk</h1>
+      <h1 className="text-center whiteText">Old Data</h1>
     </Container>
   );
 };
