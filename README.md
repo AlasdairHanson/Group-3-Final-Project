@@ -60,6 +60,7 @@ The structure of the backend consists of 3 components:
 
 The above diagram shows the structure of the backend and the interaction between its components. 
 
+
 **1.** The controller listens for a POST, GET, PUT or DELETE HTTP request from the frontend that targets a specific controller address. Depending on the type of request, the backend has multiple methods that provide different functionality to each CRUD request type. A POST method will look for a JSON object in the body of the request and map it to the ticket data model. A GET method will look for a value in the header of the request to use as a search parameter for querying the database. 
 
 The update controller method requires a header value corresponding to the id of the ticket record that needs to be updated, and a JSON body containing the new values of the targeted ticket record.
