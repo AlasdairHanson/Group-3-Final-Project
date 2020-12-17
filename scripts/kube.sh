@@ -37,6 +37,6 @@ sudo kubectl apply -f backend.yaml
 sudo kubectl apply -f nginx.yaml 
 sudo kubectl apply -f nginx-conf.yaml
 sudo kubectl apply -f nginx-lb.yaml
-#sudo kubectl describe service nginx-lb
+sudo kubectl get svc nginx-lb
 
 echo "Done"
