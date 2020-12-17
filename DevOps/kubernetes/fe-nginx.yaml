@@ -18,7 +18,7 @@ spec:
       - name: fe-nginx
         image: nginx:latest
         ports:
-        - containerPort: 5000
+        - containerPort: 80
         volumeMounts:
         - name: fe-nginx-config
           mountPath: /etc/nginx/conf.d
