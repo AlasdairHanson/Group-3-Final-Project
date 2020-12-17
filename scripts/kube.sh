@@ -30,6 +30,7 @@ sudo kubectl delete -f fe-nginx-conf.yaml
 sudo kubectl delete -f fe-nginx.yaml
 sudo kubectl delete -f backend.yaml
 sudo kubectl delete -f frontend.yaml
+sudo kubectl delete -f fe-nginx-lb.yaml
 
 sudo kubectl create namespace group3
 sudo kubectl delete pods --all pods --namespace=group3
@@ -41,6 +42,7 @@ sudo kubectl apply -f nginx.yaml
 sudo kubectl apply -f nginx-lb.yaml
 sudo kubectl apply -f fe-nginx-conf.yaml
 sudo kubectl apply -f fe-nginx.yaml
+sudo kubectl apply -f fe-nginx-lb.yaml
 
 sleep 20
 
