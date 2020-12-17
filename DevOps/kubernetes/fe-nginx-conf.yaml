@@ -6,7 +6,7 @@ data:
   default.conf: |
       server {
           listen 5000;
-          location / {
+          location /backend {
               proxy_pass http://backend:8081; #backend
           }
       }
