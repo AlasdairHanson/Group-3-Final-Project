@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fe-nginx
+  labels: 
+    app: fe-nginx
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: fe-nginx
+  template:
+    metadata:
+      labels:
+        app: fe-nginx
+    spec:
+      containers:
+      - name: fe-nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 5000
+        volumeMounts:
+        - name: fe-nginx-config
+          mountPath: /etc/nginx/conf.d
+      volumes:
+      - name: fe-nginx-config
+        configMap:
+          name: fe-nginx-config
