@@ -40,7 +40,7 @@ sudo kubectl apply -f nginx.yaml
 sudo kubectl apply -f nginx-conf.yaml
 sudo kubectl apply -f nginx-lb.yaml
 sudo kubectl apply -f fe-nginx.yaml
-sudo kubectl apply -f fe-nginx-cong.yaml
+sudo kubectl apply -f fe-nginx-conf.yaml
 
 sleep 20
 
