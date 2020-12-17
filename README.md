@@ -54,9 +54,9 @@ The structure of the backend consists of 3 components:
 
 - **Controller**: Contains addresses for different HTTP request types and header and body contents. The frontend sends a HTTP CRUD request targeting a specific controller address. The controller returns a ResponseEntity containing a ticket object or list of tickets and an HTTP status code.
 - **Service**: Contains methods for passing in data to the repository and returning the result as a ticket object to the controller.
-- **Repository**: An interface that extends the Spring Boot JpaRepository class. It exposes methods that translate requests by the service into SQL requests for the connected RDS. The repository is referenced as an object in the service called "repo".
+- **Repository**: An interface that extends the Spring Boot JpaRepository class. It exposes methods that translate requests by the service into SQL requests for the connected database. The repository is referenced as an object in the service called "repo".
 
-![Backend Diagram 2](https://user-images.githubusercontent.com/71394754/102369313-b434ff00-3fb3-11eb-9ffe-e7211d46cfc6.png)
+![Backend Diagram 2](https://user-images.githubusercontent.com/71394754/102478984-31b14b80-4056-11eb-8109-96165420019c.png)
 
 The above diagram shows the structure of the backend and the interaction between its components. 
 
@@ -64,9 +64,9 @@ The above diagram shows the structure of the backend and the interaction between
 
 **2.** The service contains methods that each controller method calls on to perform queries on the database. Each service method is paired with a controller method where it will receive any header or body parameters sent from the controller to be then plugged into the repository query. The service then calls a repository method that performs the SQL query on the connected database.
 
-**3.** The repository is an interface that provides methods to perform SQL requests. POST methods in the service will use the "save" method of the repository which is then translated to an "INSERT INTO" SQL command. GET methods will use "findAll" which trainslates to "SELECT FROM" SQL commands. More specific methods can be created in the repository that translate to commands that target certain data. Some of the GET methods use these specific methods to retrieve a filtered or sorted list of database records.
+**3.** The repository is an interface that provides methods to perform SQL requests. POST methods in the service will use the "save" method of the repository which is then translated to an "INSERT INTO" SQL command. GET methods will use "findAll" which translates to "SELECT FROM" SQL commands. More specific methods can be created in the repository that translate to commands that target certain data. Some of the GET methods use these specific methods to retrieve a filtered or sorted list of database records.
 
-
+**4.** Once the query to the database has been completed, the controller will return the result to the frontend with an HTTP status code.
 
 ### DevOps (Abdul + Alanzo)
 
