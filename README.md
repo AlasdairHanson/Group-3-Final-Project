@@ -2,9 +2,9 @@
 
 ## Resources (All)
 ---
-- Presentation:
-- Jira Board:
-- Risk Assessment:
+- Presentation: https://docs.google.com/presentation/d/189885tIabEeBWLpyj9cMJktKJI-QuxkrAzXRBUzYJbs/edit#slide=id.p
+- Jira Board: https://badamiec.atlassian.net/jira/software/projects/FP/boards/7/roadmap
+- Risk Assessment: https://docs.google.com/document/d/1-s6Nb3pVpPESHO-dkETj3pFdLD4nn2W6fpx4A692_sw/edit
 
 ## Contents
 * [Brief](#brief)
