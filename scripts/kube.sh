@@ -22,6 +22,13 @@ cp /var/lib/jenkins/secrets.yaml /var/lib/jenkins/workspace/project3/Group-3-Fin
 
 cd /var/lib/jenkins/workspace/project3/Group-3-Final-Project/DevOps/kubernetes/
 
+sudo kubectl delete -f secrets.yaml
+sudo kubectl delete -f nginx.yaml
+sudo kubectl delete -f nginx-lb.yaml
+sudo kubectl delete -f nginx-conf.yaml
+sudo kubectl delete -f backend.yaml
+sudo kubectl delete -f frontend.yaml
+
 sudo kubectl create namespace group3
 sudo kubectl delete pods --all pods --namespace=group3
 sudo kubectl apply -f secrets.yaml
