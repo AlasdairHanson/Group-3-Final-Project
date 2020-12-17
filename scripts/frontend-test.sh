@@ -12,8 +12,6 @@ cd ~/Group-3-Final-Project/frontend/fp-group3-ticket/
 
 sudo npm install
 
-sudo npm test -- --watchAll=false
-
-pwd
+sudo npm test -- --watchAll=false --updateSnapshot
 
 EOF
