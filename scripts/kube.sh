@@ -27,7 +27,7 @@ sudo kubectl delete -f nginx.yaml
 sudo kubectl delete -f nginx-lb.yaml
 sudo kubectl delete -f nginx-conf.yaml
 sudo kubectl delete -f fe-nginx.yaml
-sudo kubectl delete -f fe-nginx-cong.yaml
+sudo kubectl delete -f fe-nginx-conf.yaml
 sudo kubectl delete -f backend.yaml
 sudo kubectl delete -f frontend.yaml
 
