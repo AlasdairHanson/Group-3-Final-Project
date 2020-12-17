@@ -44,7 +44,7 @@ const EditTicketButton = ({
   const updateData = (e) => {
     settimestamp(new Date().toLocaleString("en-GB"));
     axios
-      .put("backend:8081/updateTicket/" + id, ticketData)
+      .put("http://backend:8081/updateTicket/" + id, ticketData)
       .then(function (response) {
         console.log(response);
       })
