@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fe-nginx-config
+data:
+  default.conf: |
+      server {
+          listen 5000;
+          location / {
+              proxy_pass http://backend:8081; #backend
+          }
+      }
+      
+    
