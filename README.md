@@ -13,7 +13,7 @@
 ## Brief (All)
 ---
 
-Our group has been tasked with 
+Our group has been tasked with designing, developing and deploying a full-stack application 
 
 ### Requirements
 
@@ -54,15 +54,17 @@ The structure of the backend consists of 3 components:
 
 - **Controller**: Contains addresses for different HTTP request types and header and body contents. The frontend sends a HTTP CRUD request targeting a specific controller address. The controller returns a ResponseEntity containing a ticket object or list of tickets and an HTTP status code.
 - **Service**: Contains methods for passing in data to the repository and returning the result as a ticket object to the controller.
-- **Repository**: An interface that extends the Spring Boot JpaRepository class. It exposes methods that translate requests by the service into SQL requests for the connected RDS.
+- **Repository**: An interface that extends the Spring Boot JpaRepository class. It exposes methods that translate requests by the service into SQL requests for the connected RDS. The repository is referenced as an object in the service called "repo".
 
 ![Backend Diagram 2](https://user-images.githubusercontent.com/71394754/102369313-b434ff00-3fb3-11eb-9ffe-e7211d46cfc6.png)
 
 The above diagram shows the structure of the backend and the interaction between its components. 
 
-1. The frontend sends an HTTP request that targets a specific address and a CRUD function on the backend. If the frontend wants to get data from the database, it will supply a value in its request header to the address that tells the database what data to return. If the frontend wants to save data, it will supply a JSON object of key-value pairs in its request body.
-2. The controller calls a method that 
+**1.** The controller listens for a POST, GET, PUT or DELETE HTTP request from the frontend that targets a specific controller address. Depending on the type of request, the backend has multiple methods that provide different functionality to each CRUD request type. A POST method will look for a JSON object in the body of the request and map it to the ticket data model. A GET method will look for a value in the header of the request to use as a search parameter for querying the database. 
 
+**2.** The service contains methods that each controller method calls on to perform queries on the database. Each service method is paired with a controller method where it will receive any header or body parameters sent from the controller to be then plugged into the repository query. The service then calls a repository method that performs the SQL query on the connected database.
+
+**3.** The repository is an interface that provides methods to perform SQL requests. POST methods in the service will use the "save" method of the repository which is then translated to an "INSERT INTO" SQL command. GET methods will use "findAll" which trainslates to "SELECT FROM" SQL commands. More specific methods can be created in the repository that translate to commands that target certain data. Some of the GET methods use these specific methods to retrieve a filtered or sorted list of database records.
 
 
 
