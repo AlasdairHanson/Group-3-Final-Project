@@ -6,8 +6,27 @@
 - Jira Board:
 - Risk Assessment:
 
-## Contents (All)
----
+## Contents
+* [Brief](#brief)
+   * [Requirements](#requirements)
+* [Project Management](#project-management)
+* [Risk Assessment](#risk-assessment)
+* [Research](#research)
+   * [Market Research Meeting](#market-research-meeting)
+   * [other subtitle](#other-subtitle)
+* [Front-End Design](#front-end-design)
+* [Architecture](#architecture)
+   * [Frontend](#frontend)
+   * [Backend](#backend)
+* [DevOps](#devops)
+   * [CI Pipeline](#ci-pipeline)
+   * [Jenkins](#jenkins)
+* [Testing](#testing)
+   * [Postman Testing](#postman-testing)
+   * [Backend Testing](#backendtesting)
+   * [Frontend Testing](#frontend-testing)
+* [Improvements](#improvements)
+* [Authors](#authors)
 
 
 ## Brief (All)
@@ -75,9 +94,9 @@ The update controller method requires a header value corresponding to the id of 
 
 **4.** Once the query to the database has been completed, the controller will return the result to the frontend with an HTTP status code.
 
-### DevOps (Abdul + Alanzo)
+## DevOps (Abdul + Alanzo)
 
-## CI Pipeline
+### CI Pipeline
 ---
 Below is an image showing the Continuous Integration pipeline used to deploy and continuously configure the Help Queue application.
 
@@ -110,7 +129,7 @@ The image below shows all the stages of the build.
 ## Testing
 ---
 
-### Postman Backend Testing
+### Postman Testing
 
 The earliest tests conducted tested the connection between the front end requests and the backend controllers and services. Using an in-memory h2 database and localhost, the basic create, read, update and delete functionality of the Helpqueue app was tested with Postman. Some images from these early-stage GET and POST request tests are shown below.
 
@@ -137,8 +156,6 @@ Frontend testing was carried out using the Jest testing framework for JavaScript
 
 For this project, 16 out of 24 components were tested with 100% coverage. This means that approximately 67% of the frontend React code was tested successfully.
 
-Improvements:
-Due to time constraints and growing focus on successful minimum viable product deployment, not all React components were tested in Jest to the desired standard. Currently the coverage of the front end tests is 67%. A future improvement would be to achieve at least 70% coverage as is the industry standard. 
 
 
 
@@ -146,6 +163,9 @@ Due to time constraints and growing focus on successful minimum viable product d
 
 ## Improvements (All)
 ---
+
+Due to time constraints and growing focus on successful minimum viable product deployment, not all React components were tested in Jest to the desired standard. Currently the coverage of the front end tests is 67%. A future improvement would be to achieve at least 70% coverage as is the industry standard. 
+
 
 ## Acknowledgements (All)
 ---
