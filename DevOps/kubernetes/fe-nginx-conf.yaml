@@ -5,7 +5,7 @@ metadata:
 data:
   default.conf: |
       server {
-          listen 5000;
+          listen 80;
           location / {
               proxy_pass http://backend:8081; 
           }
