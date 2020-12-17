@@ -8,7 +8,7 @@ import Header from '../Components/LandingPage/Header';
 
     test('Renders QA HelpDesk link', () => {
         render(<Header />);
-        const linkElement = screen.getByText(/qa helpdesk/i);
+        const linkElement = screen.getByText(/old data/i);
         expect(linkElement).toBeInTheDocument();
       });
 
