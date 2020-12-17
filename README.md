@@ -56,6 +56,10 @@ The structure of the backend consists of 3 components:
 - **Service**: Contains methods for passing in data to the repository and returning the result as a ticket object to the controller.
 - **Repository**: An interface that extends the Spring Boot JpaRepository class. It exposes methods that translate requests by the service into SQL requests for the connected database. The repository is referenced as an object in the service called "repo".
 
+![Ticket Model](https://user-images.githubusercontent.com/71394754/102543937-f6416c00-40ab-11eb-907e-b871ebf21a9b.png)
+
+The backend contains a class called **Ticket** that serves as a data model for what incoming JSON values should map to. Each attribute in the class must match the schema of the database for the object to be inserted correctly. 
+
 ![Backend Diagram 2](https://user-images.githubusercontent.com/71394754/102478984-31b14b80-4056-11eb-8109-96165420019c.png)
 
 The above diagram shows the structure of the backend and the interaction between its components. 
