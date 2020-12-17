@@ -9,12 +9,6 @@ pipeline{
                 }
 	    }
 		
-	    stage('Docker cleanup'){
-                steps{
-                    sh 'chmod a+x ./scripts/docker-cleanup.sh'
-                    sh './scripts/docker-cleanup.sh'
-                }
-            }
 
              stage('Test backend'){
                 steps{
