@@ -180,6 +180,8 @@ Due to time constraints and growing focus on successful minimum viable product d
 - Reece Elder
 - Binx the Cat
 
+![Photo from Alasdair](https://user-images.githubusercontent.com/71394754/102556380-aa4cf200-40c0-11eb-8672-3102f0f10571.jpg)
+
 [backendtests]:https://i.imgur.com/ZuPZr5m.png
 [backendcoverage]:https://i.imgur.com/4CI1HcH.png
 [frontendtests]:https://i.imgur.com/fqxZ7HG.png
