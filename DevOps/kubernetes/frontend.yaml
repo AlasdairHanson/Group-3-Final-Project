@@ -18,7 +18,7 @@ spec:
       containers:
       - name: frontend
         image: reeceelder/frontend:latest
-        imagePullPolicy: "Always"
+        imagePullPolicy: Always
         ports:
         - containerPort: 5000
 
