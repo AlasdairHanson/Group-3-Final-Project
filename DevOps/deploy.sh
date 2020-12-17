@@ -273,7 +273,7 @@ sleep 2
 #Passing in database schema
 
 cd ~/Group-3-Final-Project/DevOps/database
-mysql -h ${testdb_endpoint} -P 3306 -u ${testdb_username} -p${password} < Create.sql
+mysql -h ${testdb_endpoint} -P 3306 -u ${testdb_username} -p${password} < Create_test.sql
 
 echo "passing in sql schema"
 
