@@ -9,8 +9,4 @@ data:
           location / {
               proxy_pass http://frontend:5000; 
           }
-          }
-          location / {
-              proxy_pass http://backend:8081;
-          }
       }
