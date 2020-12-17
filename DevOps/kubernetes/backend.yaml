@@ -2,21 +2,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend
+  name: backendapp
   labels:
-    app: backend
+    app: backendapp
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: backend
+      app: backendapp
   template:
     metadata:
       labels:
-        app: backend
+        app: backendapp
     spec:
       containers:
-      - name: backend
+      - name: backendapp
         image: reeceelder/backend:latest
         imagePullPolicy: Always
         env:
@@ -52,12 +52,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: backend
+  name: backendip
   labels:
-    app: backend
+    app: backendapp
 spec:
   selector:
-    app: backend
+    app: backendapp
   ports:
   - protocol: TCP
     port: 8081
