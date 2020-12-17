@@ -3,10 +3,10 @@ kind: Service
 metadata:
   name: backend
   labels:
-    app: fe-nginx-lb
+    app: fe-nginx
 spec: 
   selector: 
-    app: backend
+    app: fe-nginx
   ports: 
   - protocol: TCP
     port: 80
