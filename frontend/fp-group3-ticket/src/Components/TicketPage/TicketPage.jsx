@@ -17,7 +17,7 @@ const TicketPage = () => {
 
   useEffect(() => {
     setIsUpdate(false);
-    axios.get("http://backend:8081/getTicket", 
+    axios.get("http://backend:8081" + dataSort, 
     {
       headers: {
         'Access-Control-Allow-Origin' : '*'
