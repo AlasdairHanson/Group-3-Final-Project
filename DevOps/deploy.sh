@@ -279,7 +279,7 @@ echo "passing in sql schema"
 
 EOF
 
-echo "Passing prodution database done"
+echo "Passing test database schema done"
 
 #ssh'ing into jenkinsvm, exporting all variables, cloning done schema folder then passing in the main database schema.
 #Copying credentials from jenkinvm to jenkins_usr.
@@ -322,5 +322,5 @@ echo "passing in sql schema"
 
 EOF
 
-echo "Passing prodution database done"
+echo "Passing prodution database schems done"
 
