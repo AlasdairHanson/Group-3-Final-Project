@@ -18,6 +18,7 @@ spec:
       containers:
       - name: backend
         image: reeceelder/backend:latest
+        imagePullPolicy: "Always"
         env:
         - name: db_endpoint
           valueFrom:
