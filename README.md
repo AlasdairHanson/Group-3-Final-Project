@@ -77,16 +77,70 @@ The update controller method requires a header value corresponding to the id of 
 
 ### DevOps (Abdul + Alanzo)
 
-**Ci Pipeline (Basia)
+## CI Pipeline
+---
+Below is an image showing the Continuous Integration pipeline used to deploy and continuously configure the Help Queue application.
+
+![pipeline][pipeline]
+
+This pipeline allows for rapid and simple development-to-deployment by automating the integration process. Code can be produced and pushed to GitHub, which will automatically push the new code to Jenkins via a webhook trigger. When a change is made to the Java and/or React source code, the git repository is pulled down by Jenkins. From there, tests are automatically ran in a separate testing environment from the live cluster to ensure the application will function correctly, and other build stages performed. Upon successful testing, Docker images of the backend and frontend are built and pushed up to Docker Hub, and pulled down in the last stage for Kubernetes deployment.
+
+### Jenkins 
+
+Jenkins is a continuous integration server. The above process is automated by a Jenkins pipeline job with distinct build stages. If a build stage fails, the subsequent stages are not executed and the job will fail altogether to prevent non-functioning code from altering the live environment. Detailed console outputs are provided at each stage.
+
+The main build stages in this project are:
+* Pulling code from a Git respository after a web hook is triggered by a change to the repository
+* The backend code is tested
+* The backend image is built and pushed up to Docker Hub (then removed locally to regain disk space)
+* The frontend code is tested
+* The frontend image is built and pushed to Docker Hub (then removed locally to regain disk space)
+* The Docker containers running in and managed by the Kubernetes cluster are updated with the latest Docker images
+
+
+The image below shows all the stages of the build.
+
+![jenkins][jenkins]
+
 
 **Usage Requirements (Abdul)
 
 **Walkthrough (Abdul)
 
-## Testing (Basia)
+## Testing
 ---
+
+### Postman Backend Testing
+
+The earliest tests conducted tested the connection between the front end requests and the backend controllers and services. Using an in-memory h2 database and localhost, the basic create, read, update and delete functionality of the Helpqueue app was tested with Postman. Some images from these early-stage GET and POST request tests are shown below.
+
+![postmancreate][postmancreate]
+
+![postmanget][postmanget]
+
+### Backend Testing
+
+Backend testing was carried out using JUnit. Integration tests on the backend controller were conducted using MockMVC which supports Spring MVC. A test MySQL database hosted on AWS RDS, with existing records of tickets to be tested, was used to carry out these tests. Testing the functionality of the service class was done using the testing framework Mockito. Mockito allows for testing without establishing connections through using mock objects which return mock data. JUnit, an in-built test framework for Java applications, was used to run both the integration and unit tests. JUnit produces a report on the status and outcome of each test, detailing which were successful, which had errors, and showing any failure traces in a console.
+
+
 ![backendtests][backendtests]
+
+JUnit also tracks the coverage of the tests to show the percentage of the code in the application which has been tested. The aim for this project was 80% coverage, and in reality 99.6% backend test coverage was achieved as shown below.
+
 ![backendcoverage][backendcoverage]
+
+### Frontend Testing
+
+Frontend testing was carried out using the Jest testing framework for JavaScript. This involved a combination of tests such as ensuring that snapshots of components match what is expected, or that props are being passed to child components properly. A console output during frontend testing along with some test coverage is shown below.
+
+![frontendtests][frontendtests]
+
+For this project, 16 out of 24 components were tested with 100% coverage. This means that approximately 67% of the frontend React code was tested successfully.
+
+Improvements:
+Due to time constraints and growing focus on successful minimum viable product deployment, not all React components were tested in Jest to the desired standard. Currently the coverage of the front end tests is 67%. A future improvement would be to achieve at least 70% coverage as is the industry standard. 
+
+
 
 
 
@@ -104,9 +158,16 @@ The update controller method requires a header value corresponding to the id of 
 - Abdul Shaker
 - Alasdair Hanson
 - Reece Elder
-- Jinx the Cat
+- Binx the Cat
 
 [backendtests]:https://i.imgur.com/ZuPZr5m.png
 [backendcoverage]:https://i.imgur.com/4CI1HcH.png
+[frontendtests]:https://i.imgur.com/fqxZ7HG.png
+[pipeline]:https://i.imgur.com/h6rVfbI.png
+[jenkins]:https://i.imgur.com/BJMtV2Z.png
+[postmancreate]:https://i.imgur.com/ckY2s5N.png
+[postmanget]:https://i.imgur.com/ZWrbAdB.png
+
+
 
 
