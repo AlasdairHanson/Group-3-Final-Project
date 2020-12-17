@@ -279,6 +279,8 @@ echo "passing in sql schema"
 
 EOF
 
+echo "Passing prodution database done"
+
 #ssh'ing into jenkinsvm, exporting all variables, cloning done schema folder then passing in the main database schema.
 #Copying credentials from jenkinvm to jenkins_usr.
 
@@ -319,4 +321,6 @@ mysql -h ${db_endpoint} -P 3306 -u ${db_username} -p${password} < Create.sql
 echo "passing in sql schema"
 
 EOF
+
+echo "Passing prodution database done"
 
