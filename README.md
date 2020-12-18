@@ -42,6 +42,8 @@
 ### Requirements
 Our group has been tasked with designing, developing and deploying a full-stack application functioning as a help queue accessible by QA Academy trainers and trainees. The brief provided was as follows:
 
+Test
+
 "For this project, you are tasked with creating a Help Queue web application for use in the Academy. The purpose of this application is to work as a virtual hands-up tool to alert trainers to who needs help in their class. Trainees can post help tickets to the queue, with oldest tickets at the top of the list. Trainers can then view the queue to see who needs help next. When a ticket has been solved, it is marked as "Done" by the user and added to a separate "Completed" list. The next-oldest ticket is moved to the top of the list."
 
 
