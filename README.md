@@ -103,6 +103,9 @@ In addition to the basic functionality, we successfully implemented the followin
 
 ## Risk Assesment
 ---
+The earliest risk assessment for this project was one of the first pieces of documentation written, and has been revisited frequently as more functionality and proposed mitigations were implemented. Pictured below is a snippet from the risk assessment which can be found in full under the link provided in the resources section of this document.
+
+![riskassessment][riskassessment]
 
 ## Research
 ---
@@ -452,6 +455,7 @@ We would like to thank all our trainers at QA for their continued support and fo
 [jenkins]:https://i.imgur.com/BJMtV2Z.png
 [postmancreate]:https://i.imgur.com/ckY2s5N.png
 [postmanget]:https://i.imgur.com/ZWrbAdB.png
+[riskassessment]:https://i.imgur.com/FcZxQmv.png
 
 
 
