@@ -248,7 +248,7 @@ The update controller method requires a header value corresponding to the id of 
 ## DevOps
 
 
-Discus the entire pipeline and DevOps stuff.
+The image below shows our DevOps infrastructure.
 
 ![CI Pipeline v1 (1)](https://user-images.githubusercontent.com/67590124/102597451-9336f000-4112-11eb-944a-b1313695ae24.png)
 
