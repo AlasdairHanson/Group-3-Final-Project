@@ -30,7 +30,7 @@
    * [Kubernetes](#kubernetes)
 * [Testing](#testing)
    * [Postman Testing](#postman-testing)
-   * [Backend Testing](#backend-testing)
+   * [Backend Testing](#backendtesting)
    * [Frontend Testing](#frontend-testing)
 * [Improvements](#improvements)
 * [Acknowledgements](#acknowledgements)
@@ -101,11 +101,35 @@ In addition to the basic functionality, we successfully implemented the followin
 ## Project Management
 ---
 
+### Initial Planning
+
+The initial planning stage of the project involved the team reading through the project specification and discussing what the deliverables of the final application should be. The deliverables are then divided into the application's components such as Frontend, Backend and DevOps.
+
+The team then collaborated on the brainstorming of tasks that will be required to produce each of the components by using Post-It notes to write tasks under each component heading. These were then copied over to a Jira Board where Epics were created from the project components and tasks were added to a backlog and associated with the Epics.
+
+From there, the team worked on story points for each task to define how difficult each task would be to implement. This was achieved by each team member voting on a 1 to 10 scale of perceived difficulty for each task before a final average was taken. The process would allow the team to identify which tasks would require more development time to implement.
+
+### Jira Board
+
+![Screenshot 2020-12-18 111040](https://user-images.githubusercontent.com/71394754/102608384-b321e000-4121-11eb-826d-6a208842d9ac.png)
+
+The Jira Board shows the backlog of project tasks and their associated epics.
+
+### Team Roles
+
+Each member of the team volunteered for a specific role associated with a project component that they feel confident in completing. For example, a team member may assign themselves to Frontend, and another member on Backend. Multiple users may use the same roles to collaborate on a component such as with DevOps.
+
+Roles may overlap and team members may inhabit other roles if multiple components need to work together and more team members can work on it.
+
+### Sprint Planning
+
+
+### Scrum Meetings
+
+
+
 ## Risk Assesment
 ---
-The earliest risk assessment for this project was one of the first pieces of documentation written, and has been revisited frequently as more functionality and proposed mitigations were implemented. Pictured below is a snippet from the risk assessment which can be found in full under the link provided in the resources section of this document.
-
-![riskassessment][riskassessment]
 
 ## Research
 ---
@@ -124,7 +148,7 @@ From the interview the following points were raised, so we had to ensure our pro
 
 The Market Research was a beneficial task to complete first, as it gave us an indication of which of the stretch goals are important to focus on. Its important for a project given to us by a client to include the 'Would Have's/ Could Have's' that are important to the client, rather than that are important for us as the Devs to do. 
 
-## Front-End Design
+## FrontEnd Design
 
 ### ERD Components
 
@@ -145,45 +169,32 @@ By clinical a lot of the softwares are powered by an RDS (much like this applica
 ### Initial Sketches
 
 Some initial designs of the CRUD are outlined below, with the final product being a colloboration between the two differing styles and designs:
-
-<p float="left">
-  <img src="https://user-images.githubusercontent.com/71394624/102593850-4bfa3080-410d-11eb-896e-b841920fa190.png" width=49% />
-  <img src="https://user-images.githubusercontent.com/71394624/102593860-50264e00-410d-11eb-8a6a-b5cf466338ff.png" width=49% /> 
-</p>
+![Front End Mockup(1)](https://user-images.githubusercontent.com/71394624/102593850-4bfa3080-410d-11eb-896e-b841920fa190.png)
+![Frontend-Design](https://user-images.githubusercontent.com/71394624/102593860-50264e00-410d-11eb-8a6a-b5cf466338ff.png)
 
 One of the original potential designs for the final application was using a post it note type system, similar to a realworld notice board. This gave the final design a real sense of physicality, which could potentially involve a real video of post it notes being posted and removed, with the text content added in programmatically and rendered. 
 
-<p float="left">
-  <img src="https://user-images.githubusercontent.com/71394624/102594089-a5faf600-410d-11eb-9f2a-ce2f97daa511.png" width=49% />
-  <img src="https://user-images.githubusercontent.com/71394624/102594091-a7c4b980-410d-11eb-9eb4-0d7e7cb70df5.png" width=49% /> 
-</p>
+![Asset 5](https://user-images.githubusercontent.com/71394624/102594089-a5faf600-410d-11eb-9f2a-ce2f97daa511.png) ![Asset 6](https://user-images.githubusercontent.com/71394624/102594091-a7c4b980-410d-11eb-9eb4-0d7e7cb70df5.png)
 
 This in practice seemed too much work for the scope of this project, but is something that could be considred as a stretch goal. 
 
-## Architecture 
+## Architecture (+ ERDs) 
 ---
 
 ### Frontend
 
 The Final frontend is a React.JS application utilising React Bootstrap for the Grid functionality and a variety of other frameworks for the graphical and functional aspects.
 
-<p float="left">
-  <img src="https://user-images.githubusercontent.com/71394624/102595049-ef981080-410e-11eb-86a6-57ff64a5dc2b.png" width=49% />
-  <img src="https://user-images.githubusercontent.com/71394624/102595092-fd4d9600-410e-11eb-8fb2-2a1291ae72e5.png" width=49% /> 
-</p>
-
-<p float="left">
-  <img src="https://user-images.githubusercontent.com/71394624/102595100-00488680-410f-11eb-8887-0aa46756e5d2.png" width=49% />
-  <img src="https://user-images.githubusercontent.com/71394624/102595108-02aae080-410f-11eb-89ac-8d2a6cef18d2.png" width=49% />
-</p>
-
-<p float="left">
-  <img src="https://user-images.githubusercontent.com/71394624/102595123-05a5d100-410f-11eb-8477-6aead239d388.png" width=49% />
-  <img src="https://user-images.githubusercontent.com/71394624/102595175-1c4c2800-410f-11eb-8fe3-39555ee8542c.png" width=49% />
+<p align="center">
+  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595049-ef981080-410e-11eb-86a6-57ff64a5dc2b.png">
+  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595092-fd4d9600-410e-11eb-8fb2-2a1291ae72e5.png">
+  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595100-00488680-410f-11eb-8887-0aa46756e5d2.png">
+  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595108-02aae080-410f-11eb-89ac-8d2a6cef18d2.png">
+  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595123-05a5d100-410f-11eb-8477-6aead239d388.png">
+  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595175-1c4c2800-410f-11eb-8fe3-39555ee8542c.png">
 </p>
                                                                                                                             
 The above images are screenshots of the front end design showing the functionality of the website, contents of the website are:
-
 **1.** Login Page
 
 **2.** Ticket Page
@@ -198,7 +209,7 @@ The above images are screenshots of the front end design showing the functionali
 
 **7.** Reactive Nav Bar
 
-### Backend
+### Backend (Alasdair)
 
 The backend is a Spring Boot application written in Java SE that enables the frontend to communicate with a database. It is deployed inside a Docker container where it listens for HTTP CRUD (Create, Read, Update, Delete) requests from the frontend and performs SQL queries on a connected database.
 
@@ -229,15 +240,6 @@ The update controller method requires a header value corresponding to the id of 
 
 **4.** Once the query to the database has been completed, the controller will return the result to the frontend with an HTTP status code.
 
-### RDS Architecture
-
-Below is the schema for our RDS using SQL. 
-
-By using DATETIME for the timestamp value the SQL is able to correctly order the data chronologically before passing the data back to Java and React as a String. This allows the greatest level of functionality and usability for the RDS and for the application.
-
-![erd2](https://user-images.githubusercontent.com/71394624/102604696-7acbd300-411c-11eb-9c56-5b9e7a1e4e1e.png)
-
-
 ## DevOps
 
 
@@ -249,38 +251,50 @@ Discus the entire pipeline and DevOps stuff.
 ### Automation (Deploy Script)
 ---
 The deploy script was developed to automate the entire process on virtual machine from the start of the project up to the Jenkins pipeline which needs to be configured manually. The deployment stages and functionalities are provided below. 
-
 Steps:
+1.	Main VM Software Installations
+The deploy script will first install all the necessary software needed on the main vm which includes ansible, terraform, jq, python-pip3, awscli, curl, unzip and more. 
 
-1.	Main VM Software Installations - The deploy script will first install all the necessary software needed on the main vm which includes ansible, terraform, jq, python-pip3, awscli, curl, unzip and more. 
+2.	Aws configure
+The deploy script then uses a bash script stored in the root of the vm to configure awscli automatically. Configuring awscli ensures that we are logged into the correct aws account that terraform will build its infrastructure on. Later on in this script, this file was copied over to the jenkins vm an run to configure aws for Kubernetes. 
 
-2.	Aws configure - The deploy script then uses a bash script stored in the root of the vm to configure awscli automatically. Configuring awscli ensures that we are logged into the correct aws account that terraform will build its infrastructure on. Later on in this script, this file was securely copied over to the jenkins vm and run to configure aws for Kubernetes. 
+3.	Generate ssh public keys (ssh-keygen) 
+Several ssh public keys were generated automatically through the script. The first one was  on the main vm for terraform to access and the others came after in the script where inputs were passed into the vms terraform created. 
 
-3.	Generate ssh public keys (ssh-keygen) - Several ssh public keys were generated automatically through the script. The first one was  on the main vm for terraform to access and the others came after in the script where inputs were passed into the vms terraform created. 
+4.	Start terraform
+The first step before starting terraform is passing in the database credentials from the secret folder stored at the root the vm which is done by automatically by the script. This file is called terraform.tfvars and it holds the password and username for the databases. The next stage was to format, initialise, plan and apply terraform, which builds our entire infrastructure.
 
-4.	Start terraform - The first step before starting terraform is passing in the database credentials from the secret folder stored at the root the vm which is done automatically by the script. This file is called terraform.tfvars and it holds the password and username for the databases. The next stage was to format, initialise, plan and apply terraform, which builds our entire infrastructure.
+5.	Export and clean terraform outputs
+In this stage the script collects all outputs from terraform which incudes database URI, test database URI, test vm IP and Jenkins vm IP, and clean them up, strip away quote marks and other unnecessary data off these crucial outputs. The script then exports these outputs as environment variables to be used later on in the project.
 
-5.	Export and clean terraform outputs - In this stage the script collects all outputs from terraform which includes database URI, test database URI, test vm IP and Jenkins vm IP, and clean them up, strip away quote marks and other unnecessary data off these crucial outputs. The script then exports these outputs as environment variables to be used later on in the project.
-
-6.	Edit etc/hosts file - In this step the script automates the process of passing in Jenkins vm and the test vm as hosts in the etc/hosts file. This was done without compromising any of the vm IP addresses.
+6.	Edit etc/hosts file
+In this step of the script, I automate the process of passing is Jenkins vm and the test vm as hosts in the etc/hosts file. This was done without compromising any of the vm IP addresses.
    
-7.	Start ansible - In this stage, the script runs ansible playbook which essentially installs all the software that were needed in the test vm and is the Jenkins vm. Ansible also add jenkines as a sudo doer on the jenkins vm and on the test vm as a backup.
+7.	Start ansible
+In this stage the script runs ansible playbook which essentially installs all the software that were needed in the test vm and is the Jenkins vm. It will also add sudo doers access for jenkins on the jenkins vm and on the test vm as a backup.
 
-8.	Send inputs to jenkins vm and test vm (EOF) - In this stage, I ssh into both jenkins and test vm, and pass input using EOF to do a key generation if public key does not exist. I also ssh into the jenkins vm and pass input to the jenkins user to generate a public key on that user which is used later on to give jenkins ssh access to the test vm. This process was fully automatic, and the keys were use for allowing a full triangular sshing which will be discussed at a later stage. 
+8.	Send inputs to Jenkins vm and test vm (EOF)
+In this stage I ssh into both jenkins and test vm, and pass input using EOF to do a key generation if public keys does not exist. I also ssh into the jenkins vm and pass input into the jenkins user to generate a public key on that user to later on use this key to give jenkins ssh access to the test vm. This process was fully automatic, and the keys are use for allowing a full triangular sshing which will be discuss at a later stage. 
 
-9.	Secure Copy public keys - A key folder was created to store and organise the public keys from the jenkins vm, test vm and jenkins user. The public keys for the jenkins vm, test vm and jenkins user were then securely copied across to the main vm and store in the key folder. I then cat out each public key into the main vm authorized key file. 
+9.	Secure Copy public keys
+A key folder was created to store and organise the public keys from the jenkins vm, test vm and jenkins user. The public key for the jenkins vm, test vm and jenkins user were then securely copied across to the main vm and store in the key folder. I them cat out each public key into the main vm authorized key file. 
 
-10.	Passing Public keys to enable sshing - In this step I secure copy the authorized key file on the main vm that I had cat out all public keys into to the test vm and the jenkins vm. I then ssh into both the jenkins vm and the test vm and use EOF to pass input to cat out the main vm authorized key file into their authorized keys file to give all three vm and jenkins user ssh privilege. 
+10.	Passing Public keys to enable sshing
+In this step I secure copy the authorize key file on the main vm that I had cat out all public keys into to the test vm and the jenkins vm. I then ssh into both the jenkins vm and the test vm and use EOF to pass input to cat out the main vm authorized key file into their authorized keys file to give all three vm and jenkins user ssh privilege. 
 
-11.	Creating Databasecredentials file and .env file (environment variables) - A databasecredentials file was essential for the jenkins pipeline. The file contains several variables and outputs collected from terraform. The variables were database endpoint, testdatabase endpoint, databases username and password, IP addresses and Docker username and password. The mentioned variables were place inside the file automatically and they were ready to be exported as environment variables when the credentials script needs to run. An environment variable file (.env file) was also created automatically for Docker which aid docker with picking up all variable needed for containerisation. 
+11.	Creating Databasecredentials file and .env file (environment variables) 
+A databasecredentials file was essential for the jenkins pipeline. The file contains several variables and outputs collected from terraform. The variables were database endpoint, testdatabase endpoint, databases username and password, IP addresses and Docker username and password. The mentioned variables were place inside the file automatically and they were ready to be exported as environment variables when the credentials script was run. An environment variable file (.env file) was also created automatically for Docker which aid docker with picking up all variable needed for containerisation. 
 
-12.	Passing Databasecredentials and .evn files to jenkins vm, jenkins user and test vm - The databasecredentials file was securely copied across to the jenkins vm, jenkins user, and testvm. This ensures that when setting up the jenkins pipeline these variables were readily available for Docker and Kubernetes. From those variables, a .env file was created to aid with running Docker automatically. 
+12.	Passing Databasecredentials and .evn files to jenkins vm, jenkins user and test vm
+The databasecredentials file was secure copied across to the jenkins vm, jenkins user, and testvm. This ensures that when setting up the jenkins pipeline these variables were readily available for Docker and Kubernetes. From those variables a .env file was created to aid with running Docker automatically in this script. 
 
-13.	Passing in Database Schema - In this step of the script, I ssh into both the test vm and jenkins vm and use EOF to pass inputs to clone down the repo, export databasecredentials variables and pass in both the test database schema in the test vm and production database schema in the jenkins vm. 
+13.	Passing in Database Schema
+In this step of the script, I ssh into both the test vm and jenkins vm and use EOF to pass inputs to clone down the repo, export databasecredentials variables and pass in both the test database schema in the test vm and production database schema in the jenkins vm. 
 
-14.	Create and pass secrets yaml file to jenkins user for Kubernetes - In this step, I created a secret yaml file from the credentials file automatically. I configured the credentials variables in a secrets shell script and cat it out into the secrets yaml file. This was done by sshing into the jenkins vm and passing inputs through EOF.
+14.	Create and pass secrets yaml file to jenkins user for Kubernetes
+In this step, I created a secret yaml file from the credentials file automatically. I configured the credentials variables in a secrets shell script and cat it out into the secrets yaml file. This was done by sshing into the jenkins vm and passing inputs through EOF.
 
-Below is an image that outlines the aforementioned deployment steps.  
+Below is an image that outlines the aforemention deployment steps. 
 
 <img src="https://user-images.githubusercontent.com/67590124/102571353-38d16b80-40e1-11eb-9b65-83557e2c9e5c.png" width="1000" height = "650">
 
@@ -303,21 +317,20 @@ Utilized Terraform v0.14.2 to prevent sensitive files from being visible in terr
 ### Ansible
 ---
 Ansible
-Ansible is an application deployment, configuration management and continuous delivery tool. It is one of the simplest ways to automate apps, install software and automate IT infrastructure. In this project, ansible is used to install a list of software on the jenkins vm and on the test vm. These software were based off the needs for the project’s application.The roles in the ansible were written with the support of the ansible documentation and were developed without the use of scripts.
-
-The ansible software roles of ansibles are listed below. 
+Ansible is an application deployment, configuration management and continuous delivery tool. It is one of the simplest ways to automate apps, install software and automate IT infrastructure. In this project ansible was used to install a list of software on the jenkins vm and on the test vm. These software were based off the needs for the project’s application.The roles in the ansible were written with the support of the ansible documentation and were developed without the use of scripts.
+The software roles of ansibles are listed below. 
 
 Jenkins vm roles
 * Docker – Use for application containerisation.
 * Docker-compose – Use for application containerisation.
 * Kubernetes – Use for deploying, scaling and managing the projects containerised applications.
 * Utility software - List of useful software including Java, awscli, nginx, maven, mysql client.
-* Sudo doers - Add jenkins to the list of sudo doers
+* Sudo doers - Add jenkins to a list of sudo doers
 
 Test vm roles
-* Nodejs – Used for frontend testing.
+* Nodejs – For frontend testing.
 * Docker – Use for application containerisation.
-* Docker-compose - Use for multiple application containerisation.
+* Docker-compose - Use for application containerisation.
 * Utility software – List of useful software including Java, awscli, nginx, maven, mysql client.
 
 Below is the result from ansible software installations on the jenkins vm.
@@ -357,18 +370,13 @@ The image below shows all the stages of the build.
 ### Kubernetes
 Kubernetes is an Orchestration system for automating deployment and managing containerized applications. We used this to allow the websites to be hosted through a load balancer in order for the website to be visible through the external ip within the EKS. This is done by using docker images which are then created into pods with specific ports exposed, allowing the nginx, which acts as a proxy pass to display the website. Multiple replicas of the pods were used when defining yaml files to reduce outage of the application in case of the cloud provider suffering from things such as natural disasters
 
-<p float="left">
-  <img src="https://user-images.githubusercontent.com/71396007/102599354-4274c680-4115-11eb-903d-28db85c4c56f.png" width=49% />
-  <img src="https://user-images.githubusercontent.com/71396007/102599443-61735880-4115-11eb-9ccc-81291cbdeb4b.png" width=49% />
-</p>
-
 * Front-end being Hosted on the loadBalancer
+
+![fehost](https://user-images.githubusercontent.com/71396007/102599354-4274c680-4115-11eb-903d-28db85c4c56f.png)
 
 * Front-end has access to the backend when exec into and curling the IP address
 
-**Usage Requirements (Abdul)
-
-**Walkthrough (Abdul)
+![curl](https://user-images.githubusercontent.com/71396007/102599443-61735880-4115-11eb-9ccc-81291cbdeb4b.png)
 
 ## Testing
 ---
@@ -405,25 +413,14 @@ For this project, 16 out of 24 components were tested with 100% coverage. This m
 
 
 
-## Improvements
+## Improvements (All)
 ---
 
-The following are a list of improvements we'd like to achieve in the next iteration of the Application: 
-* The Deploy script we use to automate the creation and configuration of the resources and environment requires us to manually setup Jenkins. If we could configure the Jenkins using an XML file which would be deployed automatically. 
-
-* Due to time constraints and growing focus on successful minimum viable product deployment, not all React components were tested in Jest to the desired standard. Currently the coverage of the front end tests is 67%. A future improvement would be to achieve at least 70% coverage as is the industry standard. 
-
-* With the Front end we have a mock login page, which serves as a landing page for the website. Through a further iteration it'd be beneficial to configure secure logging in to the application.
-
-* If we were to start this project from the beginning again it'd be beneficial to follow best naming practices from the beginning, to ensure that any of our variables can and will be referenced properly
-
-* Utilize Bastion Host and NAT Gateway which would allow the vms provisioned by Terraform to be in a private subnet, meaning only people who explicitly are defined to have access to the infrastructure can alter it.
+Due to time constraints and growing focus on successful minimum viable product deployment, not all React components were tested in Jest to the desired standard. Currently the coverage of the front end tests is 67%. A future improvement would be to achieve at least 70% coverage as is the industry standard. 
 
 
-## Acknowledgements
+## Acknowledgements (All)
 ---
-
-We would like to thank all our trainers at QA for their continued support and for passing on their knowledge and expertise without which completing this project would not have been possible.
 
 ## Authors 
 ---
@@ -444,7 +441,6 @@ We would like to thank all our trainers at QA for their continued support and fo
 [jenkins]:https://i.imgur.com/BJMtV2Z.png
 [postmancreate]:https://i.imgur.com/ckY2s5N.png
 [postmanget]:https://i.imgur.com/ZWrbAdB.png
-[riskassessment]:https://i.imgur.com/FcZxQmv.png
 
 
 
