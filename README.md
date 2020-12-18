@@ -20,6 +20,7 @@
    * [Backend](#backend)
 * [DevOps](#devops)
    * [CI Pipeline](#ci-pipeline)
+   * [Terraform](#terraform)
    * [Jenkins](#jenkins)
 * [Testing](#testing)
    * [Postman Testing](#postman-testing)
@@ -103,6 +104,14 @@ Below is an image showing the Continuous Integration pipeline used to deploy and
 ![pipeline][pipeline]
 
 This pipeline allows for rapid and simple development-to-deployment by automating the integration process. Code can be produced and pushed to GitHub, which will automatically push the new code to Jenkins via a webhook trigger. When a change is made to the Java and/or React source code, the git repository is pulled down by Jenkins. From there, tests are automatically ran in a separate testing environment from the live cluster to ensure the application will function correctly, and other build stages performed. Upon successful testing, Docker images of the backend and frontend are built and pushed up to Docker Hub, and pulled down in the last stage for Kubernetes deployment.
+
+### Terraform (Abdul)
+Terraform is an Infrastructure as Code software tool which allows us to automate deployment of architecture.With this we automated the creation of the Elastic Kubernetes
+Service (EKS) as well as its nodes. We also created the two RDS instances required for testing and deployment and all aws instances required by the application.
+Modules were used to prevent duplication of code and improve reusability, meaning less files need to be configured as new infrastructure is provisioned.
+Utilised Terraform v0.14.2 to prevent sensitive files from being visible in terraform plan, which can be seen below.
+
+![terraform](https://user-images.githubusercontent.com/71396007/102470808-56a0c100-404c-11eb-86e5-e1c256f6573d.png)
 
 ### Jenkins 
 
