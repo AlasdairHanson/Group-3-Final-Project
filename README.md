@@ -155,17 +155,68 @@ The update controller method requires a header value corresponding to the id of 
 
 **4.** Once the query to the database has been completed, the controller will return the result to the frontend with an HTTP status code.
 
-## DevOps (Abdul + Alanzo)
+## DevOps
 
-### CI Pipeline
+
+Discus the entire pipeline and DevOps stuff.
+
+![CI Pipeline v1 (1)](https://user-images.githubusercontent.com/67590124/102597451-9336f000-4112-11eb-944a-b1313695ae24.png)
+
+
+### Automation (Deploy Script)
 ---
-Below is an image showing the Continuous Integration pipeline used to deploy and continuously configure the Help Queue application.
+The deploy script was developed to automate the entire process on virtual machine from the start of the project up to the Jenkins pipeline which needs to be configured manually. The deployment stages and functionalities are provided below. 
+Steps:
+1.	Main VM Software Installations
+The deploy script will first install all the necessary software needed on the main vm which includes ansible, terraform, jq, python-pip3, awscli, curl, unzip and more. 
 
-![pipeline][pipeline]
+2.	Aws configure
+The deploy script then uses a bash script stored in the root of the vm to configure awscli automatically. Configuring awscli ensures that we are logged into the correct aws account that terraform will build its infrastructure on. Later on in this script, this file was copied over to the jenkins vm an run to configure aws for Kubernetes. 
 
-This pipeline allows for rapid and simple development-to-deployment by automating the integration process. Code can be produced and pushed to GitHub, which will automatically push the new code to Jenkins via a webhook trigger. When a change is made to the Java and/or React source code, the git repository is pulled down by Jenkins. From there, tests are automatically ran in a separate testing environment from the live cluster to ensure the application will function correctly, and other build stages performed. Upon successful testing, Docker images of the backend and frontend are built and pushed up to Docker Hub, and pulled down in the last stage for Kubernetes deployment.
+3.	Generate ssh public keys (ssh-keygen) 
+Several ssh public keys were generated automatically through the script. The first one was  on the main vm for terraform to access and the others came after in the script where inputs were passed into the vms terraform created. 
 
-### Terraform
+4.	Start terraform
+The first step before starting terraform is passing in the database credentials from the secret folder stored at the root the vm which is done by automatically by the script. This file is called terraform.tfvars and it holds the password and username for the databases. The next stage was to format, initialise, plan and apply terraform, which builds our entire infrastructure.
+
+5.	Export and clean terraform outputs
+In this stage the script collects all outputs from terraform which incudes database URI, test database URI, test vm IP and Jenkins vm IP, and clean them up, strip away quote marks and other unnecessary data off these crucial outputs. The script then exports these outputs as environment variables to be used later on in the project.
+
+6.	Edit etc/hosts file
+In this step of the script, I automate the process of passing is Jenkins vm and the test vm as hosts in the etc/hosts file. This was done without compromising any of the vm IP addresses.
+   
+7.	Start ansible
+In this stage the script runs ansible playbook which essentially installs all the software that were needed in the test vm and is the Jenkins vm. It will also add sudo doers access for jenkins on the jenkins vm and on the test vm as a backup.
+
+8.	Send inputs to Jenkins vm and test vm (EOF)
+In this stage I ssh into both jenkins and test vm, and pass input using EOF to do a key generation if public keys does not exist. I also ssh into the jenkins vm and pass input into the jenkins user to generate a public key on that user to later on use this key to give jenkins ssh access to the test vm. This process was fully automatic, and the keys are use for allowing a full triangular sshing which will be discuss at a later stage. 
+
+9.	Secure Copy public keys
+A key folder was created to store and organise the public keys from the jenkins vm, test vm and jenkins user. The public key for the jenkins vm, test vm and jenkins user were then securely copied across to the main vm and store in the key folder. I them cat out each public key into the main vm authorized key file. 
+
+10.	Passing Public keys to enable sshing
+In this step I secure copy the authorize key file on the main vm that I had cat out all public keys into to the test vm and the jenkins vm. I then ssh into both the jenkins vm and the test vm and use EOF to pass input to cat out the main vm authorized key file into their authorized keys file to give all three vm and jenkins user ssh privilege. 
+
+11.	Creating Databasecredentials file and .env file (environment variables) 
+A databasecredentials file was essential for the jenkins pipeline. The file contains several variables and outputs collected from terraform. The variables were database endpoint, testdatabase endpoint, databases username and password, IP addresses and Docker username and password. The mentioned variables were place inside the file automatically and they were ready to be exported as environment variables when the credentials script was run. An environment variable file (.env file) was also created automatically for Docker which aid docker with picking up all variable needed for containerisation. 
+
+12.	Passing Databasecredentials and .evn files to jenkins vm, jenkins user and test vm
+The databasecredentials file was secure copied across to the jenkins vm, jenkins user, and testvm. This ensures that when setting up the jenkins pipeline these variables were readily available for Docker and Kubernetes. From those variables a .env file was created to aid with running Docker automatically in this script. 
+
+13.	Passing in Database Schema
+In this step of the script, I ssh into both the test vm and jenkins vm and use EOF to pass inputs to clone down the repo, export databasecredentials variables and pass in both the test database schema in the test vm and production database schema in the jenkins vm. 
+
+14.	Create and pass secrets yaml file to jenkins user for Kubernetes
+In this step, I created a secret yaml file from the credentials file automatically. I configured the credentials variables in a secrets shell script and cat it out into the secrets yaml file. This was done by sshing into the jenkins vm and passing inputs through EOF.
+
+Below is an image that outlines the aforemention deployment steps. 
+
+<img src="https://user-images.githubusercontent.com/67590124/102571353-38d16b80-40e1-11eb-9b65-83557e2c9e5c.png" width="1000" height = "650">
+
+
+
+### Teraform 
+
 Terraform is an Infrastructure as Code software tool which allows us to automate deployment of architecture. With this we automated the creation of the Elastic Kubernetes
 Service (EKS) as well as its nodes. We also created the two RDS instances required for testing and deployment and all aws instances required by the application. All of these
 services are in a VPC with the RDS sitting in a private subnet and the aws_instances in public subnets, however this will later be changed and only accessible with a Bastion 
@@ -176,6 +227,42 @@ Utilized Terraform v0.14.2 to prevent sensitive files from being visible in terr
 * Please note a terraform.tfvars file is required for the plan to be executed successfully, these are required variables for the databases which are the masterusername and masterpassword. (prevent variables being exposed on github)
 
 ![Terraform](https://user-images.githubusercontent.com/71396007/102594320-f07c7280-410d-11eb-859a-76dd05fa3d3d.png)
+
+
+### Ansible
+---
+Ansible
+Ansible is an application deployment, configuration management and continuous delivery tool. It is one of the simplest ways to automate apps, install software and automate IT infrastructure. In this project ansible was used to install a list of software on the jenkins vm and on the test vm. These software were based off the needs for the project’s application.The roles in the ansible were written with the support of the ansible documentation and were developed without the use of scripts.
+The software roles of ansibles are listed below. 
+
+Jenkins vm roles
+* Docker – Use for application containerisation.
+* Docker-compose – Use for application containerisation.
+* Kubernetes – Use for deploying, scaling and managing the projects containerised applications.
+* Utility software - List of useful software including Java, awscli, nginx, maven, mysql client.
+* Sudo doers - Add jenkins to a list of sudo doers
+
+Test vm roles
+* Nodejs – For frontend testing.
+* Docker – Use for application containerisation.
+* Docker-compose - Use for application containerisation.
+* Utility software – List of useful software including Java, awscli, nginx, maven, mysql client.
+
+Below is the result from ansible software installations on the jenkins vm.
+
+<img src="https://user-images.githubusercontent.com/67590124/102568502-8519ad00-40db-11eb-863c-e5a51e04f0b8.png" width="1000" height = "500">
+
+Below is the result from ansible software installations on the test vm.
+
+<img src="https://user-images.githubusercontent.com/67590124/102570217-ccee0380-40de-11eb-90a9-ffccc59883c5.png" width="1000" height = "500">
+
+### CI Pipeline
+---
+Below is an image showing the Continuous Integration pipeline used to deploy and continuously configure the Help Queue application.
+
+![pipeline][pipeline]
+
+This pipeline allows for rapid and simple development-to-deployment by automating the integration process. Code can be produced and pushed to GitHub, which will automatically push the new code to Jenkins via a webhook trigger. When a change is made to the Java and/or React source code, the git repository is pulled down by Jenkins. From there, tests are automatically ran in a separate testing environment from the live cluster to ensure the application will function correctly, and other build stages performed. Upon successful testing, Docker images of the backend and frontend are built and pushed up to Docker Hub, and pulled down in the last stage for Kubernetes deployment.
 
 
 ### Jenkins 
