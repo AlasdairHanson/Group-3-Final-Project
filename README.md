@@ -1,6 +1,6 @@
 # Group 3 Final Project
 
-## Resources (All)
+## Resources
 ---
 - Presentation: https://docs.google.com/presentation/d/189885tIabEeBWLpyj9cMJktKJI-QuxkrAzXRBUzYJbs/edit#slide=id.p
 - Jira Board: https://badamiec.atlassian.net/jira/software/projects/FP/boards/7/roadmap
@@ -14,8 +14,10 @@
 * [Risk Assessment](#risk-assessment)
 * [Research](#research)
    * [Market Research Meeting](#market-research-meeting)
-   * [other subtitle](#other-subtitle)
 * [Front-End Design](#front-end-design)
+   * [ERD Components](#erd-components)
+   * [Existing Softwares](#existing-softwares)
+   * [Initial Sketches](#initial-sketches)
 * [Architecture](#architecture)
    * [Frontend](#frontend)
    * [Backend](#backend)
@@ -93,13 +95,13 @@ In addition to the basic functionality, we successfully implemented the followin
 * Filtering by status
 * Sorting by (ascending) attributes
 
-## Project Management (All)
+## Project Management
 ---
 
-## Risk Assesment (Basia + Abdul)
+## Risk Assesment
 ---
 
-## Research (Reece)
+## Research
 ---
 
 ### Market Research Meeting
@@ -107,6 +109,7 @@ In addition to the basic functionality, we successfully implemented the followin
 After setting up the core brief requirements of the project from the requirements documents we recquired some more indepth knowledge into the specific needs that the client (QA) requires or would like to be included in the final project. This was conducted by having an indepth customer focus interview with the stakeholders, askihng questions about the brief and what other features may have been missed and are more imporrant. 
 
 From the interview the following points were raised, so we had to ensure our product hit these criteria: 
+
 **1.** Sorting and assigning tickets to cohorts was vital for this ticket queue system. This is so that trainers know which tickets are likely to be assigned to them, as well as allowing trainees to see other peoples tickets from their cohort (who likely have similar issues)
 
 **2.** When setting a ticket as resolved, it should not be deleted automatically from the database. Deleting a ticket is a necessecity, so as to stop the DB from becoming too clustered. But keeping resolved allows others to see the resolution.
@@ -115,7 +118,7 @@ From the interview the following points were raised, so we had to ensure our pro
 
 The Market Research was a beneficial task to complete first, as it gave us an indication of which of the stretch goals are important to focus on. Its important for a project given to us by a client to include the 'Would Have's/ Could Have's' that are important to the client, rather than that are important for us as the Devs to do. 
 
-## FrontEnd Design (Reece)
+## FrontEnd Design
 ### ERD Components
 
 React as a front end framework uses JS functional programing to design a webpage, part of this is in implementing reusable and modular components for the purpose of keeping code DRY, only loading and rerending components that need it (saving resources) and allowing easier transfer of data. 
@@ -147,7 +150,7 @@ This in practice seemed too much work for the scope of this project, but is some
 ## Architecture (+ ERDs) 
 ---
 
-### Frontend (Reece)
+### Frontend
 
 The Final frontend is a React.JS application utilising React Bootstrap for the Grid functionality and a variety of other frameworks for the graphical and functional aspects.
 
