@@ -9,6 +9,7 @@
 ## Contents
 * [Brief](#brief)
    * [Requirements](#requirements)
+   * [Our Approach](#our-approach)
 * [Project Management](#project-management)
 * [Risk Assessment](#risk-assessment)
 * [Research](#research)
@@ -31,7 +32,7 @@
 * [Authors](#authors)
 
 
-## Brief (All)
+## Brief
 ---
 ### Requirements
 Our group has been tasked with designing, developing and deploying a full-stack application functioning as a help queue accessible by QA Academy trainers and trainees. The brief provided was as follows:
@@ -55,25 +56,23 @@ The following technologies were required:
 * Relational Database
 
 In addition, a CI pipeline with the following requirements was specified:
-
-Version Control System
-CI Server
-Unit Testing
-Integration Testing
-Build Tool
-Containerisation
-Artefact Repository
-Testing Environment
-Infrastructure as Code
-Configuration Management
-Deployment
+* Version Control System
+* CI Server
+* Unit Testing
+* Integration Testing
+* Build Tool
+* Containerisation
+* Artefact Repository
+* Testing Environment
+* Infrastructure as Code
+* Configuration Management
+* Deployment
 
 ### Our Approach
 
 To meet the projetc goals, we used the following technologies:
 
 * React Frontend 
-* NGINX Gateway Service
 * Spring Boot Backend
 * AWS RDS Database
 * Git Version Control
