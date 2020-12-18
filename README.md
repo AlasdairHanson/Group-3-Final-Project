@@ -22,7 +22,7 @@
    * [Frontend](#frontend)
    * [Backend](#backend)
 * [DevOps](#devops)
-   * [Automation (Deploy Script)](#automation-(deploy-script))
+   * [Automation](#automation)
    * [Terraform](#terraform)
    * [Ansible](#ansible)
    * [CI Pipeline](#ci-pipeline)
@@ -181,7 +181,7 @@ One of the original potential designs for the final application was using a post
 
 This in practice seemed too much work for the scope of this project, but is something that could be considred as a stretch goal. 
 
-## Architecture (+ ERDs) 
+## Architecture 
 ---
 
 ### Frontend
@@ -212,7 +212,7 @@ The above images are screenshots of the front end design showing the functionali
 
 **7.** Reactive Nav Bar
 
-### Backend (Alasdair)
+### Backend
 
 The backend is a Spring Boot application written in Java SE that enables the frontend to communicate with a database. It is deployed inside a Docker container where it listens for HTTP CRUD (Create, Read, Update, Delete) requests from the frontend and performs SQL queries on a connected database.
 
@@ -251,7 +251,7 @@ Discus the entire pipeline and DevOps stuff.
 ![CI Pipeline v1 (1)](https://user-images.githubusercontent.com/67590124/102597451-9336f000-4112-11eb-944a-b1313695ae24.png)
 
 
-### Automation (Deploy Script)
+### Automation
 ---
 The deploy script was developed to automate the entire process on virtual machine from the start of the project up to the Jenkins pipeline which needs to be configured manually. The deployment stages and functionalities are provided below. 
 Steps:
@@ -319,7 +319,6 @@ Utilized Terraform v0.14.2 to prevent sensitive files from being visible in terr
 
 ### Ansible
 ---
-Ansible
 Ansible is an application deployment, configuration management and continuous delivery tool. It is one of the simplest ways to automate apps, install software and automate IT infrastructure. In this project ansible was used to install a list of software on the jenkins vm and on the test vm. These software were based off the needs for the project’s application.The roles in the ansible were written with the support of the ansible documentation and were developed without the use of scripts.
 The software roles of ansibles are listed below. 
 
@@ -411,16 +410,13 @@ Frontend testing was carried out using the Jest testing framework for JavaScript
 
 For this project, 16 out of 24 components were tested with 100% coverage. This means that approximately 67% of the frontend React code was tested successfully.
 
-
-
-
-
-
 ## Improvements
 ---
-
-Due to time constraints and growing focus on successful minimum viable product deployment, not all React components were tested in Jest to the desired standard. Currently the coverage of the front end tests is 67%. A future improvement would be to achieve at least 70% coverage as is the industry standard. 
-
+* Currently our frontend landing page consists of a mock login form with a button which redirects the user to the ticket page. In the future we would like to implement full login functionality for increased security. Another further improvement would be to have seperate, different login and use functionalities for trainees and trainers.
+* Currently almost all of our deployment is automated using the deploy script, though the Jenkins jobs are still configured manually. A future improvement would be to configure Jenkins through a script to fully automate the process.
+* If we were to do the project again, right from the start we would stick to simple and consistent naming conventions in the backend object class for simplicity, as well as to avoid problems such as syntax issues when injecting schema into to the MySQL database.
+* In a future update of this project's infrastructure, we would like to utilize a Bastion Host and NAT Gateways which would allow the virtual machines provisioned by Terraform to be in a private subnet, meaning only people who explicitly are defined to have access to the infrastructure can access and alter it.
+* Due to time constraints and growing focus on successful minimum viable product deployment, not all React components were tested in Jest to the desired standard. Currently the coverage of the front end tests is 67%. A future improvement would be to achieve at least 70% coverage as is the industry standard. 
 
 ## Acknowledgements
 ---
