@@ -57,13 +57,12 @@ After setting up the core brief requirements of the project from the requirement
 
 From the interview the following points were raised, so we had to ensure our product hit these criteria: 
 **1.** Sorting and assigning tickets to cohorts was vital for this ticket queue system. This is so that trainers know which tickets are likely to be assigned to them, as well as allowing trainees to see other peoples tickets from their cohort (who likely have similar issues)
+
 **2.** When setting a ticket as resolved, it should not be deleted automatically from the database. Deleting a ticket is a necessecity, so as to stop the DB from becoming too clustered. But keeping resolved allows others to see the resolution.
+
 **3.** The application will be owned by QA and shouldn't clash with the existing QA Academy softwares, for example QA Community. The design should be similar and share an aesthetic value with the existing softwares so that they can sit alongside eachother. 
 
 The Market Research was a beneficial task to complete first, as it gave us an indication of which of the stretch goals are important to focus on. Its important for a project given to us by a client to include the 'Would Have's/ Could Have's' that are important to the client, rather than that are important for us as the Devs to do. 
-
-### other subtitle
-wefwefwefwef
 
 ## FrontEnd Design (Reece)
 ### ERD Components
@@ -90,7 +89,7 @@ Some initial designs of the CRUD are outlined below, with the final product bein
 
 One of the original potential designs for the final application was using a post it note type system, similar to a realworld notice board. This gave the final design a real sense of physicality, which could potentially involve a real video of post it notes being posted and removed, with the text content added in programmatically and rendered. 
 
-![Asset 5](https://user-images.githubusercontent.com/71394624/102594089-a5faf600-410d-11eb-9f2a-ce2f97daa511.png){ width=50% } ![Asset 6](https://user-images.githubusercontent.com/71394624/102594091-a7c4b980-410d-11eb-9eb4-0d7e7cb70df5.png){ width=50% }
+![Asset 5](https://user-images.githubusercontent.com/71394624/102594089-a5faf600-410d-11eb-9f2a-ce2f97daa511.png) ![Asset 6](https://user-images.githubusercontent.com/71394624/102594091-a7c4b980-410d-11eb-9eb4-0d7e7cb70df5.png)
 
 This in practice seemed too much work for the scope of this project, but is something that could be considred as a stretch goal. 
 
@@ -112,11 +111,17 @@ The Final frontend is a React.JS application utilising React Bootstrap for the G
                                                                                                                             
 The above images are screenshots of the front end design showing the functionality of the website, contents of the website are:
 **1.** Login Page
+
 **2.** Ticket Page
+
 **3.** Solutions Page
+
 **4.** Add Ticket Modal
+
 **5.** Edit Ticket Modal
+
 **6.** Sort and Filtering Sidebar
+
 **7.** Reactive Nav Bar
 
 ### Backend (Alasdair)
