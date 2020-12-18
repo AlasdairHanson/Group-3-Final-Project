@@ -30,7 +30,7 @@
    * [Kubernetes](#kubernetes)
 * [Testing](#testing)
    * [Postman Testing](#postman-testing)
-   * [Backend Testing](#backendtesting)
+   * [Backend Testing](#backend-testing)
    * [Frontend Testing](#frontend-testing)
 * [Improvements](#improvements)
 * [Acknowledgements](#acknowledgements)
@@ -121,7 +121,8 @@ From the interview the following points were raised, so we had to ensure our pro
 
 The Market Research was a beneficial task to complete first, as it gave us an indication of which of the stretch goals are important to focus on. Its important for a project given to us by a client to include the 'Would Have's/ Could Have's' that are important to the client, rather than that are important for us as the Devs to do. 
 
-## FrontEnd Design
+## Front-End Design
+
 ### ERD Components
 
 React as a front end framework uses JS functional programing to design a webpage, part of this is in implementing reusable and modular components for the purpose of keeping code DRY, only loading and rerending components that need it (saving resources) and allowing easier transfer of data. 
@@ -149,11 +150,14 @@ Some initial designs of the CRUD are outlined below, with the final product bein
 
 One of the original potential designs for the final application was using a post it note type system, similar to a realworld notice board. This gave the final design a real sense of physicality, which could potentially involve a real video of post it notes being posted and removed, with the text content added in programmatically and rendered. 
 
-![Asset 5](https://user-images.githubusercontent.com/71394624/102594089-a5faf600-410d-11eb-9f2a-ce2f97daa511.png) ![Asset 6](https://user-images.githubusercontent.com/71394624/102594091-a7c4b980-410d-11eb-9eb4-0d7e7cb70df5.png)
+<p float="left">
+  <img src="https://user-images.githubusercontent.com/71394624/102594089-a5faf600-410d-11eb-9f2a-ce2f97daa511.png" width=49% />
+  <img src="https://user-images.githubusercontent.com/71394624/102594091-a7c4b980-410d-11eb-9eb4-0d7e7cb70df5.png" width=49% /> 
+</p>
 
 This in practice seemed too much work for the scope of this project, but is something that could be considred as a stretch goal. 
 
-## Architecture (+ ERDs) 
+## Architecture 
 ---
 
 ### Frontend
@@ -191,7 +195,7 @@ The above images are screenshots of the front end design showing the functionali
 
 **7.** Reactive Nav Bar
 
-### Backend (Alasdair)
+### Backend
 
 The backend is a Spring Boot application written in Java SE that enables the frontend to communicate with a database. It is deployed inside a Docker container where it listens for HTTP CRUD (Create, Read, Update, Delete) requests from the frontend and performs SQL queries on a connected database.
 
@@ -221,6 +225,15 @@ The update controller method requires a header value corresponding to the id of 
 **3.** The repository is an interface that provides methods to perform SQL requests. POST methods in the service will use the "save" method of the repository which is then translated to an "INSERT INTO" SQL command. GET methods will use "findAll" which translates to "SELECT FROM" SQL commands. More specific methods can be created in the repository that translate to commands that target certain data. Some of the GET methods use these specific methods to retrieve a filtered or sorted list of database records.
 
 **4.** Once the query to the database has been completed, the controller will return the result to the frontend with an HTTP status code.
+
+### RDS Architecture
+
+Below is the schema for our RDS using SQL. 
+
+By using DATETIME for the timestamp value the SQL is able to correctly order the data chronologically before passing the data back to Java and React as a String. This allows the greatest level of functionality and usability for the RDS and for the application.
+
+![erd2](https://user-images.githubusercontent.com/71394624/102604696-7acbd300-411c-11eb-9c56-5b9e7a1e4e1e.png)
+
 
 ## DevOps
 
@@ -400,13 +413,13 @@ For this project, 16 out of 24 components were tested with 100% coverage. This m
 
 
 
-## Improvements (All)
+## Improvements
 ---
 
 Due to time constraints and growing focus on successful minimum viable product deployment, not all React components were tested in Jest to the desired standard. Currently the coverage of the front end tests is 67%. A future improvement would be to achieve at least 70% coverage as is the industry standard. 
 
 
-## Acknowledgements (All)
+## Acknowledgements
 ---
 
 ## Authors 
