@@ -52,18 +52,72 @@ In addition to the brief, we are also required to include:
 ---
 
 ### Market Research Meeting
-erfgwererg
+
+After setting up the core brief requirements of the project from the requirements documents we recquired some more indepth knowledge into the specific needs that the client (QA) requires or would like to be included in the final project. This was conducted by having an indepth customer focus interview with the stakeholders, askihng questions about the brief and what other features may have been missed and are more imporrant. 
+
+From the interview the following points were raised, so we had to ensure our product hit these criteria: 
+**1.** Sorting and assigning tickets to cohorts was vital for this ticket queue system. This is so that trainers know which tickets are likely to be assigned to them, as well as allowing trainees to see other peoples tickets from their cohort (who likely have similar issues)
+**2.** When setting a ticket as resolved, it should not be deleted automatically from the database. Deleting a ticket is a necessecity, so as to stop the DB from becoming too clustered. But keeping resolved allows others to see the resolution.
+**3.** The application will be owned by QA and shouldn't clash with the existing QA Academy softwares, for example QA Community. The design should be similar and share an aesthetic value with the existing softwares so that they can sit alongside eachother. 
+
+The Market Research was a beneficial task to complete first, as it gave us an indication of which of the stretch goals are important to focus on. Its important for a project given to us by a client to include the 'Would Have's/ Could Have's' that are important to the client, rather than that are important for us as the Devs to do. 
 
 ### other subtitle
 wefwefwefwef
 
 ## FrontEnd Design (Reece)
----
+### ERD Components
+
+React as a front end framework uses JS functional programing to design a webpage, part of this is in implementing reusable and modular components for the purpose of keeping code DRY, only loading and rerending components that need it (saving resources) and allowing easier transfer of data. 
+
+The below diagram is the final ERD Component tree for the application. It shows the Parent and Child relationship of each component. 
+In this diagram useState has been implemented in parent components, and is at the highest common component for branches that require shared use of a state prop.
+
+![ComponentErd](https://user-images.githubusercontent.com/71394624/102592644-a8f4e700-410b-11eb-9c96-57d3d47fac4f.png)
+
+### Existing Softwares
+
+After Market research with QA we found out the current existing software in use by themselves is the communication methods already implemented. This is primarily Microsoft Teams text and video call. Downsides of using this existing software is that there isn't a dedicated channel for help requests so problems can be lost in the stream of messages. This method is also a closed method, where people posting tickets and asking for help cannot see other people with the same issues that may be able to work together to resolve it. The core of this ticket queue is that people can post the problems they're having, allowing anyone to effectively help with the problem.
+
+Existing software already exists for ticket queue systems, with the software looking functional but clinical. 
+By clinical a lot of the softwares are powered by an RDS (much like this application) and use this in their design, making a table with headers mimicing the RDS but with improving the aesthetics. This produces a website which doesnt seem to be static and isn't intutitive to navigate around. An important aspect of this app for our team was to give the software a materialistic feel, with tickets on the page 'having weight'. This is done by incorporating flat shadow and depth, and ensuring the app is not static. 
+
+### Initial Sketches
+
+Some initial designs of the CRUD are outlined below, with the final product being a colloboration between the two differing styles and designs:
+![Front End Mockup(1)](https://user-images.githubusercontent.com/71394624/102593850-4bfa3080-410d-11eb-896e-b841920fa190.png)
+![Frontend-Design](https://user-images.githubusercontent.com/71394624/102593860-50264e00-410d-11eb-8a6a-b5cf466338ff.png)
+
+One of the original potential designs for the final application was using a post it note type system, similar to a realworld notice board. This gave the final design a real sense of physicality, which could potentially involve a real video of post it notes being posted and removed, with the text content added in programmatically and rendered. 
+
+![Asset 5](https://user-images.githubusercontent.com/71394624/102594089-a5faf600-410d-11eb-9f2a-ce2f97daa511.png){ width=50% } ![Asset 6](https://user-images.githubusercontent.com/71394624/102594091-a7c4b980-410d-11eb-9eb4-0d7e7cb70df5.png){ width=50% }
+
+This in practice seemed too much work for the scope of this project, but is something that could be considred as a stretch goal. 
 
 ## Architecture (+ ERDs) 
 ---
 
 ### Frontend (Reece)
+
+The Final frontend is a React.JS application utilising React Bootstrap for the Grid functionality and a variety of other frameworks for the graphical and functional aspects.
+
+<p align="center">
+  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595049-ef981080-410e-11eb-86a6-57ff64a5dc2b.png">
+  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595092-fd4d9600-410e-11eb-8fb2-2a1291ae72e5.png">
+  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595100-00488680-410f-11eb-8887-0aa46756e5d2.png">
+  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595108-02aae080-410f-11eb-89ac-8d2a6cef18d2.png">
+  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595123-05a5d100-410f-11eb-8477-6aead239d388.png">
+  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595175-1c4c2800-410f-11eb-8fe3-39555ee8542c.png">
+</p>
+                                                                                                                            
+The above images are screenshots of the front end design showing the functionality of the website, contents of the website are:
+**1.** Login Page
+**2.** Ticket Page
+**3.** Solutions Page
+**4.** Add Ticket Modal
+**5.** Edit Ticket Modal
+**6.** Sort and Filtering Sidebar
+**7.** Reactive Nav Bar
 
 ### Backend (Alasdair)
 
