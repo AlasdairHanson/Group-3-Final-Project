@@ -121,15 +121,18 @@ Each member of the team volunteered for a specific role associated with a projec
 
 Roles may overlap and team members may inhabit other roles if multiple components need to work together and more team members can work on it.
 
-### Sprint Planning
+### Sprint Retrospectives
 
+After each sprint, a sprint review and a sprint retrospective was held to evaluate the amount of work done, the degree to which goals were met, as well as our general approach to completing the tasks. The image below shows a sprint retrospective held after our first sprint.
 
-### Scrum Meetings
-
+![retro][retro]
 
 
 ## Risk Assesment
 ---
+The earliest risk assessment for this project was one of the first pieces of documentation written, and has been revisited frequently as more functionality and proposed mitigations were implemented. Pictured below is a snippet from the risk assessment which can be found in full under the link provided in the resources section of this document.
+
+![risk][risk]
 
 ## Research
 ---
@@ -413,14 +416,15 @@ For this project, 16 out of 24 components were tested with 100% coverage. This m
 
 
 
-## Improvements (All)
+## Improvements
 ---
 
 Due to time constraints and growing focus on successful minimum viable product deployment, not all React components were tested in Jest to the desired standard. Currently the coverage of the front end tests is 67%. A future improvement would be to achieve at least 70% coverage as is the industry standard. 
 
 
-## Acknowledgements (All)
+## Acknowledgements
 ---
+We would like to thank all our trainers at QA for their continued support and for passing on their knowledge and expertise without which completing this project would not have been possible.
 
 ## Authors 
 ---
@@ -441,6 +445,8 @@ Due to time constraints and growing focus on successful minimum viable product d
 [jenkins]:https://i.imgur.com/BJMtV2Z.png
 [postmancreate]:https://i.imgur.com/ckY2s5N.png
 [postmanget]:https://i.imgur.com/ZWrbAdB.png
+[risk]:https://i.imgur.com/FcZxQmv.png
+[retro]:https://i.imgur.com/DCQKpWl.png
 
 
 
