@@ -22,8 +22,10 @@
    * [Frontend](#frontend)
    * [Backend](#backend)
 * [DevOps](#devops)
-   * [CI Pipeline](#ci-pipeline)
+   * [Automation](#automation)
    * [Terraform](#terraform)
+   * [Ansible](#ansible)
+   * [CI Pipeline](#ci-pipeline)
    * [Jenkins](#jenkins)
    * [Kubernetes](#kubernetes)
 * [Testing](#testing)
@@ -31,6 +33,7 @@
    * [Backend Testing](#backendtesting)
    * [Frontend Testing](#frontend-testing)
 * [Improvements](#improvements)
+* [Acknowledgements](#acknowledgements)
 * [Authors](#authors)
 
 
