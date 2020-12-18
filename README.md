@@ -141,8 +141,11 @@ By clinical a lot of the softwares are powered by an RDS (much like this applica
 ### Initial Sketches
 
 Some initial designs of the CRUD are outlined below, with the final product being a colloboration between the two differing styles and designs:
-![Front End Mockup(1)](https://user-images.githubusercontent.com/71394624/102593850-4bfa3080-410d-11eb-896e-b841920fa190.png)
-![Frontend-Design](https://user-images.githubusercontent.com/71394624/102593860-50264e00-410d-11eb-8a6a-b5cf466338ff.png)
+
+<p float="left">
+  <img src="https://user-images.githubusercontent.com/71394624/102593850-4bfa3080-410d-11eb-896e-b841920fa190.png" width=49% />
+  <img src="https://user-images.githubusercontent.com/71394624/102593860-50264e00-410d-11eb-8a6a-b5cf466338ff.png" width=49% /> 
+</p>
 
 One of the original potential designs for the final application was using a post it note type system, similar to a realworld notice board. This gave the final design a real sense of physicality, which could potentially involve a real video of post it notes being posted and removed, with the text content added in programmatically and rendered. 
 
@@ -157,16 +160,23 @@ This in practice seemed too much work for the scope of this project, but is some
 
 The Final frontend is a React.JS application utilising React Bootstrap for the Grid functionality and a variety of other frameworks for the graphical and functional aspects.
 
-<p align="center">
-  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595049-ef981080-410e-11eb-86a6-57ff64a5dc2b.png">
-  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595092-fd4d9600-410e-11eb-8fb2-2a1291ae72e5.png">
-  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595100-00488680-410f-11eb-8887-0aa46756e5d2.png">
-  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595108-02aae080-410f-11eb-89ac-8d2a6cef18d2.png">
-  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595123-05a5d100-410f-11eb-8477-6aead239d388.png">
-  <img width=60% src="https://user-images.githubusercontent.com/71394624/102595175-1c4c2800-410f-11eb-8fe3-39555ee8542c.png">
+<p float="left">
+  <img src="https://user-images.githubusercontent.com/71394624/102595049-ef981080-410e-11eb-86a6-57ff64a5dc2b.png" width=49% />
+  <img src="https://user-images.githubusercontent.com/71394624/102595092-fd4d9600-410e-11eb-8fb2-2a1291ae72e5.png" width=49% /> 
+</p>
+
+<p float="left">
+  <img src="https://user-images.githubusercontent.com/71394624/102595100-00488680-410f-11eb-8887-0aa46756e5d2.png" width=49% />
+  <img src="https://user-images.githubusercontent.com/71394624/102595108-02aae080-410f-11eb-89ac-8d2a6cef18d2.png" width=49% />
+</p>
+
+<p float="left">
+  <img src="https://user-images.githubusercontent.com/71394624/102595123-05a5d100-410f-11eb-8477-6aead239d388.png" width=49% />
+  <img src="https://user-images.githubusercontent.com/71394624/102595175-1c4c2800-410f-11eb-8fe3-39555ee8542c.png" width=49% />
 </p>
                                                                                                                             
 The above images are screenshots of the front end design showing the functionality of the website, contents of the website are:
+
 **1.** Login Page
 
 **2.** Ticket Page
@@ -272,7 +282,7 @@ Below is an image that outlines the aforemention deployment steps.
 
 
 
-### Teraform 
+### Terraform 
 
 Terraform is an Infrastructure as Code software tool which allows us to automate deployment of architecture. With this we automated the creation of the Elastic Kubernetes
 Service (EKS) as well as its nodes. We also created the two RDS instances required for testing and deployment and all aws instances required by the application. All of these
@@ -342,13 +352,14 @@ The image below shows all the stages of the build.
 ### Kubernetes
 Kubernetes is an Orchestration system for automating deployment and managing containerized applications. We used this to allow the websites to be hosted through a load balancer in order for the website to be visible through the external ip within the EKS. This is done by using docker images which are then created into pods with specific ports exposed, allowing the nginx, which acts as a proxy pass to display the website. Multiple replicas of the pods were used when defining yaml files to reduce outage of the application in case of the cloud provider suffering from things such as natural disasters
 
+<p float="left">
+  <img src="https://user-images.githubusercontent.com/71396007/102599354-4274c680-4115-11eb-903d-28db85c4c56f.png" width=49% />
+  <img src="https://user-images.githubusercontent.com/71396007/102599443-61735880-4115-11eb-9ccc-81291cbdeb4b.png" width=49% />
+</p>
+
 * Front-end being Hosted on the loadBalancer
 
-![fehost](https://user-images.githubusercontent.com/71396007/102599354-4274c680-4115-11eb-903d-28db85c4c56f.png)
-
 * Front-end has access to the backend when exec into and curling the IP address
-
-![curl](https://user-images.githubusercontent.com/71396007/102599443-61735880-4115-11eb-9ccc-81291cbdeb4b.png)
 
 **Usage Requirements (Abdul)
 
