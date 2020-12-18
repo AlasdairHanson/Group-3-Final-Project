@@ -372,13 +372,13 @@ The image below shows all the stages of the build.
 ### Kubernetes
 Kubernetes is an Orchestration system for automating deployment and managing containerized applications. We used this to allow the websites to be hosted through a load balancer in order for the website to be visible through the external ip within the EKS. This is done by using docker images which are then created into pods with specific ports exposed, allowing the nginx, which acts as a proxy pass to display the website. Multiple replicas of the pods were used when defining yaml files to reduce outage of the application in case of the cloud provider suffering from things such as natural disasters
 
-* Front-end being Hosted on the loadBalancer
+<p float="left">
+  <img src="https://user-images.githubusercontent.com/71396007/102599354-4274c680-4115-11eb-903d-28db85c4c56f.png" width=49% />
+  <img src="https://user-images.githubusercontent.com/71396007/102599443-61735880-4115-11eb-9ccc-81291cbdeb4b.png" width=49% />
+</p>
 
-![fehost](https://user-images.githubusercontent.com/71396007/102599354-4274c680-4115-11eb-903d-28db85c4c56f.png)
-
+* Front-end being hosted by nginx loadbalancer
 * Front-end has access to the backend when exec into and curling the IP address
-
-![curl](https://user-images.githubusercontent.com/71396007/102599443-61735880-4115-11eb-9ccc-81291cbdeb4b.png)
 
 ## Testing
 ---
