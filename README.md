@@ -115,6 +115,8 @@ Utilised Terraform v0.14.2 to prevent sensitive files from being visible in terr
 
 ![terraform](https://user-images.githubusercontent.com/71396007/102470808-56a0c100-404c-11eb-86e5-e1c256f6573d.png)
 
+Please note a terraform.tfvars file is required for the plan to be executed successfully, these are required variables for the databases which are the masterusername and masterpassword. 
+
 ### Jenkins 
 
 Jenkins is a continuous integration server. The above process is automated by a Jenkins pipeline job with distinct build stages. If a build stage fails, the subsequent stages are not executed and the job will fail altogether to prevent non-functioning code from altering the live environment. Detailed console outputs are provided at each stage.
