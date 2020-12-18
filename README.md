@@ -111,11 +111,12 @@ Service (EKS) as well as its nodes. We also created the two RDS instances requir
 services are in a VPC with the RDS sitting in a private subnet and the aws_instances in public subnets, however this will later be changed and only accessible with a Bastion 
 Host. (public subnet utilized for all contributors to access the Jenkins pipeline efficiently).
 Modules were used to prevent duplication of code and improve reusability, meaning less files need to be configured as new infrastructure is provisioned.
-Utilised Terraform v0.14.2 to prevent sensitive files from being visible in terraform plan and apply, which can be seen below.
+Utilized Terraform v0.14.2 to prevent sensitive files from being visible in terraform plan and apply, which can be seen below.
 
-![terraform](https://user-images.githubusercontent.com/71396007/102470808-56a0c100-404c-11eb-86e5-e1c256f6573d.png)
+* Please note a terraform.tfvars file is required for the plan to be executed successfully, these are required variables for the databases which are the masterusername and masterpassword. (prevent variables being exposed on github)
 
-Please note a terraform.tfvars file is required for the plan to be executed successfully, these are required variables for the databases which are the masterusername and masterpassword. 
+![Terraform](https://user-images.githubusercontent.com/71396007/102594320-f07c7280-410d-11eb-859a-76dd05fa3d3d.png)
+
 
 ### Jenkins 
 
