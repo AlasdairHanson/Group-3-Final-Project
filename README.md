@@ -33,14 +33,66 @@
 
 ## Brief (All)
 ---
-
-Our group has been tasked with designing, developing and deploying a full-stack application 
-
 ### Requirements
+Our group has been tasked with designing, developing and deploying a full-stack application functioning as a help queue accessible by QA Academy trainers and trainees. The brief provided was as follows:
 
-In addition to the brief, we are also required to include:
+"For this project, you are tasked with creating a Help Queue web application for use in the Academy.The purpose of this application is to work as a virtual hands-up tool to alert trainers to who needs help in their class.Trainees can post help tickets to the queue, with oldest tickets at the top of the list. Trainers can then view the queue to see who needs help next.When a ticket has been solved, it is marked as "Done" by the user and added to a separate "Completed" list. The next-oldest ticket is moved to the top of the list."
 
-- 
+
+In addition to the brief, we were also required to implement 3 additional features from the following list:
+* Solutions
+* Cohorts
+* Trainer assignment
+* Filter by attributes such as urgency, title, author etc.
+* Topics
+* Keyword Search
+* Trainee tagging to tickets
+
+The following technologies were required:
+* Frontend 
+* Gateway Service
+* Backend
+* Relational Database
+
+In addition, a CI pipeline with the following requirements was specified:
+
+Version Control System
+CI Server
+Unit Testing
+Integration Testing
+Build Tool
+Containerisation
+Artefact Repository
+Testing Environment
+Infrastructure as Code
+Configuration Management
+Deployment
+
+### Our Approach
+
+To meet the projetc goals, we used the following technologies:
+
+* React Frontend 
+* NGINX Gateway Service
+* Spring Boot Backend
+* AWS RDS Database
+* Git Version Control
+* Jenkins CI Server
+* MockMVC, Mockito, JUnit and Jest Testing
+* Docker Build Tool
+* Kubernetes Containerisation
+* Docker Hub Repository
+* Test ec2 and RDS
+* Terraform IaC
+* Ansible Configuration Management
+* Elastic Kubernetes Cluster
+
+In addition to the basic functionality, we successfully implemented the following additional features:
+* Filtering by cohort
+* Filtering by priority
+* Filtering by topic
+* Filtering by status
+* Sorting by (ascending) attributes
 
 ## Project Management (All)
 ---
@@ -267,7 +319,7 @@ This pipeline allows for rapid and simple development-to-deployment by automatin
 
 ### Jenkins 
 
-Jenkins is a continuous integration server. The above process is automated by a Jenkins pipeline job with distinct build stages. If a build stage fails, the subsequent stages are not executed and the job will fail altogether to prevent non-functioning code from altering the live environment. Detailed console outputs are provided at each stage.
+Jenkins is a continuous integration server. The test, build and deployment process is automated by a Jenkins pipeline job with distinct build stages. If a build stage fails, the subsequent stages are not executed and the job will fail altogether to prevent non-functioning code from altering the live environment. Detailed console outputs are provided at each stage.
 
 The main build stages in this project are:
 * Pulling code from a Git respository after a web hook is triggered by a change to the repository
