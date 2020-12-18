@@ -107,7 +107,9 @@ This pipeline allows for rapid and simple development-to-deployment by automatin
 
 ### Terraform
 Terraform is an Infrastructure as Code software tool which allows us to automate deployment of architecture. With this we automated the creation of the Elastic Kubernetes
-Service (EKS) as well as its nodes. We also created the two RDS instances required for testing and deployment and all aws instances required by the application.
+Service (EKS) as well as its nodes. We also created the two RDS instances required for testing and deployment and all aws instances required by the application. All of these
+services are in a VPC with the RDS sitting in a private subnet and the aws_instances in public subnets, however this will later be changed and only accessible with a Bastion 
+Host. (public subnet utilized for all contributors to access the Jenkins pipeline efficiently).
 Modules were used to prevent duplication of code and improve reusability, meaning less files need to be configured as new infrastructure is provisioned.
 Utilised Terraform v0.14.2 to prevent sensitive files from being visible in terraform plan and apply, which can be seen below.
 
