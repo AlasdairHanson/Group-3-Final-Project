@@ -249,50 +249,38 @@ Discus the entire pipeline and DevOps stuff.
 ### Automation (Deploy Script)
 ---
 The deploy script was developed to automate the entire process on virtual machine from the start of the project up to the Jenkins pipeline which needs to be configured manually. The deployment stages and functionalities are provided below. 
+
 Steps:
-1.	Main VM Software Installations
-The deploy script will first install all the necessary software needed on the main vm which includes ansible, terraform, jq, python-pip3, awscli, curl, unzip and more. 
 
-2.	Aws configure
-The deploy script then uses a bash script stored in the root of the vm to configure awscli automatically. Configuring awscli ensures that we are logged into the correct aws account that terraform will build its infrastructure on. Later on in this script, this file was copied over to the jenkins vm an run to configure aws for Kubernetes. 
+1.	Main VM Software Installations - The deploy script will first install all the necessary software needed on the main vm which includes ansible, terraform, jq, python-pip3, awscli, curl, unzip and more. 
 
-3.	Generate ssh public keys (ssh-keygen) 
-Several ssh public keys were generated automatically through the script. The first one was  on the main vm for terraform to access and the others came after in the script where inputs were passed into the vms terraform created. 
+2.	Aws configure - The deploy script then uses a bash script stored in the root of the vm to configure awscli automatically. Configuring awscli ensures that we are logged into the correct aws account that terraform will build its infrastructure on. Later on in this script, this file was securely copied over to the jenkins vm and run to configure aws for Kubernetes. 
 
-4.	Start terraform
-The first step before starting terraform is passing in the database credentials from the secret folder stored at the root the vm which is done by automatically by the script. This file is called terraform.tfvars and it holds the password and username for the databases. The next stage was to format, initialise, plan and apply terraform, which builds our entire infrastructure.
+3.	Generate ssh public keys (ssh-keygen) - Several ssh public keys were generated automatically through the script. The first one was  on the main vm for terraform to access and the others came after in the script where inputs were passed into the vms terraform created. 
 
-5.	Export and clean terraform outputs
-In this stage the script collects all outputs from terraform which incudes database URI, test database URI, test vm IP and Jenkins vm IP, and clean them up, strip away quote marks and other unnecessary data off these crucial outputs. The script then exports these outputs as environment variables to be used later on in the project.
+4.	Start terraform - The first step before starting terraform is passing in the database credentials from the secret folder stored at the root the vm which is done automatically by the script. This file is called terraform.tfvars and it holds the password and username for the databases. The next stage was to format, initialise, plan and apply terraform, which builds our entire infrastructure.
 
-6.	Edit etc/hosts file
-In this step of the script, I automate the process of passing is Jenkins vm and the test vm as hosts in the etc/hosts file. This was done without compromising any of the vm IP addresses.
+5.	Export and clean terraform outputs - In this stage the script collects all outputs from terraform which includes database URI, test database URI, test vm IP and Jenkins vm IP, and clean them up, strip away quote marks and other unnecessary data off these crucial outputs. The script then exports these outputs as environment variables to be used later on in the project.
+
+6.	Edit etc/hosts file - In this step the script automates the process of passing in Jenkins vm and the test vm as hosts in the etc/hosts file. This was done without compromising any of the vm IP addresses.
    
-7.	Start ansible
-In this stage the script runs ansible playbook which essentially installs all the software that were needed in the test vm and is the Jenkins vm. It will also add sudo doers access for jenkins on the jenkins vm and on the test vm as a backup.
+7.	Start ansible - In this stage, the script runs ansible playbook which essentially installs all the software that were needed in the test vm and is the Jenkins vm. Ansible also add jenkines as a sudo doer on the jenkins vm and on the test vm as a backup.
 
-8.	Send inputs to Jenkins vm and test vm (EOF)
-In this stage I ssh into both jenkins and test vm, and pass input using EOF to do a key generation if public keys does not exist. I also ssh into the jenkins vm and pass input into the jenkins user to generate a public key on that user to later on use this key to give jenkins ssh access to the test vm. This process was fully automatic, and the keys are use for allowing a full triangular sshing which will be discuss at a later stage. 
+8.	Send inputs to jenkins vm and test vm (EOF) - In this stage, I ssh into both jenkins and test vm, and pass input using EOF to do a key generation if public key does not exist. I also ssh into the jenkins vm and pass input to the jenkins user to generate a public key on that user which is used later on to give jenkins ssh access to the test vm. This process was fully automatic, and the keys were use for allowing a full triangular sshing which will be discussed at a later stage. 
 
-9.	Secure Copy public keys
-A key folder was created to store and organise the public keys from the jenkins vm, test vm and jenkins user. The public key for the jenkins vm, test vm and jenkins user were then securely copied across to the main vm and store in the key folder. I them cat out each public key into the main vm authorized key file. 
+9.	Secure Copy public keys - A key folder was created to store and organise the public keys from the jenkins vm, test vm and jenkins user. The public keys for the jenkins vm, test vm and jenkins user were then securely copied across to the main vm and store in the key folder. I then cat out each public key into the main vm authorized key file. 
 
-10.	Passing Public keys to enable sshing
-In this step I secure copy the authorize key file on the main vm that I had cat out all public keys into to the test vm and the jenkins vm. I then ssh into both the jenkins vm and the test vm and use EOF to pass input to cat out the main vm authorized key file into their authorized keys file to give all three vm and jenkins user ssh privilege. 
+10.	Passing Public keys to enable sshing - In this step I secure copy the authorized key file on the main vm that I had cat out all public keys into to the test vm and the jenkins vm. I then ssh into both the jenkins vm and the test vm and use EOF to pass input to cat out the main vm authorized key file into their authorized keys file to give all three vm and jenkins user ssh privilege. 
 
-11.	Creating Databasecredentials file and .env file (environment variables) 
-A databasecredentials file was essential for the jenkins pipeline. The file contains several variables and outputs collected from terraform. The variables were database endpoint, testdatabase endpoint, databases username and password, IP addresses and Docker username and password. The mentioned variables were place inside the file automatically and they were ready to be exported as environment variables when the credentials script was run. An environment variable file (.env file) was also created automatically for Docker which aid docker with picking up all variable needed for containerisation. 
+11.	Creating Databasecredentials file and .env file (environment variables) - A databasecredentials file was essential for the jenkins pipeline. The file contains several variables and outputs collected from terraform. The variables were database endpoint, testdatabase endpoint, databases username and password, IP addresses and Docker username and password. The mentioned variables were place inside the file automatically and they were ready to be exported as environment variables when the credentials script needs to run. An environment variable file (.env file) was also created automatically for Docker which aid docker with picking up all variable needed for containerisation. 
 
-12.	Passing Databasecredentials and .evn files to jenkins vm, jenkins user and test vm
-The databasecredentials file was secure copied across to the jenkins vm, jenkins user, and testvm. This ensures that when setting up the jenkins pipeline these variables were readily available for Docker and Kubernetes. From those variables a .env file was created to aid with running Docker automatically in this script. 
+12.	Passing Databasecredentials and .evn files to jenkins vm, jenkins user and test vm - The databasecredentials file was securely copied across to the jenkins vm, jenkins user, and testvm. This ensures that when setting up the jenkins pipeline these variables were readily available for Docker and Kubernetes. From those variables, a .env file was created to aid with running Docker automatically. 
 
-13.	Passing in Database Schema
-In this step of the script, I ssh into both the test vm and jenkins vm and use EOF to pass inputs to clone down the repo, export databasecredentials variables and pass in both the test database schema in the test vm and production database schema in the jenkins vm. 
+13.	Passing in Database Schema - In this step of the script, I ssh into both the test vm and jenkins vm and use EOF to pass inputs to clone down the repo, export databasecredentials variables and pass in both the test database schema in the test vm and production database schema in the jenkins vm. 
 
-14.	Create and pass secrets yaml file to jenkins user for Kubernetes
-In this step, I created a secret yaml file from the credentials file automatically. I configured the credentials variables in a secrets shell script and cat it out into the secrets yaml file. This was done by sshing into the jenkins vm and passing inputs through EOF.
+14.	Create and pass secrets yaml file to jenkins user for Kubernetes - In this step, I created a secret yaml file from the credentials file automatically. I configured the credentials variables in a secrets shell script and cat it out into the secrets yaml file. This was done by sshing into the jenkins vm and passing inputs through EOF.
 
-Below is an image that outlines the aforemention deployment steps. 
+Below is an image that outlines the aforementioned deployment steps.  
 
 <img src="https://user-images.githubusercontent.com/67590124/102571353-38d16b80-40e1-11eb-9b65-83557e2c9e5c.png" width="1000" height = "650">
 
