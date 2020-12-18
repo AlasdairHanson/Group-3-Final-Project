@@ -303,20 +303,21 @@ Utilized Terraform v0.14.2 to prevent sensitive files from being visible in terr
 ### Ansible
 ---
 Ansible
-Ansible is an application deployment, configuration management and continuous delivery tool. It is one of the simplest ways to automate apps, install software and automate IT infrastructure. In this project ansible was used to install a list of software on the jenkins vm and on the test vm. These software were based off the needs for the project’s application.The roles in the ansible were written with the support of the ansible documentation and were developed without the use of scripts.
-The software roles of ansibles are listed below. 
+Ansible is an application deployment, configuration management and continuous delivery tool. It is one of the simplest ways to automate apps, install software and automate IT infrastructure. In this project, ansible is used to install a list of software on the jenkins vm and on the test vm. These software were based off the needs for the project’s application.The roles in the ansible were written with the support of the ansible documentation and were developed without the use of scripts.
+
+The ansible software roles of ansibles are listed below. 
 
 Jenkins vm roles
 * Docker – Use for application containerisation.
 * Docker-compose – Use for application containerisation.
 * Kubernetes – Use for deploying, scaling and managing the projects containerised applications.
 * Utility software - List of useful software including Java, awscli, nginx, maven, mysql client.
-* Sudo doers - Add jenkins to a list of sudo doers
+* Sudo doers - Add jenkins to the list of sudo doers
 
 Test vm roles
-* Nodejs – For frontend testing.
+* Nodejs – Used for frontend testing.
 * Docker – Use for application containerisation.
-* Docker-compose - Use for application containerisation.
+* Docker-compose - Use for multiple application containerisation.
 * Utility software – List of useful software including Java, awscli, nginx, maven, mysql client.
 
 Below is the result from ansible software installations on the jenkins vm.
