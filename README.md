@@ -22,7 +22,7 @@
    * [Frontend](#frontend)
    * [Backend](#backend)
 * [DevOps](#devops)
-   * [Automation](#automation)
+   * [Automation (Deploy Script)](#automation-(deploy-script))
    * [Terraform](#terraform)
    * [Ansible](#ansible)
    * [CI Pipeline](#ci-pipeline)
