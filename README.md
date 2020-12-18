@@ -416,11 +416,22 @@ For this project, 16 out of 24 components were tested with 100% coverage. This m
 ## Improvements
 ---
 
-Due to time constraints and growing focus on successful minimum viable product deployment, not all React components were tested in Jest to the desired standard. Currently the coverage of the front end tests is 67%. A future improvement would be to achieve at least 70% coverage as is the industry standard. 
+The following are a list of improvements we'd like to achieve in the next iteration of the Application: 
+* The Deploy script we use to automate the creation and configuration of the resources and environment requires us to manually setup Jenkins. If we could configure the Jenkins using an XML file which would be deployed automatically. 
+
+* Due to time constraints and growing focus on successful minimum viable product deployment, not all React components were tested in Jest to the desired standard. Currently the coverage of the front end tests is 67%. A future improvement would be to achieve at least 70% coverage as is the industry standard. 
+
+* With the Front end we have a mock login page, which serves as a landing page for the website. Through a further iteration it'd be beneficial to configure secure logging in to the application.
+
+* If we were to start this project from the beginning again it'd be beneficial to follow best naming practices from the beginning, to ensure that any of our variables can and will be referenced properly
+
+* Utilize Bastion Host and NAT Gateway which would allow the vms provisioned by Terraform to be in a private subnet, meaning only people who explicitly are defined to have access to the infrastructure can alter it.
 
 
 ## Acknowledgements
 ---
+
+We would like to thank all our trainers at QA for their continued support and for passing on their knowledge and expertise without which completing this project would not have been possible.
 
 ## Authors 
 ---
