@@ -135,6 +135,8 @@ The image below shows all the stages of the build.
 
 ![jenkins][jenkins]
 
+### Kubernetes
+Kubernetes is an Orchestration system for automating deployment and managing containerized applications. We used this to allow the websites to be hosted through a load balancer in order for the website to be visible through the external ip within the EKS. This is done by using docker images which are then created into pods with specific ports exposed, allowing the nginx, which acts as a proxy pass to display the website. Multiple replicas of the pods were used when defining yaml files to reduce outage of the application in case of the cloud provider suffering from things such as natural disasters
 
 **Usage Requirements (Abdul)
 
