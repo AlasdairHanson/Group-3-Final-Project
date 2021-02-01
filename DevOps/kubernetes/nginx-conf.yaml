@@ -4,9 +4,46 @@ metadata:
   name: nginx-config
 data:
   default.conf: |
-      server {
-          listen 80;
-          location / {
-              proxy_pass http://frontend:5000; 
-          }
+    server {
+        listen 80;
+
+        location / {
+            proxy_pass http://frontend:5000; 
+        }
+
+        location /createTicket {
+          proxy_pass http://backend/createTicket:8081;
       }
+
+        location /getTicket {
+          proxy_pass http://backend/getTicket:8081;
+      }
+
+        location /getTicket/sort {
+          proxy_pass http://backend/getTicket/sort:8081;
+      }
+
+      location /getTicket/status {
+          proxy_pass http://backend/getTicket/status:8081;
+      }
+
+      location /getTicket/priority {
+          proxy_pass http://backend/getTicket/status:8081;
+      }
+
+      location /getTicket/topic {
+          proxy_pass http://backend/getTicket/topic:8081;
+      }
+
+      location /getTicket/cohort {
+          proxy_pass http://backend/getTicket/cohort:8081;
+      }
+
+      location /backend/updateTicket {
+          proxy_pass http://backend/updateTicket:8081;
+      }
+
+      location /deleteTicket {
+          proxy_pass http://backend/deleteTicket/status:8081;
+      }
+    }
